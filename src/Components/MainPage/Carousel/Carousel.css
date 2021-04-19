@@ -1,0 +1,82 @@
+.right-side{
+    width: 700px;
+    position: relative; 
+}
+
+.right-side{
+    width: 700px;
+    
+}
+
+.carousel-inner{
+    display: flex;
+    height: 100%;
+}
+
+.carousel-inner .left-block{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex: 7%;
+    height: 100%;
+    background:linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+   
+}
+
+.left-arrow{
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 7px;
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+
+.carousel-inner .left-block:hover{
+    cursor: pointer;
+    flex: 7%;
+    height: 100%;
+    background: rgba(14, 194, 97, 0.2)
+}
+
+.carousel-inner .right-block{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex: 7%;
+    height: 100%;
+    background:linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+}
+
+.right-arrow{
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 7px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+.carousel-inner .right-block:hover{
+    cursor: pointer;
+    flex: 7%;
+    height: 100%;
+    background: rgba(14, 194, 97, 0.2)
+}
+
+.carousel-inner .centre-block{
+    flex: 86%;
+    height: 100%;
+    background:linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+}
+
+.box{
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    opacity: 1;
+}
+
+
+
+    

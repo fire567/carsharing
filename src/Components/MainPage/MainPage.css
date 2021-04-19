@@ -1,0 +1,133 @@
+.header{
+    display: flex;
+}
+
+.location{
+    cursor: pointer;
+    display: flex;
+    margin-left: 414px;
+
+}
+
+.loc-pic{
+    margin-top: 27px;
+}
+
+.town{
+    margin-left: 8px;
+    margin-top: 39px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: #999999;
+}
+
+.content{
+    display:flex;
+    width: 100%;
+    bottom: 0px;
+    height: 757px;
+}
+
+.left-side{
+    width: 60%;
+    height: 100%;
+}
+
+.logo{
+    cursor: pointer;
+    margin-top: 30px;
+    margin-left: 64px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 35px;
+    color: #0EC261;
+}
+
+
+
+.carsharing-text{
+    margin-top: 164px;
+    margin-left: 64px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 70px;
+    line-height: 66px;
+    color: #121212;
+}
+
+.big-logo{
+    margin-top:4px;
+    margin-left: 64px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 70px;
+    line-height: 66px;
+    color: #0EC261;
+}
+
+.purpose{
+    margin-top: 24px;
+    margin-left: 64px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 26px;
+    line-height: 30px;
+
+    color: #999999;
+}
+
+.order-btn{
+    cursor: pointer;
+    display: flex;
+    margin-top: 60px;
+    margin-left: 64px;
+    width: 250px;
+    height: 48px;
+    background: linear-gradient(90deg, #0EC261 2.61%, #039F67 112.6%);
+    background-blend-mode: darken;
+    border-radius: 8px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    align-items: center;
+    justify-content: center;
+
+    color: #FFFFFF;
+}
+
+.footer{
+    display: flex;
+}
+
+.cop-mark{
+margin-top: 178px;;
+margin-left: 64px;
+color: #999999;
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 13px;
+line-height: 15px;
+}
+
+.support-phone{
+    margin-top: 178px;;
+    margin-left: 414px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 15px;
+    color: #121212;
+}
