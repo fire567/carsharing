@@ -1,26 +1,38 @@
-.right-side{
-    width: 700px;
-    position: relative; 
-}
+
 
 .right-side{
-    width: 700px;
-    
+    width: 60%;
+    display: flex;
+    position: relative; 
+    overflow: hidden;
 }
+
 
 .carousel-inner{
-    display: flex;
-    height: 100%;
+    overflow: hidden;
+    min-width: 110%;
+    transition: 0.5s;
 }
 
-.carousel-inner .left-block{
+.left-block{
+    position: absolute;
     display:flex;
     align-items: center;
     justify-content: center;
-    flex: 7%;
+    width: 7%;
     height: 100%;
     background:linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
    
+}
+
+.left-block-dis{
+    position: absolute;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width: 7%;
+    height: 100%;
+    background:linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
 }
 
 .left-arrow{
@@ -32,18 +44,29 @@
     -webkit-transform: rotate(135deg);
 }
 
-.carousel-inner .left-block:hover{
+.left-block:hover{
     cursor: pointer;
-    flex: 7%;
-    height: 100%;
     background: rgba(14, 194, 97, 0.2)
 }
 
-.carousel-inner .right-block{
+.right-block{
+    position: absolute;
     display:flex;
     align-items: center;
     justify-content: center;
-    flex: 7%;
+    left: 93%;
+    width: 7%;
+    height: 100%;
+    background:linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+}
+
+.right-block-dis{
+    position: absolute;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    left: 93%;
+    width: 7%;
     height: 100%;
     background:linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
 }
@@ -57,15 +80,15 @@
     -webkit-transform: rotate(-45deg);
 }
 
-.carousel-inner .right-block:hover{
+.right-block:hover{
     cursor: pointer;
-    flex: 7%;
-    height: 100%;
     background: rgba(14, 194, 97, 0.2)
 }
 
-.carousel-inner .centre-block{
-    flex: 86%;
+.centre-block{
+    position: absolute;
+    left: 7%;
+    width: 86%;
     height: 100%;
     background:linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
 }
@@ -76,6 +99,33 @@
     background-color: white;
     opacity: 1;
 }
+
+.radio{
+    width: 8px;
+    height: 8px;
+    border: 5px solid white;
+    border-radius: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.radio-active{
+    border: 5px solid #0EC261;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+.test{
+    display: flex;
+    position: absolute;
+    bottom:7%;
+    margin-left: 44%;
+    justify-content: center;
+}
+
+
+
+
 
 
 

@@ -1,0 +1,49 @@
+.test{
+    display:flex;
+}
+
+.heading{
+    
+    margin-top: 25%;
+    margin-left: 10%;
+    
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 47px;
+    color: white;
+
+}
+
+.text{
+    
+    font-weight: 300;
+    margin-right: 200px;
+    margin-left: 10%;
+    font-size: 24px;
+    color: #EEEEEE;
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+.button{
+   
+    cursor: pointer;
+    display: flex;
+    
+    margin-left: 10%;
+    width: 164px;
+    height: 48px;
+    background-blend-mode: darken;
+    border-radius: 2px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    align-items: center;
+    justify-content: center;
+
+    color: #FFFFFF;
+}
