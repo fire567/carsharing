@@ -1,9 +1,7 @@
-.test{
-    display:flex;
-}
+
 
 .heading{
-    
+    position: relative;
     margin-top: 25%;
     margin-left: 10%;
     
@@ -15,29 +13,31 @@
 
 }
 
+
 .text{
-    
+    position: inherit;
     font-weight: 300;
-    margin-right: 200px;
+    line-height: 90%;
+    width: 495px;
     margin-left: 10%;
     font-size: 24px;
-    color: #EEEEEE;
-    margin-top: 3%;
+    color: #FFFFFF;
+    margin-top: 1%;
     margin-bottom: 3%;
 }
 
 .button{
-   
+    position: fixed;
     cursor: pointer;
     display: flex;
     
     margin-left: 10%;
     width: 164px;
     height: 48px;
-    background-blend-mode: darken;
-    border-radius: 2px;
+    
+    border-radius: 4px;
 
-    font-family: Roboto;
+    
     font-style: normal;
     font-weight: 500;
     font-size: 18px;
@@ -46,4 +46,20 @@
     justify-content: center;
 
     color: #FFFFFF;
+}
+
+.dark-slide{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+}
+
+.radio{
+    width: 8px;
+    height: 8px;
+    border: 5px solid white;
+    border-radius: 5px;
+    margin-left: 10px;
+    cursor: pointer;
 }

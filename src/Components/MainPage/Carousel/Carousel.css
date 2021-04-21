@@ -1,18 +1,26 @@
 
 
 .right-side{
-    width: 60%;
+    width: 50%;
     display: flex;
     position: relative; 
     overflow: hidden;
 }
 
+@media (max-width: 1024px) {
+    .right-side {
+        width: 0px;
+    }
+  }
+
+
 
 .carousel-inner{
     overflow: hidden;
-    min-width: 110%;
+    min-width: 101%;
     transition: 0.5s;
 }
+
 
 .left-block{
     position: absolute;
@@ -21,7 +29,7 @@
     justify-content: center;
     width: 7%;
     height: 100%;
-    background:linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+    
    
 }
 
@@ -32,7 +40,7 @@
     justify-content: center;
     width: 7%;
     height: 100%;
-    background:linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+    
 }
 
 .left-arrow{
@@ -57,7 +65,6 @@
     left: 93%;
     width: 7%;
     height: 100%;
-    background:linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
 }
 
 .right-block-dis{
@@ -68,7 +75,7 @@
     left: 93%;
     width: 7%;
     height: 100%;
-    background:linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+    
 }
 
 .right-arrow{
@@ -85,13 +92,6 @@
     background: rgba(14, 194, 97, 0.2)
 }
 
-.centre-block{
-    position: absolute;
-    left: 7%;
-    width: 86%;
-    height: 100%;
-    background:linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
-}
 
 .box{
     width: 10px;

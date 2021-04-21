@@ -3,9 +3,10 @@
 }
 
 .location{
+    position: absolute;
     cursor: pointer;
     display: flex;
-    margin-left: 45%;
+    left: 43%;
 
 }
 
@@ -26,15 +27,16 @@
 
 .content{
     display:flex;
-    width: 100%;
+    width: 96%;
     bottom: 0px;
     height: 757px;
 }
 
 .left-side{
-    width: 67%;
+    width: 55%;
     height: 100%;
 }
+
 
 .logo{
     cursor: pointer;
@@ -122,8 +124,8 @@ line-height: 15px;
 }
 
 .support-phone{
-    margin-top: 178px;;
-    margin-left: 45%;
+    position: absolute;
+    left: 43%;
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;

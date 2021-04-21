@@ -2,6 +2,8 @@ import React from "react";
 import { connect } from "react-redux";
 import "./Slides.css";
 
+
+
 const Slides = (props) => {
 
     const SlideList = props.sliders.map((item) => {
@@ -10,13 +12,14 @@ const Slides = (props) => {
             className="carousel-inner" 
             key={item.id} 
             style={{backgroundImage: `url(${item.url})`, transform: `translateX(${props.SwitchSlide}%)`}}>
+              <div className="dark-slide"></div>
               <div className="heading">
                 {item.heading}
               </div>
               <div className="text">
                 {item.text}
               </div>
-              <div className="button" style={{background: `linear-gradient(${item.style})`}}>
+              <div className="button" onClick={() => alert("asd")} style={{background: `linear-gradient(${item.style})`, cursor: "pointer"}}>
                 Подробнее
               </div>
               
