@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/git@github.com:fire567/carsharing.git/static/css/main.acbc61e4.chunk.css",
+    "main.js": "/git@github.com:fire567/carsharing.git/static/js/main.cc38ac08.chunk.js",
+    "main.js.map": "/git@github.com:fire567/carsharing.git/static/js/main.cc38ac08.chunk.js.map",
+    "runtime-main.js": "/git@github.com:fire567/carsharing.git/static/js/runtime-main.58a16186.js",
+    "runtime-main.js.map": "/git@github.com:fire567/carsharing.git/static/js/runtime-main.58a16186.js.map",
+    "static/css/2.4c97ca4f.chunk.css": "/git@github.com:fire567/carsharing.git/static/css/2.4c97ca4f.chunk.css",
+    "static/js/2.f589b43e.chunk.js": "/git@github.com:fire567/carsharing.git/static/js/2.f589b43e.chunk.js",
+    "static/js/2.f589b43e.chunk.js.map": "/git@github.com:fire567/carsharing.git/static/js/2.f589b43e.chunk.js.map",
+    "index.html": "/git@github.com:fire567/carsharing.git/index.html",
+    "static/css/2.4c97ca4f.chunk.css.map": "/git@github.com:fire567/carsharing.git/static/css/2.4c97ca4f.chunk.css.map",
+    "static/css/main.acbc61e4.chunk.css.map": "/git@github.com:fire567/carsharing.git/static/css/main.acbc61e4.chunk.css.map",
+    "static/js/2.f589b43e.chunk.js.LICENSE.txt": "/git@github.com:fire567/carsharing.git/static/js/2.f589b43e.chunk.js.LICENSE.txt",
+    "static/media/car1.f576cc98.svg": "/git@github.com:fire567/carsharing.git/static/media/car1.f576cc98.svg",
+    "static/media/car2.b22e2cb2.svg": "/git@github.com:fire567/carsharing.git/static/media/car2.b22e2cb2.svg",
+    "static/media/car3.c0fc7cc7.svg": "/git@github.com:fire567/carsharing.git/static/media/car3.c0fc7cc7.svg",
+    "static/media/car4.0d2c9f74.svg": "/git@github.com:fire567/carsharing.git/static/media/car4.0d2c9f74.svg",
+    "static/media/location.a73e42ff.svg": "/git@github.com:fire567/carsharing.git/static/media/location.a73e42ff.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.58a16186.js",
+    "static/css/2.4c97ca4f.chunk.css",
+    "static/js/2.f589b43e.chunk.js",
+    "static/css/main.acbc61e4.chunk.css",
+    "static/js/main.cc38ac08.chunk.js"
+  ]
+}
