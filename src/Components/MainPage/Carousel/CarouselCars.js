@@ -33,7 +33,6 @@ const CarouselCars = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state.SwitchSlide)
   return{
     radio: state.radio,
     SwitchSlide: state.SwitchSlide

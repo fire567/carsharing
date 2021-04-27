@@ -1,48 +1,19 @@
 import React from "react";
-import "./MainPage.css";
-import CarouselCars from "./Carousel/CarouselCars";
-import location from "../../accets/location.svg";
+import Sidebar from "../Sidebar/Sidebar";
+import Content from "./Content";
+import Menu from "./Menu/Menu";
+
+
 
 const MainPage = () => {
-    return(
-        <div className="content">
-        <div className="left-side">
-          <div className="header">
-            <div className="logo">
-              Need for drive
-            </div>
-            <div className="location">
-              <img src={location} className="loc-pic" alt="location"/>
-              <div className="town">
-                  Ульяновск
-              </div>
-            </div>
-          </div>
-          <div className="carsharing-text">
-            Каршеринг
-          </div>
-          <div className="big-logo">
-            Need for drive
-          </div>
-          <div className="purpose">
-            Поминутная аренда авто твоего города
-          </div>
-          <div className="order-btn">
-            Забронировать
-          </div>
-          
-          <div className="footer">
-            <div className="cop-mark">
-              © 2016-2019 «Need for drive»
-            </div>
-            <div className="support-phone">
-              8 (495) 234-22-44
-            </div>
-          </div>
-        </div>
-        <CarouselCars />
-      </div>
-    )
+  return (
+    <div className="qwe">
+      <Sidebar />
+      <Content />
+      <Menu />
+    </div>
+  );
 }
+
 
 export default MainPage;

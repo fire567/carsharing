@@ -6,17 +6,26 @@
     position: absolute;
     cursor: pointer;
     display: flex;
-    left: 43%;
+    right: 51%;
+    top: 2%;
 
 }
 
+  @media (max-width: 1024px) {
+    .location {
+        right: 5%;
+        top: 7%;
+    }
+  }
+
+
 .loc-pic{
-    margin-top: 27px;
+    margin-top: 25px;
 }
 
 .town{
     margin-left: 8px;
-    margin-top: 39px;
+    margin-top: 31px;
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
@@ -26,11 +35,20 @@
 }
 
 .content{
-    display:flex;
+    position: absolute;
+    display: flex;
+    left: 4%;
     width: 96%;
     bottom: 0px;
-    height: 757px;
+    height: 100%;
 }
+
+@media (max-width: 320px) {
+    .content{
+        left: 0px;
+        width:100%;
+    }
+  }
 
 .left-side{
     width: 55%;
@@ -50,10 +68,17 @@
     color: #0EC261;
 }
 
+@media (max-width: 320px) {
+    .logo{
+        right: 5%;
+        margin-top: 25px;
+        position: absolute;
+    }
+  }
 
 
 .carsharing-text{
-    margin-top: 164px;
+    margin-top: 22%;
     margin-left: 64px;
     font-family: Roboto;
     font-style: normal;
@@ -63,8 +88,18 @@
     color: #121212;
 }
 
+@media (max-width: 320px) {
+    .carsharing-text {
+        margin-top: 74%;
+        margin-left: 16px;
+        font-size: 32px;
+        line-height: 100%;
+    }
+  }
+
 .big-logo{
     margin-top:4px;
+    width: 474px;
     margin-left: 64px;
     font-family: Roboto;
     font-style: normal;
@@ -74,20 +109,38 @@
     color: #0EC261;
 }
 
+@media (max-width: 320px) {
+    .big-logo {
+        margin-left: 16px;
+        font-size: 32px;
+        line-height: 100%;
+    }
+  }
+
 .purpose{
     margin-top: 24px;
     margin-left: 64px;
-    font-family: Roboto;
+    width: 449px;
     font-style: normal;
-    font-weight: 300;
+    font-weight: 100;
     font-size: 26px;
     line-height: 30px;
 
     color: #999999;
 }
 
+@media (max-width: 320px) {
+    .purpose {
+        margin-left: 16px;
+        font-size: 18px;
+        width: 288px;
+        line-height: 25px;
+    }
+  }
+
+
 .order-btn{
-    cursor: pointer;
+    
     display: flex;
     margin-top: 60px;
     margin-left: 64px;
@@ -97,23 +150,46 @@
     background-blend-mode: darken;
     border-radius: 8px;
 
-    font-family: Roboto;
+    
     font-style: normal;
     font-weight: 500;
     font-size: 18px;
     line-height: 21px;
     align-items: center;
     justify-content: center;
-
+    
     color: #FFFFFF;
 }
+
+
+@media (max-width: 320px) {
+    .order-btn {
+        position: absolute;
+        margin-top: 35px;
+        width: 100%;
+        border-radius: 0px;
+        margin-left: 0px;
+        text-decoration: none;
+    }
+  }
 
 .footer{
     display: flex;
 }
 
+@media (max-width: 320px) {
+    .footer{
+        position: absolute;
+        width: 100%;
+        height: 12%;
+        background-color: black;
+        bottom: 0px;
+    }
+  }
+
 .cop-mark{
-margin-top: 178px;;
+position: absolute;
+bottom: 4%;
 margin-left: 64px;
 color: #999999;
 font-family: Roboto;
@@ -123,9 +199,17 @@ font-size: 13px;
 line-height: 15px;
 }
 
+@media (max-width: 320px) {
+    .cop-mark{
+        right: 4%;
+        bottom: 22%;
+    }
+  }
+
 .support-phone{
     position: absolute;
-    left: 43%;
+    bottom: 4%;
+    right: 51%;
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
@@ -133,3 +217,17 @@ line-height: 15px;
     line-height: 15px;
     color: #121212;
 }
+
+@media (max-width: 1024px) {
+    .support-phone{
+        right: 10%;
+    }
+  }
+
+  @media (max-width: 320px) {
+    .support-phone{
+        top: 20%;
+        color: #0EC261;
+        right: 4%;
+    }
+  }

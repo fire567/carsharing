@@ -1,8 +1,17 @@
 .Sidebar{
-    width: 4%;
-    height: 757px;
+    position: absolute;
+    width: 64px;
+    height: 100%;
     background: #151B1F;
 }
+
+@media (max-width: 320px) {
+    .Sidebar {
+        position: unset;
+        background: #FFFFFF;
+    }
+  }
+
 
 .menu-btn{
     cursor: pointer;
@@ -23,6 +32,12 @@
     background-color: #FFFFFF;
     border: 2px solid #FFFFFF;
 }
+@media (max-width: 320px) {
+    .vector{
+        background-color: #151B1F;
+        border: 2px solid #151B1F;
+    }
+  }
 
 .language{
     position: absolute;
@@ -39,8 +54,14 @@
     font-size: 13px;
     line-height: 15px;
     color: #0EC261;
-
 }
+
+@media (max-width: 320px) {
+    .language {
+        position: unset;
+        color: #FFFFFF;
+    }
+  }
 
 .language:hover{
     border: 1px solid #EEEEEE;
@@ -52,3 +73,5 @@
 .language:active {
     color: #0EC261;
   }
+
+

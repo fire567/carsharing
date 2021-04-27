@@ -1,0 +1,68 @@
+.link{
+    font-style: normal;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 45px;
+    color: #FFFFFF;
+}
+
+@media (max-width: 320px) {
+    .link {
+        font-style: normal;
+        cursor: pointer;
+        font-weight: 500;
+        font-size: 22px;
+        line-height: 40px;
+        color: #FFFFFF;
+    }
+  }
+
+.link:hover{
+    color: #0EC261;
+}
+
+.links-form{
+    position: absolute;
+    top: 36%;
+    left: 12%;
+}
+
+@media (max-width: 320px) {
+    .links-form {
+        top: 10%;
+        left: 8%;
+    }
+  }
+
+.facebook-pic{
+    padding-left: 20px;
+    cursor: pointer;
+}
+
+.facebook-pic:hover #facebook{
+    fill: #0EC261;
+}
+
+.instagram-pic{
+    padding-left: 20px;
+    cursor: pointer;
+}
+
+.instagram-pic:hover #instagram{
+    fill: #0EC261;
+}
+
+.telegram-pic{
+    cursor: pointer;
+}
+
+.telegram-pic:hover #telegram{
+    fill: #0EC261;
+}
+
+.social-link{
+    display:flex;
+    padding-top: 10%;
+}
+

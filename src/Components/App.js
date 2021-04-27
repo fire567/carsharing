@@ -1,16 +1,18 @@
 import React from "react";
-import Sidebar from "./Sidebar/Sidebar";
-import MainPAge from "./MainPage/MainPage";
+import MainPage from "./MainPage/MainPage";
+import OrderPage from "./OrderPage/OrderPage";
+import { Route } from "react-router-dom";
 import "./App.css"
 
 
 const App = () => {
   return (
     <div className="App">
-      <Sidebar />
-      <MainPAge />
+      <Route path="/carsharing" render={() => <MainPage />} exact/>
+      <Route path="/carsharing/order-page" render={() => <OrderPage />} exact />
     </div>
   );
 }
+
 
 export default App;

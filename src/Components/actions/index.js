@@ -18,3 +18,10 @@ export const radioSlide = (X) => {
         payload: X,
     }
 }
+
+export const showMenu = (position) => {
+    return{
+        type: "SWITCH_MENU",
+        payload: position,
+    }
+}
