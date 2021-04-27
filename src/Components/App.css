@@ -2,6 +2,9 @@
     display: flex;
 }
 
+a:hover{
+    text-decoration: none;
+}
 
 
 
