@@ -1,21 +1,21 @@
-export const RightSlide = (X) => {
+export const rightSlide = (move) => {
     return{
         type: "RIGHT_SLIDE",
-        payload: X,
+        payload: move,
     }
 }
 
-export const  LeftSlide = (X) => {
+export const  leftSlide = (move) => {
     return{
         type: "LEFT_SLIDE",
-        payload: X,
+        payload: move,
     }
 }
 
-export const radioSlide = (X) => {
+export const radioSlide = (move) => {
     return{
         type: "RADIO_SLIDE",
-        payload: X,
+        payload: move,
     }
 }
 

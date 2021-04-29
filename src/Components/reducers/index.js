@@ -1,15 +1,15 @@
 import { combineReducers } from "redux";
-import SwitchSlide from "./SwitchSlideReducer";
-import switchMenu from "./SwitchMenu";
-import SlideArr from "./SlideArr";
+import switchSlide from "./switchSlideReducer";
+import switchMenu from "./switchMenu";
+import slideArr from "./slideArr";
 import radioArr from "./radioArr";
 import links from "./links";
 
 
 export default combineReducers({
     links: links,
-    Sliders: SlideArr,
+    sliders: slideArr,
     radio: radioArr,
-    SwitchSlide: SwitchSlide,
+    switchSlide: switchSlide,
     switchMenu: switchMenu
 })

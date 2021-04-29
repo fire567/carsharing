@@ -1,17 +1,17 @@
 import React from "react";
-import exit from "../../../accets/exit.svg";
+import exit from "../../../assets/exit.svg";
 import {connect} from "react-redux";
 import {showMenu} from "../../actions/index";
 import Links from "./Links/Links"
 import "./Menu.css";
 
 
-const Menu = (props) => {
+const Menu = ({showMenu, switchMenu}) => {
 
     return(
-        <div className={props.switchMenu === true ? "menu-active" : "menu"}>
+        <div className={switchMenu === true ? "menu-active" : "menu"}>
             <div className="left-side-menu">
-                <img src={exit} alt="exit-pic" className="exit-pic" onClick={() => props.showMenu(props.switchMenu)}></img>
+                <img src={exit} alt="exit-pic" className="exit-pic" onClick={() => showMenu(switchMenu)}></img>
                 <Links />
                 <div className="language-in-menu">
                     Рус

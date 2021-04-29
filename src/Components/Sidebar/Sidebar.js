@@ -1,16 +1,11 @@
 import React from "react";
-import {connect} from "react-redux";
-import {showMenu} from "../actions/"
+import BurgerBtn from "../BurgerBtn/BurgerBtn";
 import "./Sidebar.css"
 
-const Sidebar = (props) => {
+const Sidebar = () => {
     return(
         <div className="Sidebar">
-        <div className="menu-btn" onClick={() => props.showMenu(props.switchMenu)}>
-          <div className="vector"></div>
-          <div className="vector"></div>
-          <div className="vector"></div>
-        </div>
+          <BurgerBtn />
         <div className="ellipse">
           <div className="language">
             Рус
@@ -20,12 +15,4 @@ const Sidebar = (props) => {
     );
 };
 
-const mapStateToProps = (state) => {
-  return{
-    switchMenu: state.switchMenu
-  }
-}
-
-export default connect(mapStateToProps, {
-  showMenu: showMenu
-})(Sidebar);
+export default Sidebar;

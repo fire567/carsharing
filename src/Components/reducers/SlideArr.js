@@ -1,7 +1,7 @@
-import Car1 from "../../accets/car1.svg";
-import Car2 from "../../accets/car2.svg";
-import Car3 from "../../accets/car3.svg";
-import Car4 from "../../accets/car4.svg";
+import Car1 from "../../assets/car1.svg";
+import Car2 from "../../assets/car2.svg";
+import Car3 from "../../assets/car3.svg";
+import Car4 from "../../assets/car4.svg";
 
 export default  () => {
     return[

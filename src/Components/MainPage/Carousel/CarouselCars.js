@@ -2,28 +2,26 @@ import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./Carousel.css";
 import { connect } from "react-redux";
-import { RightSlide, LeftSlide, radioSlide} from "../../actions"
+import { rightSlide, leftSlide, radioSlide} from "../../actions"
 import Slides from "./Slides/Slides";
 
 
 
 
-const CarouselCars = (props) => {
-  
-
+const CarouselCars = ({radio, switchSlide, rightSlide, leftSlide, radioSlide}) => {
     return( 
       <div className="right-side" >
         <Slides />
         <div className="test">
-              {props.radio.map((item) => (
-                <div className={item.X === props.SwitchSlide ? "radio-active" : "radio"} onClick={() => props.radioSlide(item.X)} key={item.id}>
+              {radio.map((item) => (
+                <div className={item.X === switchSlide ? "radio-active" : "radio"} onClick={() => radioSlide(item.X)} key={item.id}>
                 </div>
               ))}
             </div>
-        <div className={"left-block"} onClick={() => props.LeftSlide(props.SwitchSlide)}> 
+        <div className={"left-block"} onClick={() => leftSlide(switchSlide)}> 
             <div className={"left-arrow"}></div>
           </div>
-          <div className={"right-block"} onClick={() => props.RightSlide(props.SwitchSlide)}>
+          <div className={"right-block"} onClick={() => rightSlide(switchSlide)}>
             <div className={"right-arrow"}></div>
           </div>
           
@@ -35,12 +33,12 @@ const CarouselCars = (props) => {
 const mapStateToProps = (state) => {
   return{
     radio: state.radio,
-    SwitchSlide: state.SwitchSlide
+    switchSlide: state.switchSlide
   }
 }
 
 export default connect(mapStateToProps, {
-  RightSlide: RightSlide,
-  LeftSlide: LeftSlide,
+  rightSlide: rightSlide,
+  leftSlide: leftSlide,
   radioSlide: radioSlide
 })(CarouselCars);

@@ -4,39 +4,34 @@ import "./Slides.css";
 
 
 
-const Slides = (props) => {
-
-    const SlideList = props.sliders.map((item) => {
-        return(
-          <div 
-            className="carousel-inner" 
-            key={item.id} 
-            style={{backgroundImage: `url(${item.url})`, transform: `translateX(${props.SwitchSlide}%)`}}>
-              <div className="dark-slide"></div>
-              <div className="heading">
-                {item.heading}
-              </div>
-              <div className="text">
-                {item.text}
-              </div>
-              <div className="button" onClick={() => alert("asd")} style={{background: `linear-gradient(${item.style})`, cursor: "pointer"}}>
-                Подробнее
-              </div>
-              
-          </div>
-        )
-      })
-
+const Slides = ({sliders, switchSlide}) => {
+    return sliders.map((item) => {
     return (
-        SlideList
+      <div 
+      className="carousel-inner" 
+      key={item.id} 
+      style={{backgroundImage: `url(${item.url})`, transform: `translateX(${switchSlide}%)`}}>
+        <div className="dark-slide"></div>
+        <div className="heading">
+          {item.heading}
+        </div>
+        <div className="text">
+          {item.text}
+        </div>
+        <div className="button" style={{background: `linear-gradient(${item.style})`, cursor: "pointer"}}>
+          Подробнее
+        </div>
+        
+    </div>
     );
+    })
 };
 
 
 const mapStateToProps = (state) => {
     return {
-        sliders: state.Sliders,
-        SwitchSlide: state.SwitchSlide
+        sliders: state.sliders,
+        switchSlide: state.switchSlide
     }
 }
 

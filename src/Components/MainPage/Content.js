@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./MainPage.css";
 import CarouselCars from "./Carousel/CarouselCars";
-import location from "../../accets/location.svg";
+import location from "../../assets/location.svg";
 
 const Content = () => {
     return(
