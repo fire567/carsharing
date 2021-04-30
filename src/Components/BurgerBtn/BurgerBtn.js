@@ -1,23 +1,17 @@
 import React from "react";
-import {connect} from "react-redux";
-import {showMenu} from "../actions/";
 
-const BurgerBtn = ({switchMenu, showMenu}) => {
+const BurgerBtn = ({newMenu}) => {
+  const showMenu = () => {
+    newMenu(true);
+  }
+
     return(
-        <div className="menu-btn" onClick={() => showMenu(switchMenu)}>
+        <div className="menu-btn" onClick={() => showMenu()}>
         <div className="vector"></div>
         <div className="vector"></div>
         <div className="vector"></div>
       </div>
     );
 };
-
-const mapStateToProps = (state) => {
-    return{
-      switchMenu: state.switchMenu
-    }
-  }
   
-  export default connect(mapStateToProps, {
-    showMenu: showMenu
-  })(BurgerBtn);
+  export default BurgerBtn;

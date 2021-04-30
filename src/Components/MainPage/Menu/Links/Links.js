@@ -1,5 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
 import {ReactSVG} from "react-svg";
 import "./Links.css";
 import telegram from "../../../../assets/telegram.svg";
@@ -7,7 +6,14 @@ import instagram from "../../../../assets/instagram.svg";
 import facebook from "../../../../assets/facebook.svg";
 
 
-const Links = ({links}) => {
+const Links = () => {
+
+    const links = [
+        {id: 0, value:"ПАРКОВКА"},
+        {id: 2, value:"СТРАХОВКА"},
+        {id: 3, value:"БЕНЗИН"},
+        {id: 4, value:"ОБСЛУЖИВАНИЕ"},
+    ];
 
     const showLinks = links.map((link) => {
         return(
@@ -33,10 +39,4 @@ const Links = ({links}) => {
     )
 }
 
-const mapStateToProps = (state) => {
-    return{
-        links: state.links,
-    }
-}
-
-export default connect(mapStateToProps)(Links);
+export default Links;
