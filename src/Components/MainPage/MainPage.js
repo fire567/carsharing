@@ -7,7 +7,6 @@ import Menu from "./Menu/Menu";
 
 const MainPage = () => {
   const [switchMenu, setSwitchMenu ] = useState(false);
-  console.log(switchMenu);
 
   const menuChange = (qwe) => {
     setSwitchMenu(qwe);
@@ -17,7 +16,7 @@ const MainPage = () => {
     <div className="qwe">
       <Sidebar menu={menuChange}/>
       <Content />
-      <Menu />
+      <Menu switchMenu={switchMenu} menuChange={menuChange}/>
     </div>
   );
 }
