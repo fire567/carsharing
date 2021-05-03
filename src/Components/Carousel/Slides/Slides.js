@@ -1,9 +1,9 @@
 import React from "react";
 import "./Slides.css";
-import Car1 from "../../../../assets/car1.svg";
-import Car2 from "../../../../assets/car2.svg";
-import Car3 from "../../../../assets/car3.svg";
-import Car4 from "../../../../assets/car4.svg";
+import Car1 from "../../../assets/car1.svg";
+import Car2 from "../../../assets/car2.svg";
+import Car3 from "../../../assets/car3.svg";
+import Car4 from "../../../assets/car4.svg";
 
 
 

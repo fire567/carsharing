@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./MainPage.css";
-import CarouselCars from "./Carousel/CarouselCars";
+import "./Content.css";
+import CarouselCars from "../../Components/Carousel/CarouselCars";
 import location from "../../assets/location.svg";
 
 const Content = () => {
@@ -38,9 +38,9 @@ const Content = () => {
             <div className="cop-mark">
               © 2016-2019 «Need for drive»
             </div>
-            <div className="support-phone">
+            <a className="support-phone">
               8 (495) 234-22-44
-            </div>
+            </a>
           </div>
         </div>
         <CarouselCars />

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Sidebar from "../Sidebar/Sidebar";
+import Sidebar from "../../Components/Sidebar/Sidebar";
 import Content from "./Content";
-import Menu from "./Menu/Menu";
+import Menu from "../../Components/Menu/Menu";
 
 
 

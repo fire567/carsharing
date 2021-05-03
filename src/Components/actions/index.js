@@ -1,8 +1,6 @@
-
-
-export const showMenu = (position) => {
+export const setLanguage = (language) => {
     return{
-        type: "SWITCH_MENU",
-        payload: position,
+        type: "SET_LANGUAGE",
+        payload: language,
     }
 }

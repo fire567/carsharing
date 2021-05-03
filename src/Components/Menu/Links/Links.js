@@ -1,9 +1,9 @@
 import React from "react";
 import {ReactSVG} from "react-svg";
 import "./Links.css";
-import telegram from "../../../../assets/telegram.svg";
-import instagram from "../../../../assets/instagram.svg";
-import facebook from "../../../../assets/facebook.svg";
+import telegram from "../../../assets/telegram.svg";
+import instagram from "../../../assets/instagram.svg";
+import facebook from "../../../assets/facebook.svg";
 
 
 const Links = () => {
@@ -17,7 +17,7 @@ const Links = () => {
 
     const showLinks = links.map((link) => {
         return(
-                <div className="link" key={link.id} >{link.value}</div> 
+                <a className="link" key={link.id} >{link.value}</a> 
         );
     })
 
@@ -25,15 +25,15 @@ const Links = () => {
         <div className="links-form">
             {showLinks}
             <div className="social-link">  
-                <div className="telegram-pic">
+                <a className="telegram-pic">
                     <ReactSVG src={telegram} className="telegram-pic" alt="telegram"/>
-                </div>
-                <div className="facebook-pic">
+                </a>
+                <a className="facebook-pic">
                     <ReactSVG src={facebook} className="facebook-pic" alt="facebook"/>
-                </div>
-                <div className="instagram-pic">
+                </a>
+                <a className="instagram-pic">
                     <ReactSVG src={instagram} className="instagram-pic" alt="instagram"/>
-                </div>
+                </a>
             </div>
         </div>
     )

@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
-import switchMenu from "./switchMenu";
+import changeLanguage from "./changeLanguage";
 
 
 export default combineReducers({
-    switchMenu: switchMenu
+    changeLanguage: changeLanguage,
 })

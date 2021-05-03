@@ -1,5 +1,5 @@
 import React from "react";
-import exit from "../../../assets/exit.svg";
+import exit from "../../assets/exit.svg";
 import Links from "./Links/Links"
 import "./Menu.css";
 
