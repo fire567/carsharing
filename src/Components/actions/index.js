@@ -1,27 +1,6 @@
-export const RightSlide = (X) => {
+export const setLanguage = (language) => {
     return{
-        type: "RIGHT_SLIDE",
-        payload: X,
-    }
-}
-
-export const  LeftSlide = (X) => {
-    return{
-        type: "LEFT_SLIDE",
-        payload: X,
-    }
-}
-
-export const radioSlide = (X) => {
-    return{
-        type: "RADIO_SLIDE",
-        payload: X,
-    }
-}
-
-export const showMenu = (position) => {
-    return{
-        type: "SWITCH_MENU",
-        payload: position,
+        type: "SET_LANGUAGE",
+        payload: language,
     }
 }

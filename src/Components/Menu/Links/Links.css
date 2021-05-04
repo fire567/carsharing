@@ -1,5 +1,5 @@
 .link{
-    font-style: normal;
+    display: block;
     cursor: pointer;
     font-weight: 500;
     font-size: 32px;
@@ -9,7 +9,6 @@
 
 @media (max-width: 320px) {
     .link {
-        font-style: normal;
         cursor: pointer;
         font-weight: 500;
         font-size: 22px;
@@ -36,20 +35,20 @@
   }
 
 .facebook-pic{
-    padding-left: 20px;
+    padding-left: 10px;
     cursor: pointer;
 }
 
-.facebook-pic:hover #facebook{
+.facebook-pic:hover svg path{
     fill: #0EC261;
 }
 
 .instagram-pic{
-    padding-left: 20px;
+    padding-left: 10px;
     cursor: pointer;
 }
 
-.instagram-pic:hover #instagram{
+.instagram-pic:hover svg path{
     fill: #0EC261;
 }
 
@@ -57,7 +56,7 @@
     cursor: pointer;
 }
 
-.telegram-pic:hover #telegram{
+.telegram-pic:hover svg path {
     fill: #0EC261;
 }
 

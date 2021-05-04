@@ -8,7 +8,7 @@
 }
 
 .left-side-menu{
-    width: 55%;
+    width: 56.1%;
     height: 100%;
     background: #111518;
 }
@@ -21,7 +21,7 @@
 
 .right-side-menu{
     background: rgba(21, 27, 31, 0.81);
-    width: 45%;
+    width: 47%;
     height: 100%;
 }
 
@@ -43,7 +43,6 @@
         margin-top: 15px;
     }
   }
-
 
 .menu-active{
     position: absolute;
@@ -69,8 +68,6 @@
         bottom: 2%;
         align-items: center;
         justify-content: center;
-        
-        font-style: normal;
         font-weight: bold;
         font-size: 13px;
         line-height: 15px;

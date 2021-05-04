@@ -1,11 +1,7 @@
-
-
 .heading{
     position: relative;
     margin-top: 32%;
     margin-left: 10%;
-    
-    font-style: normal;
     font-weight: 500;
     font-size: 40px;
     line-height: 47px;
@@ -36,9 +32,6 @@
     height: 48px;
     
     border-radius: 4px;
-
-    
-    font-style: normal;
     font-weight: 500;
     font-size: 18px;
     line-height: 21px;
@@ -46,6 +39,14 @@
     justify-content: center;
 
     color: #FFFFFF;
+}
+
+.button:hover{
+    filter: brightness(90%);
+}
+
+.button:active{
+    filter: brightness(80%);
 }
 
 .dark-slide{
