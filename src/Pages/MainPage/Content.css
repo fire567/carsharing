@@ -1,5 +1,6 @@
 .header{
     display: flex;
+    margin-left: 32px;
 }
 
 .location{
@@ -7,26 +8,28 @@
     font-family: "Roboto-Regular";
     cursor: pointer;
     display: flex;
-    right: 54%;
-    top: 2%;
+    right: 51%;
+    margin-top: 40px;
 
 }
 
   @media (max-width: 1024px) {
     .location {
         right: 6%;
-        top: 14px;
+
     }
   }
 
-
-.loc-pic{
-    margin-top: 25px;
-}
+  @media (max-width: 550px) {
+    .location {
+        right: 6%;
+        top: 4%;
+    }
+  }
 
 .town{
+    margin-top: 4px;
     margin-left: 8px;
-    margin-top: 27px;
     font-weight: 400;
     font-size: 14px;
     line-height: 16px;
@@ -36,13 +39,12 @@
 .content{
     position: absolute;
     display: flex;
-    left: 66px;
-    width: 95.7%;
+    width: 100%;
     bottom: 0px;
     height: 100%;
 }
 
-@media (max-width: 320px) {
+@media (max-width: 550px) {
     .content{
         left: 0px;
         width:100%;
@@ -50,23 +52,36 @@
   }
 
 .left-side{
-    width: 50%;
+    padding-left: 64px;
+    width: 53%;
     height: 100%;
 }
 
+@media (max-width: 1024px) {
+    .left-side{
+        padding-left: 85.77px;;
+        width:100%;
+    }
+  }
+
+@media (max-width: 550px){
+  .left-side{
+      padding-left: 0px;
+      width: 100%;
+  } 
+}
 
 .logo{
     cursor: pointer;
     font-family: "Roboto-Regular";
-    margin-top: 30px;
-    margin-left: 64px;
+    margin-top: 32px;
     font-weight: 700;
     font-size: 30px;
     line-height: 35px;
     color: #0EC261;
 }
 
-@media (max-width: 320px) {
+@media (max-width: 550px) {
     .logo{
         right: 5%;
         margin-top: 25px;
@@ -74,20 +89,28 @@
     }
   }
 
+.main-content{
+    margin-top: 22%;
+    margin-left: 32px;
+}
+
+@media (max-width: 550px) {
+    .main-content{
+        margin-left: 0px;
+    }
+  }
 
 .carsharing-text{
-    margin-top: 22%;
     font-family: "Roboto-Bold";
-    margin-left: 64px;
     font-size: 70px;
     line-height: 66px;
     color: #121212;
 }
 
-@media (max-width: 320px) {
+@media (max-width: 550px) {
     .carsharing-text {
-        margin-top: 74%;
         margin-left: 16px;
+        margin-top: 36%;
         font-size: 32px;
         line-height: 100%;
     }
@@ -95,16 +118,15 @@
 
 .big-logo{
     font-family: "Roboto-Bold";
-    width: 500px;
+    width: 80%;
     margin-top:4px;
-    margin-left: 64px;
     font-weight: bold;
     font-size: 70px;
     line-height: 66px;
     color: #0EC261;
 }
 
-@media (max-width: 320px) {
+@media (max-width: 550px) {
     .big-logo {
         margin-left: 16px;
         font-size: 32px;
@@ -114,7 +136,6 @@
 
 .purpose{
     margin-top: 24px;
-    margin-left: 64px;
     width: 449px;
     font-weight: 100;
     font-size: 26px;
@@ -123,7 +144,7 @@
     color: #999999;
 }
 
-@media (max-width: 320px) {
+@media (max-width: 550px) {
     .purpose {
         margin-left: 16px;
         font-size: 18px;
@@ -136,7 +157,6 @@
 .order-btn{
     display: flex;
     margin-top: 60px;
-    margin-left: 64px;
     width: 250px;
     height: 48px;
     background: linear-gradient(90deg, #0EC261 2.61%, #039F67 112.6%);
@@ -160,9 +180,10 @@
 }
 
 
-@media (max-width: 320px) {
+@media (max-width: 550px) {
     .order-btn {
         position: absolute;
+        height: 50px;
         margin-top: 35px;
         width: 100%;
         border-radius: 0px;
@@ -175,7 +196,7 @@
     display: flex;
 }
 
-@media (max-width: 320px) {
+@media (max-width: 550px) {
     .footer{
         position: absolute;
         width: 100%;
@@ -195,7 +216,7 @@
     line-height: 15px;
 }
 
-@media (max-width: 320px) {
+@media (max-width: 550px) {
     .cop-mark{
         right: 4%;
         bottom: 22%;
@@ -207,7 +228,7 @@
     position: absolute;
     cursor: pointer;
     bottom: 4%;
-    right: 54%;
+    right: 51%;
     font-size: 13px;
     line-height: 15px;
     color: #121212;
@@ -223,15 +244,13 @@
     }
   }
 
-  @media (max-width: 320px) {
+  @media (max-width: 550px) {
     .support-phone{
-        top: 20%;
+        top: 27%;
         color: #EEEEEE;
         right: 4%;
     }
     .support-phone:hover{
-        top: 20%;
         color: #0EC261;
-        right: 4%;
     }
   }
