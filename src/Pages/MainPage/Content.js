@@ -19,21 +19,22 @@ const Content = () => {
               </div>
             </div>
           </div>
-          <div className="carsharing-text">
-            Каршеринг
-          </div>
-          <div className="big-logo">
-            Need for drive
-          </div>
-          <div className="purpose">
-            Поминутная аренда авто твоего города
-          </div>
-          <Link to="/carsharing/order-page">
-            <div className="order-btn">
-                Забронировать
+          <div className="main-content">
+            <div className="carsharing-text">
+              Каршеринг
             </div>
-          </Link>
-          
+            <div className="big-logo">
+              Need for drive
+            </div>
+            <div className="purpose">
+              Поминутная аренда авто твоего города
+            </div>
+            <Link to="/carsharing/order-page">
+              <div className="order-btn">
+                  Забронировать
+              </div>
+            </Link>
+          </div>
           <div className="footer">
             <div className="cop-mark">
               © 2016-2019 «Need for drive»

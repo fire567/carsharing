@@ -14,8 +14,6 @@ const Sidebar = ({ menu, changeLanguage, setLanguage }) => {
     menu(item)
   }
 
-  console.log(changeLanguage);
-
   const currentLanguage = () => {
     return languages.map((item) => {
       if(item.value === changeLanguage){

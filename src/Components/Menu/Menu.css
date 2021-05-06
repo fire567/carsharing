@@ -1,6 +1,7 @@
 .menu{
     position: absolute;
     display: flex;
+    top: 0;
     width: 100%;
     height: 100%;
     transform: translate(-100%);
@@ -8,7 +9,7 @@
 }
 
 .left-side-menu{
-    width: 56.1%;
+    width: 53.2%;
     height: 100%;
     background: #111518;
 }
@@ -34,18 +35,26 @@
 .exit-pic{
     cursor: pointer;
     margin-left: 16px;
-    margin-top: 32px;
+    margin-top: 26px;
 }
 
 @media (max-width: 1024px) {
     .exit-pic {
-        margin-left: 6%;
-        margin-top: 15px;
+        margin-left: 3%;
+        margin-top: 3%;
+    }
+  }
+
+@media (max-width: 540px) {
+    .exit-pic {
+        margin-left: 16px;
+        margin-top: 27px;
     }
   }
 
 .menu-active{
     position: absolute;
+    z-index: 4;
     display: flex;
     width: 100%;
     height: 100%;
@@ -55,12 +64,17 @@
 }
 
 .language-in-menu{
-    color:#111518;
+    display: none;
 }
 
+<<<<<<< HEAD
 @media (max-width: 375px) {
+=======
+@media (max-width: 540px) {
+>>>>>>> 18359d12d5ea9ea52e751e4d1bbc9cf18a8bf8a0
     .language-in-menu {
         position: absolute;
+        
         display: flex;
         width:48px;
         height: 48px;
@@ -74,3 +88,14 @@
         color: #0EC261;
     }
   }
+
+  .language-in-menu:hover{
+    border: 1px solid #EEEEEE;
+    color: #EEEEEE;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.language-in-menu:active{
+    color: #0EC261;
+}

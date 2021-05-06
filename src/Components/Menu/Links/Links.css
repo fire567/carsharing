@@ -7,7 +7,7 @@
     color: #FFFFFF;
 }
 
-@media (max-width: 320px) {
+@media (max-width: 540px) {
     .link {
         cursor: pointer;
         font-weight: 500;
@@ -27,10 +27,10 @@
     left: 12%;
 }
 
-@media (max-width: 320px) {
+@media (max-width: 540px) {
     .links-form {
-        top: 10%;
-        left: 8%;
+        top: 79px;
+        left: 22px;
     }
   }
 
