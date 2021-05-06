@@ -6,11 +6,7 @@
     background: #151B1F;
 }
 
-<<<<<<< HEAD
-@media (max-width: 375px) {
-=======
 @media (max-width: 1024px) {
->>>>>>> 18359d12d5ea9ea52e751e4d1bbc9cf18a8bf8a0
     .Sidebar {
         width: 85.77px;
     }
@@ -59,9 +55,6 @@
     background-color: #FFFFFF;
     border: 2px solid #FFFFFF;
 }
-<<<<<<< HEAD
-@media (max-width: 375px) {
-=======
 
 @media (max-width: 1024px) {
     .vector{
@@ -71,7 +64,6 @@
   }
 
 @media (max-width: 550px) {
->>>>>>> 18359d12d5ea9ea52e751e4d1bbc9cf18a8bf8a0
     .vector{
         background-color: #151B1F;
         border: 2px solid #151B1F;
@@ -93,9 +85,6 @@
     color: #0EC261;
 }
 
-<<<<<<< HEAD
-@media (max-width: 375px) {
-=======
 @media (max-width: 1024px) {
     .language {
         left: 18px;
@@ -103,7 +92,6 @@
   }
 
 @media (max-width: 550px) {
->>>>>>> 18359d12d5ea9ea52e751e4d1bbc9cf18a8bf8a0
     .language {
         display: none
     }

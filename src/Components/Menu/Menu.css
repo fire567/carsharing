@@ -67,11 +67,7 @@
     display: none;
 }
 
-<<<<<<< HEAD
-@media (max-width: 375px) {
-=======
 @media (max-width: 540px) {
->>>>>>> 18359d12d5ea9ea52e751e4d1bbc9cf18a8bf8a0
     .language-in-menu {
         position: absolute;
         

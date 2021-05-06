@@ -39,21 +39,12 @@
 .content{
     position: absolute;
     display: flex;
-<<<<<<< HEAD
-    left: 66px;
-    width: 95.9%;
-=======
     width: 100%;
->>>>>>> 18359d12d5ea9ea52e751e4d1bbc9cf18a8bf8a0
     bottom: 0px;
     height: 100%;
 }
 
-<<<<<<< HEAD
-@media (max-width: 375px) {
-=======
 @media (max-width: 550px) {
->>>>>>> 18359d12d5ea9ea52e751e4d1bbc9cf18a8bf8a0
     .content{
         left: 0px;
         width:100%;
@@ -90,11 +81,7 @@
     color: #0EC261;
 }
 
-<<<<<<< HEAD
-@media (max-width: 375px) {
-=======
 @media (max-width: 550px) {
->>>>>>> 18359d12d5ea9ea52e751e4d1bbc9cf18a8bf8a0
     .logo{
         right: 5%;
         margin-top: 25px;
@@ -120,11 +107,7 @@
     color: #121212;
 }
 
-<<<<<<< HEAD
-@media (max-width: 375px) {
-=======
 @media (max-width: 550px) {
->>>>>>> 18359d12d5ea9ea52e751e4d1bbc9cf18a8bf8a0
     .carsharing-text {
         margin-left: 16px;
         margin-top: 36%;
@@ -143,11 +126,7 @@
     color: #0EC261;
 }
 
-<<<<<<< HEAD
-@media (max-width: 375px) {
-=======
 @media (max-width: 550px) {
->>>>>>> 18359d12d5ea9ea52e751e4d1bbc9cf18a8bf8a0
     .big-logo {
         margin-left: 16px;
         font-size: 32px;
@@ -165,11 +144,7 @@
     color: #999999;
 }
 
-<<<<<<< HEAD
-@media (max-width: 375px) {
-=======
 @media (max-width: 550px) {
->>>>>>> 18359d12d5ea9ea52e751e4d1bbc9cf18a8bf8a0
     .purpose {
         margin-left: 16px;
         font-size: 18px;
@@ -205,11 +180,7 @@
 }
 
 
-<<<<<<< HEAD
-@media (max-width: 375px) {
-=======
 @media (max-width: 550px) {
->>>>>>> 18359d12d5ea9ea52e751e4d1bbc9cf18a8bf8a0
     .order-btn {
         position: absolute;
         height: 50px;
@@ -225,11 +196,7 @@
     display: flex;
 }
 
-<<<<<<< HEAD
-@media (max-width: 375px) {
-=======
 @media (max-width: 550px) {
->>>>>>> 18359d12d5ea9ea52e751e4d1bbc9cf18a8bf8a0
     .footer{
         position: absolute;
         width: 100%;
@@ -249,11 +216,7 @@
     line-height: 15px;
 }
 
-<<<<<<< HEAD
-@media (max-width: 375px) {
-=======
 @media (max-width: 550px) {
->>>>>>> 18359d12d5ea9ea52e751e4d1bbc9cf18a8bf8a0
     .cop-mark{
         right: 4%;
         bottom: 22%;
@@ -281,11 +244,7 @@
     }
   }
 
-<<<<<<< HEAD
-  @media (max-width: 375px) {
-=======
   @media (max-width: 550px) {
->>>>>>> 18359d12d5ea9ea52e751e4d1bbc9cf18a8bf8a0
     .support-phone{
         top: 27%;
         color: #EEEEEE;

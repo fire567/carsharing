@@ -1,6 +1,6 @@
 import React from "react";
 import MainPage from "../Pages/MainPage/MainPage";
-import OrderPage from "./OrderPage/OrderPage";
+import OrderPage from "../Pages/OrderPage/OrderPage";
 import { Route } from "react-router-dom";
 import "./App.css"
 
