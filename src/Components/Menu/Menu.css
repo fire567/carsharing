@@ -58,7 +58,7 @@
     color:#111518;
 }
 
-@media (max-width: 320px) {
+@media (max-width: 375px) {
     .language-in-menu {
         position: absolute;
         display: flex;

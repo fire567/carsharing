@@ -37,12 +37,12 @@
     position: absolute;
     display: flex;
     left: 66px;
-    width: 95.7%;
+    width: 95.9%;
     bottom: 0px;
     height: 100%;
 }
 
-@media (max-width: 320px) {
+@media (max-width: 375px) {
     .content{
         left: 0px;
         width:100%;
@@ -66,7 +66,7 @@
     color: #0EC261;
 }
 
-@media (max-width: 320px) {
+@media (max-width: 375px) {
     .logo{
         right: 5%;
         margin-top: 25px;
@@ -84,7 +84,7 @@
     color: #121212;
 }
 
-@media (max-width: 320px) {
+@media (max-width: 375px) {
     .carsharing-text {
         margin-top: 74%;
         margin-left: 16px;
@@ -104,7 +104,7 @@
     color: #0EC261;
 }
 
-@media (max-width: 320px) {
+@media (max-width: 375px) {
     .big-logo {
         margin-left: 16px;
         font-size: 32px;
@@ -123,7 +123,7 @@
     color: #999999;
 }
 
-@media (max-width: 320px) {
+@media (max-width: 375px) {
     .purpose {
         margin-left: 16px;
         font-size: 18px;
@@ -160,7 +160,7 @@
 }
 
 
-@media (max-width: 320px) {
+@media (max-width: 375px) {
     .order-btn {
         position: absolute;
         margin-top: 35px;
@@ -175,7 +175,7 @@
     display: flex;
 }
 
-@media (max-width: 320px) {
+@media (max-width: 375px) {
     .footer{
         position: absolute;
         width: 100%;
@@ -195,7 +195,7 @@
     line-height: 15px;
 }
 
-@media (max-width: 320px) {
+@media (max-width: 375px) {
     .cop-mark{
         right: 4%;
         bottom: 22%;
@@ -223,7 +223,7 @@
     }
   }
 
-  @media (max-width: 320px) {
+  @media (max-width: 375px) {
     .support-phone{
         top: 20%;
         color: #EEEEEE;
