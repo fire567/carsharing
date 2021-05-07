@@ -1,0 +1,50 @@
+.loc-content{
+    display: flex;
+    padding-left: 64px;
+    height: 86.7%;
+}
+
+.loc-left-side{
+    width: 86%;
+    border-right: 1px solid #EEEEEE;
+}
+
+.input-loc{
+    font-family: "Roboto-Regular";
+    font-weight: 100;
+    font-size: 14px;
+    margin-top: 32px;
+    margin-left: 5%;
+    width: 340px;
+    color: #121212;
+}
+
+.loc-input{
+    width: 224px;
+    margin-left: 10px;
+    border: none;
+    border-bottom: 1px solid #999999;
+    outline:none;
+}
+
+.input-form{
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.input-form:not(:first-child){
+    margin-top: 13px;
+}
+
+.reset-btn{
+    position: absolute;
+    left: 318px;
+    border: none;
+    outline: none;
+    background-color: white;
+}
+
+.town-name{
+    padding-top: 2px;
+}

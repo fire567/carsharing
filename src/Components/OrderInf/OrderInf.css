@@ -1,0 +1,75 @@
+.loc-right-side{
+    font-family: "Roboto-Regular";
+    width: 417px;
+    padding: 2% 3% 0 2%;
+}
+
+.order-text{
+    text-align: end;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 21px;
+}
+
+.pick-up-point{
+    display: flex;
+    margin-top: 26px;
+    width: 300px;
+    justify-content: flex-end;
+}
+
+.pick-up-text{
+    font-family: "Roboto-Thin";
+    font-weight: 600;
+    color: #121212;
+    margin-top: auto;
+}
+
+.point-line{
+    border-bottom: 1px dotted #999999;
+    margin-left: 12px;
+    margin-right: 12px;
+    width: 74px;
+}
+
+.picked-loc{
+    font-family: "Roboto-Thin";
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 16px;
+    color: #999999;
+}
+
+.town{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.picked-town{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.price-block{
+    display: flex;
+    margin-top: 32px;
+}
+
+.price-name{
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 16px;
+    color: #121212;
+}
+
+.price{
+    font-size: 16px;
+    margin-left: 5px;
+    line-height: 16px;
+    color: #121212;
+}
+
+.loc-btn-form{
+    margin-top: 32px;
+
+}

@@ -1,0 +1,48 @@
+.order-links-form{
+    display: flex;
+    font-family: "Roboto-Bold";
+    height: 3.3%;
+    padding-left: 64px;
+    font-size: 14px;
+    line-height: 16px;
+    align-items: center;
+    margin-left: 4%;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #EEEEEE;
+}
+
+.order-link{
+    cursor: pointer;
+    color: #999999;
+}
+
+.order-link-active{
+    cursor: pointer;
+    color: #0EC261;
+}
+
+.order-link-active:hover{
+    color: #0EC261;
+}
+
+.order-link:hover{
+    color: #0EC261;
+}
+
+.order-links{
+    display: flex;
+}
+
+.order-links:not(:first-child){
+    padding-left: 16px;
+}
+
+.triangle{
+    display: flex;
+    padding-left: 16px;
+}
+
+.triangle-hidden{
+    display: none;
+}

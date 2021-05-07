@@ -73,7 +73,7 @@
 
 .logo{
     cursor: pointer;
-    font-family: "Roboto-Regular";
+    font-family: "Roboto-Bold";
     margin-top: 32px;
     font-weight: 700;
     font-size: 30px;
@@ -153,44 +153,9 @@
     }
   }
 
-
-.order-btn{
-    display: flex;
+.btn-form{
     margin-top: 60px;
-    width: 250px;
-    height: 48px;
-    background: linear-gradient(90deg, #0EC261 2.61%, #039F67 112.6%);
-    background-blend-mode: darken;
-    border-radius: 8px;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 21px;
-    align-items: center;
-    justify-content: center;
-    
-    color: #FFFFFF;
 }
-
-.order-btn:hover{
-    filter: brightness(90%);
-}
-
-.order-btn:active{
-    filter: brightness(80%);
-}
-
-
-@media (max-width: 550px) {
-    .order-btn {
-        position: absolute;
-        height: 50px;
-        margin-top: 35px;
-        width: 100%;
-        border-radius: 0px;
-        margin-left: 0px;
-        text-decoration: none;
-    }
-  }
 
 .footer{
     display: flex;

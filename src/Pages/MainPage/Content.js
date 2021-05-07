@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Content.css";
 import CarouselCars from "../../Components/Carousel/CarouselCars";
+import Button from "../../Components/Button/Button";
 import location from "../../assets/location.svg";
 
 const Content = () => {
@@ -29,11 +30,11 @@ const Content = () => {
             <div className="purpose">
               Поминутная аренда авто твоего города
             </div>
+            <div className="btn-form">
             <Link to="/carsharing/order-page">
-              <div className="order-btn">
-                  Забронировать
-              </div>
+              <Button text={"Забронировать"} width={"250px"}/>
             </Link>
+            </div>
           </div>
           <div className="footer">
             <div className="cop-mark">

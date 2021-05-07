@@ -1,0 +1,18 @@
+.map-form{
+    margin-left: 6%;
+}
+
+.map-text{
+    font-family: "Roboto-Regular";
+    color: #121212;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 16px;
+    margin-top: 5%;
+}
+
+.map{
+    margin-top: 1%;
+    height: 352px;
+    width: 736px;
+}
