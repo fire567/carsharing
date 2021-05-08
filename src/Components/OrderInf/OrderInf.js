@@ -1,8 +1,9 @@
 import React from "react";
 import Button from "../Button/Button";
+import { connect } from "react-redux";
 import "./OrderInf.css";
 
-const OrderInf = () => {
+const OrderInf = ({ setTown }) => {
     return(
         <div className="loc-right-side">
             <div className="order-text">
@@ -16,7 +17,7 @@ const OrderInf = () => {
                 </div>
                 <div className="picked-loc">
                     <div className="picked-town">
-                        Ульяновск,
+                        {setTown},
                     </div>
                     <div className="picked-street">
                         Нариманова 42
@@ -38,4 +39,10 @@ const OrderInf = () => {
     )
 }
 
-export default OrderInf;
+const mapStateToProps = (state) => {
+    return{
+        setTown: state.setTown,
+    }
+}
+
+export default connect(mapStateToProps)(OrderInf);
