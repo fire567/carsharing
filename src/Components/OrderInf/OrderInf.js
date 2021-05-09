@@ -3,27 +3,45 @@ import Button from "../Button/Button";
 import { connect } from "react-redux";
 import "./OrderInf.css";
 
-const OrderInf = ({ setTown }) => {
+const OrderInf = ({ setTown, points }) => {
+
+    //console.log(points.data)
+    //console.log(String(setTown));
+
+    
+    const showPointInf = () => {
+        return points.data.map((city) => {
+            if(city.cityId !== null){
+            if(city.cityId.name === setTown) {
+                return (
+                    <div className="pick-up-point">
+                    <div className="pick-up-text">
+                        Пункт выдачи
+                    </div>
+                    <div className="point-line">
+                    </div>
+                    <div className="picked-loc">
+                        <div className="picked-town">
+                            {setTown},
+                        </div>
+                        <div className="picked-street">
+                            Нариманова 42
+                        </div>
+                    </div>
+                </div>
+                )
+            }
+        }
+        })
+    }
+    
+
     return(
         <div className="loc-right-side">
             <div className="order-text">
                 Ваш заказ:
             </div>
-            <div className="pick-up-point">
-                <div className="pick-up-text">
-                    Пункт выдачи
-                </div>
-                <div className="point-line">
-                </div>
-                <div className="picked-loc">
-                    <div className="picked-town">
-                        {setTown},
-                    </div>
-                    <div className="picked-street">
-                        Нариманова 42
-                    </div>
-                </div>
-            </div>
+            {points.data === undefined ? "Loading..." : showPointInf()}
             <div className="price-block">
                 <div className="price-name">
                     Цена:
@@ -42,6 +60,7 @@ const OrderInf = ({ setTown }) => {
 const mapStateToProps = (state) => {
     return{
         setTown: state.setTown,
+        points: state.points
     }
 }
 

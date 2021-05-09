@@ -13,7 +13,18 @@ export const fetchCities = () => {
 
         dispatch({
             type: 'FETCH_CITIES',
-            payload: response.data
+            payload: response.data,
+        })
+    }
+}
+
+export const fetchPoints = () => {
+    return async (dispatch) => {
+        const response = await API.get(`point/`);
+
+        dispatch({
+            type: 'FETCH_POINTS',
+            payload: response.data,
         })
     }
 }

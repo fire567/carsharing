@@ -4,18 +4,16 @@ import Sidebar from "../../Components/Sidebar/Sidebar";
 import Menu from "../../Components/Menu/Menu";
 import Header from "../../Components/Header/Header";
 import OrderLinks from "../../Components/OrderLinks/OrderLinks";
-import API from "../../apis/API";
+import { connect } from "react-redux";
+import {fetchCities, fetchPoints} from "../../Components/actions/index";
 import "./OrderPage.css";
 
-const OrderPage = () => {
+const OrderPage = ({ fetchPoints, fetchCities }) => {
     const [switchMenu, setSwitchMenu ] = useState(false);
 
     useEffect(() => {
-        const onTermSubmit = async () => {
-          const response = await API.get("city/")
-          console.log(response.data);
-        }   
-        onTermSubmit()
+        fetchPoints();
+        fetchCities();
       }, [])
     
 
@@ -34,4 +32,7 @@ const OrderPage = () => {
     );
 };
 
-export default OrderPage;
+export default connect(null, {
+    fetchPoints: fetchPoints,
+    fetchCities: fetchCities,
+})(OrderPage);

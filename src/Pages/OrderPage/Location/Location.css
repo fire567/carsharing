@@ -48,3 +48,17 @@
 .town-name{
     padding-top: 2px;
 }
+
+.selector{
+    position: absolute;
+    background-color: white;
+    width: 224px;
+    margin-top: 7%;
+    border: 1px solid #999999;
+    z-index: 3;
+}
+
+.town-name:hover{
+    cursor: pointer;
+    background-color: #999999;
+}
