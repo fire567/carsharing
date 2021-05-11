@@ -35,3 +35,19 @@
         text-decoration: none;
     }
   }
+
+.unactive-btn{
+    display: flex;
+    height: 48px;
+    background-color: #EEEEEE;
+    background-blend-mode: darken;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    outline: none;
+    color: #FFFFFF;
+}

@@ -5,7 +5,7 @@ import Menu from "../../Components/Menu/Menu";
 import Header from "../../Components/Header/Header";
 import OrderLinks from "../../Components/OrderLinks/OrderLinks";
 import { connect } from "react-redux";
-import {fetchCities, fetchPoints} from "../../Components/actions/index";
+import {fetchCities, fetchPoints } from "../../Components/actions/index";
 import "./OrderPage.css";
 
 const OrderPage = ({ fetchPoints, fetchCities }) => {

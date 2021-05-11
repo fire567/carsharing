@@ -35,3 +35,10 @@ export const changeTown = (town) => {
         payload: town,
     }
 }
+
+export const changeAdress = (adress) => {
+    return{
+        type: "SET_ADRESS",
+        payload: adress,
+    }
+}

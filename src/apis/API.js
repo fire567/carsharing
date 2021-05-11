@@ -1,4 +1,4 @@
-import * as axios from "axios";
+import axios from "axios";
 const KEY = '541d3a3e77434134b7eebc7ded2a5e46';
 
 export default axios.create({

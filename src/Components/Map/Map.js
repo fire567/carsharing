@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Map.css";
 import { GoogleMap, withScriptjs, withGoogleMap } from "react-google-maps";
+import {connect} from "react-redux";
 
 const Map = () => {
+    const [url, setURL] = useState("")
+
     const showMap = () => {
         return(
             <GoogleMap 
@@ -11,6 +14,10 @@ const Map = () => {
             />
         );
     };
+
+    useEffect(() => {
+        setURL("https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyChGoJ-GUzB6Vey3CQ-cG-G5CrgMOLDf5I")
+      }, [])
 
     const WrappedMap = withScriptjs(withGoogleMap(showMap))
 
@@ -21,16 +28,20 @@ const Map = () => {
                     Выбрать на карте:
                 </div>
                 <div className="map">
+                {url != "" ?
                     <WrappedMap 
-                        googleMapURL={"https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyChGoJ-GUzB6Vey3CQ-cG-G5CrgMOLDf5I"}
+                        googleMapURL={`${url}`}
                         loadingElement={<div style={{height: "100%"}} />}
                         containerElement={<div style={{height: "100%"}} />}
                         mapElement={<div style={{height: "100%"}} />}
-                    />
+                    /> : null
+                }
                 </div>
             </div>
         </div>
     );
 };
 
-export default Map;
+
+
+export default connect(null)(Map);

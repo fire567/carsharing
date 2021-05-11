@@ -1,9 +1,9 @@
 import React from "react";
 import "./Button.css";
 
-const Button = ({text, width}) => {
+const Button = ({text, width, activeBTN}) => {
     return(
-        <button className="order-btn" style={{width: `${width}`}}>
+        <button className={activeBTN} style={{width: `${width}`}}>
             {text}
         </button>
     )

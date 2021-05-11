@@ -27,6 +27,14 @@
     outline:none;
 }
 
+.address-loc-input{
+    width: 224px;
+    margin-left: 10px;
+    border: none;
+    border-bottom: 1px solid #999999;
+    outline:none;
+}
+
 .input-form{
     position: relative;
     display: flex;
@@ -45,7 +53,7 @@
     background-color: white;
 }
 
-.town-name{
+.loc-name{
     padding-top: 2px;
 }
 
@@ -58,7 +66,13 @@
     z-index: 3;
 }
 
-.town-name:hover{
+
+
+.loc-name:hover{
     cursor: pointer;
     background-color: #999999;
+}
+
+.hideSelector{
+    display: flex;
 }

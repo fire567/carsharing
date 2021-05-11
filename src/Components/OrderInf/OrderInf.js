@@ -1,18 +1,23 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Button from "../Button/Button";
 import { connect } from "react-redux";
 import "./OrderInf.css";
 
-const OrderInf = ({ setTown, points }) => {
+const OrderInf = ({ setTown, points, setAdress }) => {
+    const [ arr, setArr ] = useState([])
 
-    //console.log(points.data)
-    //console.log(String(setTown));
+    useEffect(() => {
+        if(points.data != undefined){
+        setArr(points.data.filter((point) => point.cityId != null && point.cityId.name === setTown &&  point.address === setAdress))
+        }
+      }, [setTown, setAdress])
+
 
     
     const showPointInf = () => {
-        return points.data.map((city) => {
-            if(city.cityId !== null){
-            if(city.cityId.name === setTown) {
+        return points.data.map((point) => {
+            if(point.cityId !== null){
+            if(point.cityId.name === setTown &&  point.address === setAdress) {
                 return (
                     <div className="pick-up-point">
                     <div className="pick-up-text">
@@ -25,7 +30,7 @@ const OrderInf = ({ setTown, points }) => {
                             {setTown},
                         </div>
                         <div className="picked-street">
-                            Нариманова 42
+                            {setAdress}
                         </div>
                     </div>
                 </div>
@@ -34,6 +39,7 @@ const OrderInf = ({ setTown, points }) => {
         }
         })
     }
+    
     
 
     return(
@@ -51,7 +57,8 @@ const OrderInf = ({ setTown, points }) => {
                 </div>
             </div>
             <div className="loc-btn-form">
-                <Button text={"Выбрать модель"} width={"100%"}/>
+                {arr.length != 0 ? <Button text={"Выбрать модель"} width={"100%"} activeBTN={"order-btn"} /> : 
+                    <Button text={"Выбрать модель"} width={"100%"} activeBTN={"unactive-btn"} />}
             </div>
         </div>
     )
@@ -60,7 +67,8 @@ const OrderInf = ({ setTown, points }) => {
 const mapStateToProps = (state) => {
     return{
         setTown: state.setTown,
-        points: state.points
+        points: state.points,
+        setAdress: state.setAdress,
     }
 }
 

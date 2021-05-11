@@ -1,6 +1,6 @@
 .loc-right-side{
     font-family: "Roboto-Regular";
-    width: 417px;
+    width: 500px;
     padding: 2% 3% 0 2%;
 }
 
@@ -14,8 +14,8 @@
 .pick-up-point{
     display: flex;
     margin-top: 26px;
-    width: 300px;
-    justify-content: flex-end;
+    width: 347px;
+    justify-content: space-between;
 }
 
 .pick-up-text{
@@ -23,6 +23,8 @@
     font-weight: 600;
     color: #121212;
     margin-top: auto;
+    font-size: 14px;
+    line-height: 16px;
 }
 
 .point-line{
@@ -72,4 +74,8 @@
 .loc-btn-form{
     margin-top: 32px;
 
+}
+
+.picked-street{
+    text-align: right;
 }
