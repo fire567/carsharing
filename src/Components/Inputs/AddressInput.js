@@ -7,6 +7,7 @@ const AddressInput = ({ setAdress, changeAdress, points, setTown }) => {
     const [arr, setArr ] = useState([])
     const [ addressActiveSelector, setAddressActiveSelector ] = useState(false);
     const ref = useRef();
+    localStorage.setItem('address', `${setAdress}`)
 
     useEffect(() => {
         if(points.data != undefined){
@@ -113,7 +114,7 @@ const AddressInput = ({ setAdress, changeAdress, points, setTown }) => {
                             type="text" 
                             placeholder="Начните вводить пункт ..." 
                             className="address-loc-input" 
-                            value={setAdress} 
+                            value={localStorage.getItem('address')} 
                             onChange={(e) => currentAdress(e)}
                             onClick={() => activeInputClickHandler(true)}
                             ref={ref}

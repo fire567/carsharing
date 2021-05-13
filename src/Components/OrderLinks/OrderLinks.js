@@ -18,20 +18,37 @@ const OrderLinks = () => {
 
     const showLinks = () => {
         return links.map((link) => {
-            return(
-                <div className="order-links" key={link.id}>
-                    <a 
-                        className={link.id === activeLink ? "order-link-active" : "order-link"} 
-                        onClick={() => activeItem(link.id)}
-                        >
-                        {link.value}
-                    </a>
-                    <div className={link.id === links.length - 1 ? "triangle-hidden" : "triangle"}>
-                        <img className="triangle-pic" src={triangle} />
+            if(link.id === activeLink){
+                return(
+                    <div className="order-links" key={link.id}>
+                        <button 
+                            className={"order-link-active"} 
+                            onClick={() => activeItem(link.id)}
+                            >
+                            {link.value}
+                        </button>
+                        <div className={link.id === links.length - 1 ? "triangle-hidden" : "triangle"}>
+                            <img className="triangle-pic" src={triangle} />
+                        </div>
                     </div>
-                </div>
+                )
+            }
+            return (
+                <div className="order-links" key={link.id}>
+                        <button 
+                            disabled={"disabled"}
+                            className={"order-link"} 
+                            onClick={() => activeItem(link.id)}
+                            >
+                            {link.value}
+                        </button>
+                        <div className={link.id === links.length - 1 ? "triangle-hidden" : "triangle"}>
+                            <img className="triangle-pic" src={triangle} />
+                        </div>
+                    </div>
             )
-        })
+            }
+        )
         
     }
 

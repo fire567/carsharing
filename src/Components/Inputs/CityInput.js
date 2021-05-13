@@ -7,6 +7,7 @@ const CityInput = ({ setTown, citiesReducer, changeTown, setAdress, points }) =>
     const [ activeSelector, setActiveSelector ] = useState(false);
     const [arr, setArr ] = useState([])
     const ref = useRef();
+    localStorage.setItem('city', `${setTown}`)
 
     useEffect(() => {
         if(citiesReducer.data != undefined){
@@ -57,11 +58,13 @@ const CityInput = ({ setTown, citiesReducer, changeTown, setAdress, points }) =>
     }
 
     const cityAutoFill = () => {
+        if(points.data != undefined){
         return points.data.map((address) => {
             if(address.address === setAdress){
                 changeTownName(address.cityId.name)
             }
         })
+    }
     }
 
     const showCitySelector = () => {
@@ -97,7 +100,7 @@ const CityInput = ({ setTown, citiesReducer, changeTown, setAdress, points }) =>
                             type="text" 
                             placeholder="Начните вводить город ..." 
                             className="loc-input" 
-                            value={setTown} 
+                            value={localStorage.getItem('city')} 
                             onChange={(e) => currentTown(e)}
                             onClick={() => inputClickHandler(true)}
                             ref={ref}
