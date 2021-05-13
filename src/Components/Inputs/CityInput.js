@@ -1,11 +1,18 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { connect } from "react-redux";
 import {changeTown} from "../actions/index";
 import exitBtn from "../../assets/exitBtn.svg";
 
 const CityInput = ({ setTown, citiesReducer, changeTown, setAdress, points }) => {
     const [ activeSelector, setActiveSelector ] = useState(false);
+    const [arr, setArr ] = useState([])
     const ref = useRef();
+
+    useEffect(() => {
+        if(citiesReducer.data != undefined){
+        setArr(citiesReducer.data.filter((city) => city.name.toLowerCase().includes(setTown.toLowerCase())))
+        }
+      }, [setTown])
 
     window.addEventListener('click', (event) => {
         if(event.target.className != null && ref.current.className != null){
@@ -58,7 +65,9 @@ const CityInput = ({ setTown, citiesReducer, changeTown, setAdress, points }) =>
     }
 
     const showCitySelector = () => {
-        if(setAdress.length === 0 && setTown.length >= 2 && activeSelector){
+        if(arr.length === 0 && setTown.length >= 2){
+            return null
+        }else if(setAdress.length === 0 && setTown.length >= 2 && activeSelector){
             return(
                     <div className="selector" onClick={() => inputClickHandler(false)}>
                         {citiesReducer.data === undefined ? "Loading..." : citySelector()}

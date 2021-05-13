@@ -4,10 +4,31 @@
     height: 86.7%;
 }
 
+@media (max-width: 1024px) {
+    .loc-content {
+        display: block;
+        padding-left: 85.77px;
+        height: auto;
+    }
+  }
+
+@media (max-width: 550px) {
+    .loc-content {
+        padding-left: 0px;
+    }
+  }  
+
 .loc-left-side{
     width: 86%;
     border-right: 1px solid #EEEEEE;
 }
+
+@media (max-width: 1024px) {
+    .loc-left-side {
+        width: 100%;
+        border: none;
+    }
+  }
 
 .input-loc{
     font-family: "Roboto-Regular";

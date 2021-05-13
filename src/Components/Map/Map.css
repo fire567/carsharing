@@ -1,5 +1,6 @@
 .map-form{
     margin-left: 6%;
+    margin-right: 6%;
 }
 
 .map-text{
@@ -14,5 +15,9 @@
 .map{
     margin-top: 1%;
     height: 352px;
-    width: 736px;
+    width: 100%;
 }
+
+
+
+

@@ -10,7 +10,7 @@ const AddressInput = ({ setAdress, changeAdress, points, setTown }) => {
 
     useEffect(() => {
         if(points.data != undefined){
-        setArr(points.data.filter((point) => point.address === setAdress))
+        setArr(points.data.filter((point) => point.address.toLowerCase().includes(setAdress.toLowerCase())))
         }
       }, [setAdress])
 
@@ -82,26 +82,26 @@ const AddressInput = ({ setAdress, changeAdress, points, setTown }) => {
     }
 
     const showSelector = () => {
-        if(setTown.length === 0 && setAdress.length >= 2 && addressActiveSelector && arr > 0){
+        if(arr.length === 0 && setAdress.length >= 2){
+            return null
+        }else if(setTown.length === 0 && setAdress.length >= 2 && addressActiveSelector){
             return(
                 <div className="selector" onClick={() => activeInputClickHandler(true)}>
                     {points.data[0].address === undefined ? "Loading..." : adressSelector()}
                 </div>
             )
-        }else if(setTown.length === 0 && addressActiveSelector && arr > 0){
+        }else if(setTown.length === 0 && addressActiveSelector){
             return(
             <div className="selector" onClick={() => activeInputClickHandler(true)}>
                 {points.data === undefined ? "Loading..." : adressAutoSelectorAll()}
             </div>
             )
-        }else if(setTown.length >= 2 && addressActiveSelector && arr > 0){
+        }else if(setTown.length >= 2 && addressActiveSelector){
             return(
                 <div className="selector" onClick={() => activeInputClickHandler(true)}>
                     {points.data === undefined ? "Loading..." : adressAutoSelector()}
                 </div>
             )
-        }else if(arr === 0 && setAdress.length >= 2 && addressActiveSelector){
-            return null
         }
     }
 

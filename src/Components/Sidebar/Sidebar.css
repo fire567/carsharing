@@ -16,7 +16,6 @@
     .Sidebar {
         z-index: 3;
         height: 0px;
-        position: relative;
         background: #FFFFFF;
     }
   }

@@ -2,13 +2,27 @@
     display: flex;
     justify-content: space-between;
     padding-right: 4%;
-    margin-left: 4%;
+    margin-left: 64px;
     height: 10%;
-    padding-left: 64px;
+    padding-left: 5%;
     border-bottom-width: 1px;
     border-bottom-style: solid;
     border-bottom-color: #EEEEEE;
 }
+
+@media (max-width: 1024px) {
+    .header-form {
+        margin-left: 85.77px;
+    }
+  }
+
+@media (max-width: 550px) {
+    .header-form {
+        display: block;
+        height: 13%;
+        margin-left: 0px;
+    }
+  }
 
 .loc-logo{
     display: flex;
@@ -21,7 +35,22 @@
     color: #0EC261;
 }
 
+@media (max-width: 550px) {
+    .loc-logo{
+        padding-top: 25px;
+        justify-content: flex-end;
+        align-items: unset;
+    }
+  }
+
 .loc-form{
     display: flex;
     align-items: center;
 }
+
+@media (max-width: 550px) {
+    .loc-form{
+        justify-content: flex-end;
+        margin-top: 4%
+    }
+  }

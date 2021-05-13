@@ -57,8 +57,8 @@ const OrderInf = ({ setTown, points, setAdress }) => {
                 </div>
             </div>
             <div className="loc-btn-form">
-                {arr.length != 0 ? <Button text={"Выбрать модель"} width={"100%"} activeBTN={"order-btn"} /> : 
-                    <Button text={"Выбрать модель"} width={"100%"} activeBTN={"unactive-btn"} />}
+                {arr.length != 0 ? <Button text={"Выбрать модель"} width={"100%"} activeBTN={"order-btn"} disabled={""}/> : 
+                    <Button text={"Выбрать модель"} width={"100%"} activeBTN={"unactive-btn"} disabled={"disabled"}/>}
             </div>
         </div>
     )

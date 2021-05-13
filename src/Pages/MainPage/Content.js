@@ -32,7 +32,7 @@ const Content = () => {
             </div>
             <div className="btn-form">
             <Link to="/carsharing/order-page">
-              <Button text={"Забронировать"} width={"250px"}/>
+              <Button text={"Забронировать"} width={"100%"} activeBTN={"order-btn"} disabled={""}/>
             </Link>
             </div>
           </div>
