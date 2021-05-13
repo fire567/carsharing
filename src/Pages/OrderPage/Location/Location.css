@@ -40,6 +40,12 @@
     color: #121212;
 }
 
+@media (max-width: 550px) {
+    .input-loc {
+        margin-left: 4%;
+    }
+  }
+
 .loc-input{
     width: 224px;
     margin-left: 10px;
