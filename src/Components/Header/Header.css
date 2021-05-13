@@ -4,7 +4,7 @@
     padding-right: 4%;
     margin-left: 64px;
     height: 10%;
-    padding-left: 5%;
+    padding-left: 4%;
     border-bottom-width: 1px;
     border-bottom-style: solid;
     border-bottom-color: #EEEEEE;
@@ -13,6 +13,7 @@
 @media (max-width: 1024px) {
     .header-form {
         margin-left: 85.77px;
+        padding-left: 5%;
     }
   }
 

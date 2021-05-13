@@ -2,7 +2,7 @@
     display: flex;
     font-family: "Roboto-Bold";
     height: 3.3%;
-    padding-left: 5%;
+    padding-left: 4%;
     font-size: 14px;
     line-height: 16px;
     align-items: center;
@@ -15,6 +15,7 @@
 @media (max-width: 1024px) {
     .order-links-form {
         margin-left: 85.77px;
+        padding-left: 5%;
     }
   }
 
