@@ -6,7 +6,6 @@ import exitBtn from "../../assets/exitBtn.svg";
 const AddressInput = ({ setAdress, changeAdress, points, setTown }) => {
     const [arr, setArr ] = useState([])
     const [ addressActiveSelector, setAddressActiveSelector ] = useState(false);
-    const ref = useRef();
     localStorage.setItem('address', `${setAdress}`)
 
     useEffect(() => {
@@ -16,7 +15,7 @@ const AddressInput = ({ setAdress, changeAdress, points, setTown }) => {
       }, [setAdress])
 
     window.addEventListener('click', (event) => {
-        if(event.target.className !== ref.current.className){
+        if(event.target.className !== "address-loc-input"){
             setAddressActiveSelector(false)
         }
         else{
@@ -117,7 +116,6 @@ const AddressInput = ({ setAdress, changeAdress, points, setTown }) => {
                             value={localStorage.getItem('address')} 
                             onChange={(e) => currentAdress(e)}
                             onClick={() => activeInputClickHandler(true)}
-                            ref={ref}
                         >
                         </input>
                         {setAdress.length > 0 ? 

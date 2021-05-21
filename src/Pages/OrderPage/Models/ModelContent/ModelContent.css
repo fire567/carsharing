@@ -1,0 +1,42 @@
+.model-content{
+    padding-left: 4%;
+    display: flex;
+    margin-left: 64px;
+    height: 86.7%;
+}
+
+@media (max-width: 1024px) {
+    .model-content {
+        display: block;
+        width: 100%;
+        margin-left: 85.77px;
+    }
+}
+
+@media (max-width: 550px) {
+    .model-content {
+        display: block;
+        width: 100%;
+        margin-left: 0px;
+        padding-left: 0px;
+    }
+}
+
+.model-left-side{
+    width: 86%;
+    border-right: 1px solid #EEEEEE;
+    margin-top: 32px;
+}
+
+@media (max-width: 1024px) {
+    .model-left-side {
+        width: 100%;
+        padding-right: 5%;
+    }
+}
+
+@media (max-width: 550px) {
+    .model-left-side {
+        height: inherit;
+    }
+}

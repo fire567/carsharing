@@ -31,7 +31,7 @@ const Content = () => {
               Поминутная аренда авто твоего города
             </div>
             <div className="btn-form">
-            <Link to="/carsharing/order-page">
+            <Link to="/carsharing/order-page/loc">
               <Button text={"Забронировать"} width={"100%"} activeBTN={"order-btn"} disabled={""}/>
             </Link>
             </div>

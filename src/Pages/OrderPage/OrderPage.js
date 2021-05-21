@@ -5,10 +5,12 @@ import Menu from "../../Components/Menu/Menu";
 import Header from "../../Components/Header/Header";
 import OrderLinks from "../../Components/OrderLinks/OrderLinks";
 import { connect } from "react-redux";
+import { showCart } from "../../Components/actions";
+import OrderMenu from "../../Components/OrderMunu/OrderMenu";
 import {fetchCities, fetchPoints } from "../../Components/actions/index";
 import "./OrderPage.css";
 
-const OrderPage = ({ fetchPoints, fetchCities }) => {
+const OrderPage = ({ fetchPoints, fetchCities, cartReducer }) => {
     const [switchMenu, setSwitchMenu ] = useState(false);
 
     useEffect(() => {
@@ -25,14 +27,22 @@ const OrderPage = ({ fetchPoints, fetchCities }) => {
         <div className="order-page">
             <Sidebar menu={menuChange}/>
             <Header />
-            <OrderLinks />
+            <OrderLinks activeLink={0}/>
             <Location />
             <Menu switchMenu={switchMenu} menuChange={menuChange}/>
+            <OrderMenu />
         </div>
     );
 };
 
-export default connect(null, {
+const mapStateToProps = (state) => {
+    return{
+        cartReducer: state.cartReducer
+    }
+}
+
+export default connect(mapStateToProps, {
     fetchPoints: fetchPoints,
     fetchCities: fetchCities,
+    showCart: showCart,
 })(OrderPage);

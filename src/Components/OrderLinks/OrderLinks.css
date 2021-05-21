@@ -15,7 +15,7 @@
 @media (max-width: 1024px) {
     .order-links-form {
         margin-left: 85.77px;
-        padding-left: 5%;
+        padding-left: 4%;
     }
   }
 
@@ -35,7 +35,9 @@
     color: #999999;
     outline: none;
     border: none;
+    padding: unset;
 }
+
 
 .order-link-active{
     background-color: white;
@@ -43,6 +45,7 @@
     border: none;
     cursor: pointer;
     color: #0EC261;
+    padding: unset;
 }
 
 .order-link-active:hover{
@@ -82,4 +85,12 @@
 
 .triangle-hidden{
     display: none;
+}
+
+.order-link-avalible{
+    color: black;
+    outline: none;
+    border: none;
+    background-color: white;
+    padding: unset;
 }

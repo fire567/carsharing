@@ -2,21 +2,23 @@
     display: flex;
     padding-left: 64px;
     height: 86.7%;
-}
+} 
 
 @media (max-width: 1024px) {
     .loc-content {
         display: block;
         padding-left: 85.77px;
-        height: auto;
+        height: 83.5%;
     }
-  }
+}
 
 @media (max-width: 550px) {
     .loc-content {
+        display: block;
         padding-left: 0px;
+        height: 83.5%;
     }
-  }  
+}
 
 .loc-left-side{
     width: 86%;
@@ -26,7 +28,7 @@
 @media (max-width: 1024px) {
     .loc-left-side {
         width: 100%;
-        border: none;
+        border-right: 0px;
     }
   }
 
@@ -39,12 +41,6 @@
     width: 340px;
     color: #121212;
 }
-
-@media (max-width: 550px) {
-    .input-loc {
-        margin-left: 4%;
-    }
-  }
 
 .loc-input{
     width: 224px;
@@ -93,8 +89,6 @@
     z-index: 3;
 }
 
-
-
 .loc-name:hover{
     cursor: pointer;
     background-color: #999999;
@@ -103,3 +97,16 @@
 .hideSelector{
     display: flex;
 }
+
+.sized-loc-btn-form{
+    display: none;
+}
+
+@media (max-width: 1024px) {
+    .sized-loc-btn-form {
+        display: flex;
+        width: fit-content;
+        margin: auto;
+        margin-top: 30px;
+    }
+  }

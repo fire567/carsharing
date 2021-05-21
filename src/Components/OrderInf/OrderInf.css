@@ -6,11 +6,18 @@
 
 @media (max-width: 1024px) {
     .loc-right-side {
-        width: 74%;
-        margin-left: auto;
-        margin-right: auto;
+        margin: auto;
+        padding-left: 85.77px;
+        margin: auto;
     }
-  }
+}
+
+@media (max-width: 550px) {
+    .loc-right-side {
+        padding-left: 2%;
+        width: unset;
+    }
+}
 
 .order-text{
     text-align: end;
@@ -19,7 +26,13 @@
     line-height: 21px;
 }
 
-.pick-up-point{
+@media (max-width: 1024px) {
+    .order-text {
+        text-align: center;
+    }
+}
+
+.item-form{
     display: flex;
     margin-top: 26px;
     width: 347px;
@@ -27,12 +40,12 @@
 }
 
 @media (max-width: 1024px) {
-    .pick-up-point {
+    .item-form {
         width: auto;
     }
-  }
+}
 
-.pick-up-text{
+.item-name{
     font-family: "Roboto-Thin";
     font-weight: 600;
     color: #121212;
@@ -41,26 +54,15 @@
     line-height: 16px;
 }
 
-.point-line{
+.item-line{
     border-bottom: 1px dotted #999999;
     margin-left: 12px;
     margin-right: 12px;
     width: 74px;
 }
 
-@media (max-width: 1024px) {
-    .point-line {
-        width: 9%;
-    }
-  }
 
-@media (max-width: 550px) {
-    .point-line {
-        width: 19%;
-    }
-  }
-
-.picked-loc{
+.item-value{
     font-family: "Roboto-Thin";
     font-weight: 600;
     font-size: 14px;
@@ -99,9 +101,21 @@
 
 .loc-btn-form{
     margin-top: 32px;
-
 }
+
+@media (max-width: 1024px) {
+    .loc-btn-form {
+        display: none;
+    }
+}
+
 
 .picked-street{
     text-align: right;
+}
+
+@media (max-width: 1024px) {
+    .hidden-part {
+        display: none;
+    }
 }

@@ -26,11 +26,8 @@
 
 @media (max-width: 550px) {
     .order-btn {
-        
         height: 50px;
-        margin-top: 35px;
         width: 100%;
-        border-radius: 0px;
         margin-left: 0px;
         text-decoration: none;
     }

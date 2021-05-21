@@ -1,0 +1,36 @@
+.extra-content{
+    padding-left: 4%;
+    display: flex;
+    margin-left: 64px;
+    height: 86.7%;
+}
+
+.extra-left-side{
+    width: 86%;
+    border-right: 1px solid #EEEEEE;
+    margin-top: 32px;
+}
+
+.color-header{
+    font-family: "Roboto-Regular";
+    list-style: none;
+    margin-bottom: 18px;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 16px;
+    color: #121212;
+}
+
+.data-header{
+    font-family: "Roboto-Regular";
+    list-style: none;
+    margin-bottom: 18px;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 16px;
+    color: #121212;
+}
+
+.data-input-form{
+    margin-top: 32px;
+}

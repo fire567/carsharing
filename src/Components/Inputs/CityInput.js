@@ -6,7 +6,6 @@ import exitBtn from "../../assets/exitBtn.svg";
 const CityInput = ({ setTown, citiesReducer, changeTown, setAdress, points }) => {
     const [ activeSelector, setActiveSelector ] = useState(false);
     const [arr, setArr ] = useState([])
-    const ref = useRef();
     localStorage.setItem('city', `${setTown}`)
 
     useEffect(() => {
@@ -16,13 +15,11 @@ const CityInput = ({ setTown, citiesReducer, changeTown, setAdress, points }) =>
       }, [setTown])
 
     window.addEventListener('click', (event) => {
-        if(event.target.className != null && ref.current.className != null){
-        if(event.target.className !== ref.current.className){
+        if(event.target.className !== "loc-input"){
             setActiveSelector(false)
         }
         else{
             setActiveSelector(true)
-        }
         }
       });
 
@@ -103,7 +100,6 @@ const CityInput = ({ setTown, citiesReducer, changeTown, setAdress, points }) =>
                             value={localStorage.getItem('city')} 
                             onChange={(e) => currentTown(e)}
                             onClick={() => inputClickHandler(true)}
-                            ref={ref}
                         >
                         </input>
                         {setTown.length > 0 ? 

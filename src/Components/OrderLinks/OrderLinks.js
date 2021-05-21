@@ -1,47 +1,72 @@
 import React, { useState } from "react";
+import {Link} from "react-router-dom";
+import { connect } from "react-redux";
 import triangle from "../../assets/triangle.svg";
 import "./OrderLinks.css";
+import Links from "../Menu/Links/Links";
 
 
-const OrderLinks = () => {
-    const [activeLink, setActiveLink ] = useState(0)
+const OrderLinks = ({ setLocInfo, activeLink, setCar }) => {
     const links = [
-        {id: 0, value: "Местоположение"},
-        {id: 1, value: "Модель"},
-        {id: 2, value: "Дополнительно"},
+        {id: 0, value: "Местоположение", link: "/carsharing/order-page/loc"},
+        {id: 1, value: "Модель", link: "/carsharing/order-page/model"},
+        {id: 2, value: "Дополнительно", link: "/carsharing/order-page/extraopt"},
         {id: 3, value: "Итого"},
     ];
 
-    const activeItem = (id) => {
-        setActiveLink(id)
-    }
-
     const showLinks = () => {
         return links.map((link) => {
-            if(link.id === activeLink){
+            if( setLocInfo === 1 && setCar){
+                if(link.id === 0 || link.id === 1 || link.id === 2){
                 return(
                     <div className="order-links" key={link.id}>
-                        <button 
-                            className={"order-link-active"} 
-                            onClick={() => activeItem(link.id)}
-                            >
-                            {link.value}
-                        </button>
+                        <Link to={link.link}>
+                            <button 
+                                className={link.id === activeLink  ? "order-link-active" : "order-link-avalible"} 
+                                >
+                                {link.value}
+                            </button>
+                        </Link>
                         <div className={link.id === links.length - 1 ? "triangle-hidden" : "triangle"}>
                             <img className="triangle-pic" src={triangle} />
                         </div>
                     </div>
                 )
+                }
+            }
+            else if( setLocInfo === 1){
+                if(link.id === 0 || link.id === 1){
+                return(
+                    <div className="order-links" key={link.id}>
+                        <Link to={link.link}>
+                            <button 
+                                className={link.id === activeLink  ? "order-link-active" : "order-link-avalible"} 
+                                >
+                                {link.value}
+                            </button>
+                        </Link>
+                        <div className={link.id === links.length - 1 ? "triangle-hidden" : "triangle"}>
+                            <img className="triangle-pic" src={triangle} />
+                        </div>
+                    </div>
+                )
+                }
             }
             return (
                 <div className="order-links" key={link.id}>
+                    {link.id === 0 ? 
+                        <button 
+                            className={"order-link-active"} 
+                            >
+                            {link.value}
+                        </button> : 
                         <button 
                             disabled={"disabled"}
                             className={"order-link"} 
-                            onClick={() => activeItem(link.id)}
                             >
                             {link.value}
                         </button>
+                    }
                         <div className={link.id === links.length - 1 ? "triangle-hidden" : "triangle"}>
                             <img className="triangle-pic" src={triangle} />
                         </div>
@@ -59,4 +84,14 @@ const OrderLinks = () => {
     )
 }
 
-export default OrderLinks;
+const mapStateToProps = (state) => {
+    return{
+        setTown: state.setTown,
+        setAdress: state.setAdress,
+        points: state.points,
+        setLocInfo: state.setLocInfo,
+        setCar: state.setCar,
+    }
+}
+
+export default connect(mapStateToProps)(OrderLinks);

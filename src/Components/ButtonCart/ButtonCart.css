@@ -1,0 +1,31 @@
+.cart-form{
+    display: none;
+}
+
+@media (max-width: 1024px) {
+    .cart-form {
+        display: flex;
+        align-items: flex-end;
+        width: 58px;
+        height: 48px;
+        background-color: #0EC261;
+        border-radius: 10px;
+        outline: none;
+        border: none;
+        margin-right: 15px;
+    }
+  }
+
+.cart-form:hover{
+    filter: brightness(90%);
+    cursor: pointer;
+}
+
+.cart-form:active{
+    filter: brightness(80%);
+}
+
+.cart-pic{
+    width: 30px;
+}
+

@@ -1,14 +1,15 @@
 import React from "react";
 import OrderInf from "../../../Components/OrderInf/OrderInf";
 import Map from "../../../Components/Map/Map";
-import { changeAdress} from "../../../Components/actions/index";
-import { connect } from "react-redux";
 import CityInput from "../../../Components/Inputs/CityInput";
 import AddressInput from "../../../Components/Inputs/AddressInput";
+import ButtonCart from "../../../Components/ButtonCart/ButtonCart";
+import Button from "../../../Components/Button/Button";
+import { connect } from "react-redux";
 import "./Location.css";
 
-const Location = () => {
-
+const Location = ({ setLocInfo }) => {
+    console.log(setLocInfo)
     return(
         <div className="loc-content">
             <div className="loc-left-side">
@@ -17,6 +18,11 @@ const Location = () => {
                     <AddressInput />
                 </div>
                 <Map />
+                <div className="sized-loc-btn-form">
+                    <ButtonCart />
+                    {setLocInfo != 0 ? <Button text={"Выбрать модель"} width={"100%"} activeBTN={"order-btn"} disabled={""}/> : 
+                        <Button text={"Выбрать модель"} width={"100%"} activeBTN={"unactive-btn"} disabled={"disabled"}/>}
+                </div>
             </div>
             <OrderInf />
         </div>
@@ -25,11 +31,9 @@ const Location = () => {
 
 const mapStateToProps = (state) => {
     return{
-        setAdress: state.setAdress,
-        points: state.points
+        setLocInfo: state.setLocInfo
     }
 }
 
-export default connect(mapStateToProps, {
-    changeAdress: changeAdress,
-})(Location);
+
+export default connect(mapStateToProps)(Location);

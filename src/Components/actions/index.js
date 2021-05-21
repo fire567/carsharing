@@ -29,6 +29,17 @@ export const fetchPoints = () => {
     }
 }
 
+export const fetchCars = () => {
+    return async (dispatch) => {
+        const response = await API.get(`car/`);
+
+        dispatch({
+            type: 'FETCH_CARS',
+            payload: response.data,
+        })
+    }
+}
+
 export const changeTown = (town) => {
     return{
         type: "SET_TOWN",
@@ -40,5 +51,33 @@ export const changeAdress = (adress) => {
     return{
         type: "SET_ADRESS",
         payload: adress,
+    }
+}
+
+export const locInfo = (info) => {
+    return{
+        type: "SET_LOCINFO",
+        payload: info,
+    }
+}
+
+export const changeCategory = (category) => {
+    return{
+        type: "SET_CATEGORY",
+        payload: category,
+    }
+}
+
+export const chooseCar = (car) => {
+    return{
+        type: "SET_CAR",
+        payload: car,
+    }
+}
+
+export const showCart = (active) => {
+    return{
+        type: "SHOW_CART",
+        payload: active,
     }
 }
