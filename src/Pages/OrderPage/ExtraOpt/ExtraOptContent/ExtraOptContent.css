@@ -5,10 +5,41 @@
     height: 86.7%;
 }
 
+@media (max-width: 1024px) {
+    .extra-content {
+        display: block;
+        margin-left: 85.77px;
+    }
+}
+
+@media (max-width: 550px) {
+    .extra-content {
+        display: block;
+        margin-left: 0px;
+        padding-left: 0px;
+    }
+}
+
 .extra-left-side{
     width: 86%;
     border-right: 1px solid #EEEEEE;
     margin-top: 32px;
+}
+
+@media (max-width: 1024px) {
+    .extra-left-side {
+        width: 100%;
+    }
+}
+
+@media (max-width: 550px) {
+    .extra-left-side {
+        width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        border: none;
+        margin-top: 4%;
+    }
 }
 
 .color-header{
@@ -21,6 +52,12 @@
     color: #121212;
 }
 
+@media (max-width: 550px) {
+    .color-header {
+        margin-bottom: 2%;
+    }
+}
+
 .data-header{
     font-family: "Roboto-Regular";
     list-style: none;
@@ -31,6 +68,90 @@
     color: #121212;
 }
 
-.data-input-form{
+@media (max-width: 550px) {
+    .data-header {
+        margin-bottom: 2%;
+    }
+}
+
+.tariff-header{
+    font-family: "Roboto-Regular";
+    list-style: none;
+    margin-bottom: 18px;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 16px;
+    color: #121212;
+}
+
+@media (max-width: 550px) {
+    .tariff-header {
+        margin-bottom: 2%;
+    }
+}
+
+.tariff-form{
     margin-top: 32px;
 }
+
+@media (max-width: 550px) {
+    .tariff-form {
+        margin-top: 6%;
+    }
+}
+
+
+.data-input-form{
+    margin-top: 32px;
+    width: fit-content;
+}
+
+@media (max-width: 550px) {
+    .data-input-form {
+        margin-top: 6%;
+    }
+}
+
+
+.extra-form{
+    margin-top: 32px;
+}
+
+@media (max-width: 550px) {
+    .extra-form {
+        margin-top: 6%;
+    }
+}
+
+.input-date-form{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.input-date-form:not(:first-child){
+    margin-top: 9px;
+}
+
+.data-input{
+    width: 224px;
+    margin-left: 10px;
+    border: none;
+    border-bottom: 1px solid #999999;
+    outline:none;
+}
+
+.data-input::-webkit-calendar-picker-indicator{
+    display: none;
+}
+
+.reset-data-btn{
+    position: absolute;
+    border: none;
+    outline: none;
+    background-color: white;
+}
+
+.since-date{
+    padding-top: 4px;
+}
+

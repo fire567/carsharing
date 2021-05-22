@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import {changeAdress} from "../actions/index";
 import exitBtn from "../../assets/exitBtn.svg";

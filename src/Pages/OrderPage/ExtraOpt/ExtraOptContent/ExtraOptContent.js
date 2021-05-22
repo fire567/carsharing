@@ -2,14 +2,29 @@ import React from "react";
 import OrderInf from "../../../../Components/OrderInf/OrderInf";
 import exitBtn from "../../../../assets/exitBtn.svg";
 import RadioInputModel from "../../../../Components/RadioInputModel/RadioInputModel";
+import CheckboxInput from "../../../../Components/CheckboxInput/CheckboxInput";
+import ButtonCart from "../../../../Components/ButtonCart/ButtonCart";
+import Button from "../../../../Components/Button/Button";
+import { connect } from "react-redux";
 import "./ExtraOptContent.css";
 
 
-const ModelContent = () => {
-    const radioInputs = [
+const ModelContent = ({ setLocInfo }) => {
+    const radioInputsFlex = [
         {id: 0, value: "Любой", category: null },
         {id: 1, value: "Красный", category: "Красный"},
         {id: 2, value: "Голубой", category: "Голубой"},
+    ]
+
+    const radioInputsBlock = [
+        {id: 0, value: "Поминутно, 7₽/мин"},
+        {id: 1, value: "На сутки, 1999₽/сутки"},
+    ]
+
+    const extraOptions = [
+        {id: 0, value: "Полный бак, 500р"},
+        {id: 1, value: "Детское кресло, 200р"},
+        {id: 2, value: "Правый руль, 1600р"},
     ]
 
     return(
@@ -17,24 +32,49 @@ const ModelContent = () => {
             <div className="extra-left-side">
                 <div className="color-pic-form">
                     <li className="color-header">Цвет</li>
-                    <RadioInputModel radioInputs={radioInputs}/>
+                    <RadioInputModel radioInputs={radioInputsFlex} style={"flex"} indent={"radio-input"}/>
                 </div>
                 <div className="data-input-form">
                 <li className="data-header">Дата аренды</li>
-                <form className="input-form">
-                        <div className="town-name">С </div>
+                <form className="input-date-form">
+                        <div className="since-date">С </div>
                         <input 
-                            type="text" 
-                            placeholder="Начните вводить пункт ..." 
-                            className="address-loc-input" 
-                            value={localStorage.getItem('address')} 
+                            type="datetime-local" 
+                            placeholder="Введите дату и время ..." 
+                            className="data-input" 
                         >
                         </input>
                         
-                            <button type="reset" className="reset-btn">
+                            <button type="reset" className="reset-data-btn">
                                 <img src={`${exitBtn}`}  />
                             </button> 
                 </form>
+                <form className="input-date-form">
+                        <div className="since-date">По </div>
+                        <input 
+                            type="datetime-local" 
+                            placeholder="Введите дату и время ..." 
+                            className="data-input" 
+                        >
+                        </input>
+                        
+                            <button type="reset" className="reset-data-btn">
+                                <img src={`${exitBtn}`}  />
+                            </button> 
+                </form>
+                </div>
+                <div className="tariff-form">
+                    <li className="tariff-header">Тарифы</li>
+                        <RadioInputModel radioInputs={radioInputsBlock} style={"block"} indent={"radio-no-indent"}/>
+                    </div>
+                <div className="extra-form">
+                    <li className="tariff-header">Доп услуги</li>
+                        <CheckboxInput option={extraOptions}/>
+                </div>
+                <div className="sized-loc-btn-form">
+                    <ButtonCart />
+                    {setLocInfo != 0 ? <Button text={"Выбрать модель"} width={"100%"} activeBTN={"order-btn"} disabled={""}/> : 
+                        <Button text={"Выбрать модель"} width={"100%"} activeBTN={"unactive-btn"} disabled={"disabled"}/>}
                 </div>
             </div>
             <OrderInf />
@@ -42,4 +82,10 @@ const ModelContent = () => {
     )
 }
 
-export default ModelContent;
+const mapStateToProps = (state) => {
+    return{
+        setLocInfo: state.setLocInfo
+    }
+}
+
+export default connect(mapStateToProps)(ModelContent);

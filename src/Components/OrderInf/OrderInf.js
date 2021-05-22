@@ -73,8 +73,8 @@ const OrderInf = ({ setTown, points, setAdress, locInfo, fetchPoints, setCar, se
                     Ваш заказ:
                 </div>
                 {points.data === undefined ? "Loading..." : showPointInf()}
-                {setCar.name != "" && setLocInfo === 1 ? showModelInf() : null}
-                {setCar.name != "" && setLocInfo === 1 ? 
+                {setCar.name != null && setLocInfo === 1 ? showModelInf() : null}
+                {setCar.name != null && setLocInfo === 1 ? 
                     <div className="price-block">
                         <div className="price-name">
                             Цена:
@@ -86,7 +86,7 @@ const OrderInf = ({ setTown, points, setAdress, locInfo, fetchPoints, setCar, se
                 }
             
             <div className="loc-btn-form">
-                {arr.length != 0 ? <Button text={"Выбрать модель"} width={"100%"} activeBTN={"order-btn"} disabled={""}/> : 
+                {arr != null && arr.length != 0 ? <Button text={"Выбрать модель"} width={"100%"} activeBTN={"order-btn"} disabled={""}/> : 
                     <Button text={"Выбрать модель"} width={"100%"} activeBTN={"unactive-btn"} disabled={"disabled"}/>}
             </div>
             </div>

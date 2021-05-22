@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import {ReactSVG} from "react-svg";
 import radioDefault from "../../assets/radioDefault.svg";
 import radioActive from "../../assets/radioActive.svg";
@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import { changeCategory } from "../actions/index";
 import "./RadioInputModel.css";
 
-const RadioInputModel = ({ changeCategory, radioInputs }) => {
+const RadioInputModel = ({ changeCategory, radioInputs, style, indent }) => {
     const [ radio, setRadio ] = useState(0);
 
     const activeRadio = (id, category) => {
@@ -15,9 +15,9 @@ const RadioInputModel = ({ changeCategory, radioInputs }) => {
     }
 
     return (
-        <div className="radio-input-form">
+        <div className="radio-input-form" style={{display: `${style}`}}>
             {radioInputs.map((item) => (
-                <div className="radio-input" key={item.id}>
+                <div className={indent} key={item.id}>
                     {radio === item.id ? 
                         <ReactSVG src={radioActive} className="radio-pic" onClick={() => activeRadio(item.id, item.category)} alt="radio"/> :
                         <ReactSVG src={radioDefault} className="radio-pic" onClick={() => activeRadio(item.id, item.category)} alt="radio"/>

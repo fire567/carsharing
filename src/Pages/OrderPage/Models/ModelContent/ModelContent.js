@@ -18,7 +18,7 @@ const ModelContent = ({ setLocInfo }) => {
     return(
         <div className="model-content">
             <div className="model-left-side">
-                <RadioInputModel radioInputs={radioInputs}/>
+                <RadioInputModel radioInputs={radioInputs} style={"flex"} indent={"radio-input"}/>
                 <CarList />
                 <div className="sized-loc-btn-form">
                     <ButtonCart />
