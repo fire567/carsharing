@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState, useEffect} from "react";
 import {ReactSVG} from "react-svg";
 import radioDefault from "../../assets/radioDefault.svg";
 import radioActive from "../../assets/radioActive.svg";
@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import { changeCategory } from "../actions/index";
 import "./RadioInputModel.css";
 
-const RadioInputModel = ({ changeCategory, radioInputs, style, indent }) => {
+const RadioInputModel = ({ changeCategory, radioInputs, style, indent, setCar }) => {
     const [ radio, setRadio ] = useState(0);
 
     const activeRadio = (id, category) => {
@@ -16,7 +16,8 @@ const RadioInputModel = ({ changeCategory, radioInputs, style, indent }) => {
 
     return (
         <div className="radio-input-form" style={{display: `${style}`}}>
-            {radioInputs.map((item) => (
+            {radioInputs ?
+            radioInputs.map((item) => (
                 <div className={indent} key={item.id}>
                     {radio === item.id ? 
                         <ReactSVG src={radioActive} className="radio-pic" onClick={() => activeRadio(item.id, item.category)} alt="radio"/> :
@@ -26,11 +27,17 @@ const RadioInputModel = ({ changeCategory, radioInputs, style, indent }) => {
                         {item.value}
                     </li>
                 </div>
-            ))}
+            )) : null}
         </div>
     );
 };
 
-export default connect(null, {
+const mapStateToProps = (state) => {
+    return{
+        setCar: state.setCar
+    }
+}
+
+export default connect(mapStateToProps, {
     changeCategory:changeCategory,
 })(RadioInputModel);

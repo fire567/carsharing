@@ -9,6 +9,7 @@ import setLocInfo from "./setLocInfo";
 import setCategory from "./setCategory";
 import setCar from "./setCar";
 import cartReducer from "./cartReducer";
+import setColor from "./setColor";
 
 
 export default combineReducers({
@@ -22,4 +23,5 @@ export default combineReducers({
     category: setCategory,
     setCar: setCar,
     cartReducer: cartReducer,
+    setColor: setColor,
 })

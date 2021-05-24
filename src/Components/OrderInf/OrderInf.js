@@ -1,25 +1,25 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import Button from "../Button/Button";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { locInfo, chooseCar } from "../actions/index";
 import { fetchPoints } from "../../Components/actions/index";
-import ButtonCart from "../../Components/ButtonCart/ButtonCart";
 import "./OrderInf.css";
-import cartReducer from "../reducers/cartReducer";
 
-const OrderInf = ({ setTown, points, setAdress, locInfo, fetchPoints, setCar, setLocInfo, cartReducer }) => {
-    const [ arr, setArr ] = useState(JSON.parse(localStorage.getItem('locInf')))
-    localStorage.setItem('locInf', JSON.stringify(arr))
+const OrderInf = ({ setTown, points, setAdress, locInfo, fetchPoints, setCar, setLocInfo, cartReducer, buttonName, chooseCar, activeBTN, link, setColor}) => {
     localStorage.setItem('car', JSON.stringify(setCar))
-
+    localStorage.setItem('color', JSON.stringify(setColor))
 
     useEffect(() => {
         fetchPoints()
         if(points.data != undefined){
-        setArr(points.data.filter((point) => point.cityId != null && point.cityId.name === setTown &&  point.address === setAdress))
-        locInfo(points.data.filter((point) => point.cityId != null && point.cityId.name === setTown &&  point.address === setAdress).length)
+        locInfo(points.data.filter((point) => point.cityId != null && point.cityId.name === setTown &&  point.address === setAdress))
+            if(setLocInfo.length === 0){
+                //alert("dfg")
+                chooseCar([])
+            }
         }
-      }, [setTown, setAdress])
+      }, [setTown, setAdress, setLocInfo.length ])
 
 
     
@@ -63,8 +63,21 @@ const OrderInf = ({ setTown, points, setAdress, locInfo, fetchPoints, setCar, se
             </div>
         )
     }
-    
-    
+
+    const showColorInf = () => {
+        return (
+            <div className="item-form">
+                <div className="item-name">
+                    Цвет
+                </div>
+                <div className="item-line">
+                </div>
+                <div className="item-value">
+                        {setColor}
+                </div>
+            </div>
+        )
+    }
 
     return(
         <div className="loc-right-side">
@@ -72,9 +85,10 @@ const OrderInf = ({ setTown, points, setAdress, locInfo, fetchPoints, setCar, se
                 <div className="order-text">
                     Ваш заказ:
                 </div>
-                {points.data === undefined ? "Loading..." : showPointInf()}
-                {setCar.name != null && setLocInfo === 1 ? showModelInf() : null}
-                {setCar.name != null && setLocInfo === 1 ? 
+                {points.data === undefined ? null : showPointInf()}
+                {setCar.name != null && setLocInfo != [] ? showModelInf() : null}
+                {setColor != null && setLocInfo != [] ? showColorInf() : null}
+                {setCar.name != null && setLocInfo != 1 ? 
                     <div className="price-block">
                         <div className="price-name">
                             Цена:
@@ -86,8 +100,8 @@ const OrderInf = ({ setTown, points, setAdress, locInfo, fetchPoints, setCar, se
                 }
             
             <div className="loc-btn-form">
-                {arr != null && arr.length != 0 ? <Button text={"Выбрать модель"} width={"100%"} activeBTN={"order-btn"} disabled={""}/> : 
-                    <Button text={"Выбрать модель"} width={"100%"} activeBTN={"unactive-btn"} disabled={"disabled"}/>}
+                {activeBTN != 0 && activeBTN != undefined ? <Link to = {link}><Button text={`${buttonName}`} width={"100%"} activeBTN={"order-btn"} disabled={""}/></Link> : 
+                    <Button text={`${buttonName}`} width={"100%"} activeBTN={"unactive-btn"} disabled={"disabled"}/>}
             </div>
             </div>
         </div>
@@ -102,6 +116,7 @@ const mapStateToProps = (state) => {
         setCar: state.setCar,
         setLocInfo: state.setLocInfo,
         cartReducer: state.cartReducer,
+        setColor: state.setColor,
     }
 }
 

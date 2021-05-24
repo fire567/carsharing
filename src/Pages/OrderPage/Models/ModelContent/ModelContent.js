@@ -8,7 +8,9 @@ import Button from "../../../../Components/Button/Button";
 import "./ModelContent.css";
 
 
-const ModelContent = ({ setLocInfo }) => {
+const ModelContent = ({ setLocInfo, setCar }) => {
+    //console.log(setCar)
+    
     const radioInputs = [
         {id: 0, value: "Все модели", category: null },
         {id: 1, value: "Эконом", category: "Эконом"},
@@ -22,18 +24,19 @@ const ModelContent = ({ setLocInfo }) => {
                 <CarList />
                 <div className="sized-loc-btn-form">
                     <ButtonCart />
-                    {setLocInfo != 0 ? <Button text={"Выбрать модель"} width={"100%"} activeBTN={"order-btn"} disabled={""}/> : 
-                        <Button text={"Выбрать модель"} width={"100%"} activeBTN={"unactive-btn"} disabled={"disabled"}/>}
+                    {setLocInfo != 0 ? <Button text={"Дополнительно"} width={"100%"} activeBTN={"order-btn"} disabled={""}/> : 
+                        <Button text={"Дополнительно"} width={"100%"} activeBTN={"unactive-btn"} disabled={"disabled"}/>}
                 </div>
             </div>
-            <OrderInf />
+            <OrderInf buttonName={"Дополнительно"} activeBTN={setCar} link={"/carsharing/order-page/extraopt"}/>
         </div>
     )
 }
 
 const mapStateToProps = (state) => {
     return{
-        setLocInfo: state.setLocInfo
+        setLocInfo: state.setLocInfo,
+        setCar: state.setCar,
     }
 }
 

@@ -9,7 +9,8 @@ import { connect } from "react-redux";
 import "./Location.css";
 
 const Location = ({ setLocInfo }) => {
-    console.log(setLocInfo)
+    localStorage.setItem('locInf', JSON.stringify(setLocInfo))
+
     return(
         <div className="loc-content">
             <div className="loc-left-side">
@@ -24,7 +25,7 @@ const Location = ({ setLocInfo }) => {
                         <Button text={"Выбрать модель"} width={"100%"} activeBTN={"unactive-btn"} disabled={"disabled"}/>}
                 </div>
             </div>
-            <OrderInf />
+            <OrderInf buttonName={"Выбрать модель"} activeBTN={setLocInfo.length} link={"/carsharing/order-page/model"}/>
         </div>
     );
 };

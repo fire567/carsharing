@@ -10,7 +10,7 @@ import OrderMenu from "../../Components/OrderMunu/OrderMenu";
 import {fetchCities, fetchPoints } from "../../Components/actions/index";
 import "./OrderPage.css";
 
-const OrderPage = ({ fetchPoints, fetchCities, cartReducer }) => {
+const OrderPage = ({ fetchPoints, fetchCities }) => {
     const [switchMenu, setSwitchMenu ] = useState(false);
 
     useEffect(() => {

@@ -81,3 +81,10 @@ export const showCart = (active) => {
         payload: active,
     }
 }
+
+export const chooseColor = (color) => {
+    return{
+        type: "SET_COLOR",
+        payload: color,
+    }
+}

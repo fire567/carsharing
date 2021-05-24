@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import {Link} from "react-router-dom";
 import { connect } from "react-redux";
 import triangle from "../../assets/triangle.svg";
 import "./OrderLinks.css";
-import Links from "../Menu/Links/Links";
 
 
 const OrderLinks = ({ setLocInfo, activeLink, setCar }) => {
@@ -16,7 +15,7 @@ const OrderLinks = ({ setLocInfo, activeLink, setCar }) => {
 
     const showLinks = () => {
         return links.map((link) => {
-            if( setLocInfo === 1 && setCar){
+            if( setLocInfo.length === 1 && setCar != 0){
                 if(link.id === 0 || link.id === 1 || link.id === 2){
                 return(
                     <div className="order-links" key={link.id}>
@@ -34,7 +33,7 @@ const OrderLinks = ({ setLocInfo, activeLink, setCar }) => {
                 )
                 }
             }
-            else if( setLocInfo === 1){
+            else if( setLocInfo.length === 1){
                 if(link.id === 0 || link.id === 1){
                 return(
                     <div className="order-links" key={link.id}>

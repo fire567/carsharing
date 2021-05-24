@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import {Img} from 'react-image'
 import { fetchCars } from "../actions/index";
 import { chooseCar } from "../actions/index";
 import "./CarList.css";
@@ -20,8 +19,6 @@ const CarList = ({cars, fetchCars, category, chooseCar, setCar }) => {
         setActiveCar(car.id)
         chooseCar(car)
     }
-
-    //<Img src={`${car.thumbnail.path}`} className="car-pic" alt="cars"/>
 
     const showCars = () => {
         if(cars.data != undefined ){

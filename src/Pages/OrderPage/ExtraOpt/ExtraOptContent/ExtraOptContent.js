@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import OrderInf from "../../../../Components/OrderInf/OrderInf";
 import exitBtn from "../../../../assets/exitBtn.svg";
 import RadioInputModel from "../../../../Components/RadioInputModel/RadioInputModel";
+import RadioInputColor from "../../../../Components/radioInputColor/radioInputColor";
 import CheckboxInput from "../../../../Components/CheckboxInput/CheckboxInput";
 import ButtonCart from "../../../../Components/ButtonCart/ButtonCart";
 import Button from "../../../../Components/Button/Button";
@@ -10,11 +11,6 @@ import "./ExtraOptContent.css";
 
 
 const ModelContent = ({ setLocInfo }) => {
-    const radioInputsFlex = [
-        {id: 0, value: "Любой", category: null },
-        {id: 1, value: "Красный", category: "Красный"},
-        {id: 2, value: "Голубой", category: "Голубой"},
-    ]
 
     const radioInputsBlock = [
         {id: 0, value: "Поминутно, 7₽/мин"},
@@ -32,7 +28,7 @@ const ModelContent = ({ setLocInfo }) => {
             <div className="extra-left-side">
                 <div className="color-pic-form">
                     <li className="color-header">Цвет</li>
-                    <RadioInputModel radioInputs={radioInputsFlex} style={"flex"} indent={"radio-input"}/>
+                        <RadioInputColor style={"flex"} indent={"radio-input"}/>
                 </div>
                 <div className="data-input-form">
                 <li className="data-header">Дата аренды</li>
@@ -73,18 +69,19 @@ const ModelContent = ({ setLocInfo }) => {
                 </div>
                 <div className="sized-loc-btn-form">
                     <ButtonCart />
-                    {setLocInfo != 0 ? <Button text={"Выбрать модель"} width={"100%"} activeBTN={"order-btn"} disabled={""}/> : 
-                        <Button text={"Выбрать модель"} width={"100%"} activeBTN={"unactive-btn"} disabled={"disabled"}/>}
+                    {setLocInfo != 0 ? <Button text={"Итого"} width={"100%"} activeBTN={"order-btn"} disabled={""}/> : 
+                        <Button text={"Итого"} width={"100%"} activeBTN={"unactive-btn"} disabled={"disabled"}/>}
                 </div>
             </div>
-            <OrderInf />
+            <OrderInf buttonName={"Итого"}/>
         </div>
     )
 }
 
 const mapStateToProps = (state) => {
     return{
-        setLocInfo: state.setLocInfo
+        setLocInfo: state.setLocInfo,
+        setCar: state.setCar
     }
 }
 
