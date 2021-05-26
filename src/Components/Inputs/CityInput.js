@@ -6,7 +6,7 @@ import exitBtn from "../../assets/exitBtn.svg";
 const CityInput = ({ setTown, citiesReducer, changeTown, setAdress, points }) => {
     const [ activeSelector, setActiveSelector ] = useState(false);
     const [arr, setArr ] = useState([])
-    localStorage.setItem('city', `${setTown}`)
+    
 
     useEffect(() => {
         if(citiesReducer.data != undefined){
@@ -65,7 +65,7 @@ const CityInput = ({ setTown, citiesReducer, changeTown, setAdress, points }) =>
     }
 
     const showCitySelector = () => {
-        if(arr.length === 0 && setTown.length >= 2){
+        if(arr.length === 0 && setTown != null && setTown.length >= 2){
             return null
         }else if(setAdress.length === 0 && setTown.length >= 2 && activeSelector){
             return(
@@ -79,7 +79,7 @@ const CityInput = ({ setTown, citiesReducer, changeTown, setAdress, points }) =>
                 {citiesReducer.data === undefined ? "Loading..." : citySelector()}
             </div>
             )
-        }else if(setAdress.length >= 2 && setTown.length === 0){
+        }else if(setAdress.length >= 2 && setTown != null && setTown.length === 0){
             return(
                 <div className="selector" onClick={() => inputClickHandler(false)}>
                     {citiesReducer.data === undefined && points.data === undefined ? "Loading..." : cityAutoFill()}
@@ -97,7 +97,7 @@ const CityInput = ({ setTown, citiesReducer, changeTown, setAdress, points }) =>
                             type="text" 
                             placeholder="Начните вводить город ..." 
                             className="loc-input" 
-                            value={localStorage.getItem('city')} 
+                            value={setTown} 
                             onChange={(e) => currentTown(e)}
                             onClick={() => inputClickHandler(true)}
                         >

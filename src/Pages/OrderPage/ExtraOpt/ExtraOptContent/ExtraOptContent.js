@@ -1,27 +1,36 @@
 import React, { useState, useEffect } from "react";
 import OrderInf from "../../../../Components/OrderInf/OrderInf";
 import exitBtn from "../../../../assets/exitBtn.svg";
-import RadioInputModel from "../../../../Components/RadioInputModel/RadioInputModel";
+import RadioInputTariff from "../../../../Components/RadioInputTariff/RadioInputTariff";
 import RadioInputColor from "../../../../Components/radioInputColor/radioInputColor";
 import CheckboxInput from "../../../../Components/CheckboxInput/CheckboxInput";
 import ButtonCart from "../../../../Components/ButtonCart/ButtonCart";
 import Button from "../../../../Components/Button/Button";
+import {chooseSinceDate, chooseEndDate} from "../../../../Components/actions/index";
 import { connect } from "react-redux";
+import DatePicker from "react-datepicker";
 import "./ExtraOptContent.css";
+import "react-datepicker/dist/react-datepicker.css";
 
 
-const ModelContent = ({ setLocInfo }) => {
+const ModelContent = ({ setLocInfo, chooseSinceDate, setSinceDate, chooseEndDate, setEndDate, setColor, setTariff, setOption }) => {
+    const [ diff, setDiff ] = useState(null);
+    const [ activeBTN, setActiveBTN] = useState(0)
+    var hour = 1000 * 60 * 60;
+    var hours = Math.floor(diff/hour)
+    var days = Math.floor(hours/24);
+    var curHours = Math.floor(days * 24 - hours)
 
-    const radioInputsBlock = [
-        {id: 0, value: "Поминутно, 7₽/мин"},
-        {id: 1, value: "На сутки, 1999₽/сутки"},
-    ]
+    useEffect(() => {
+        if(setSinceDate !== null && setEndDate !== null){
+            setDiff(Math.floor(setEndDate - setSinceDate))
+        }
+        if(setColor !== null && setTariff !== "" && setOption !== "" && setSinceDate !== null && setEndDate !== null){
+            setActiveBTN(1);
+        }
+    }, [setSinceDate, setEndDate, setColor, setTariff, setOption])
 
-    const extraOptions = [
-        {id: 0, value: "Полный бак, 500р"},
-        {id: 1, value: "Детское кресло, 200р"},
-        {id: 2, value: "Правый руль, 1600р"},
-    ]
+    console.log(days)
 
     return(
         <div className="extra-content">
@@ -34,38 +43,46 @@ const ModelContent = ({ setLocInfo }) => {
                 <li className="data-header">Дата аренды</li>
                 <form className="input-date-form">
                         <div className="since-date">С </div>
-                        <input 
-                            type="datetime-local" 
-                            placeholder="Введите дату и время ..." 
-                            className="data-input" 
-                        >
-                        </input>
-                        
-                            <button type="reset" className="reset-data-btn">
+                        <DatePicker 
+                            selected={setSinceDate} 
+                            onChange={(e) => chooseSinceDate(e)} 
+                            dateFormat={"dd.MM.yyyy HH:mm"}
+                            minDate={new Date()}
+                            showTimeSelect
+                            timeFormat={"HH:mm"}
+                            className="data-input"
+                            placeholderText="Введите дату и время ..."
+                        />
+                            <button type="reset" className="reset-data-btn" onClick={() => chooseSinceDate(null)}>
                                 <img src={`${exitBtn}`}  />
                             </button> 
                 </form>
                 <form className="input-date-form">
                         <div className="since-date">По </div>
-                        <input 
-                            type="datetime-local" 
-                            placeholder="Введите дату и время ..." 
-                            className="data-input" 
-                        >
-                        </input>
-                        
-                            <button type="reset" className="reset-data-btn">
+                        <DatePicker 
+                            selected={setEndDate} 
+                            onChange={(e) => chooseEndDate(e)} 
+                            dateFormat={"dd.MM.yyyy HH:mm"}
+                            minDate={setSinceDate}
+                            showTimeSelect
+                            timeFormat={"HH:mm"}
+                            className="data-input"
+                            placeholderText="Введите дату и время ..."
+                        />
+                            <button type="reset" className="reset-data-btn" onClick={() => chooseEndDate(null)}>
                                 <img src={`${exitBtn}`}  />
                             </button> 
                 </form>
+                <div>
+                </div>
                 </div>
                 <div className="tariff-form">
                     <li className="tariff-header">Тарифы</li>
-                        <RadioInputModel radioInputs={radioInputsBlock} style={"block"} indent={"radio-no-indent"}/>
+                        <RadioInputTariff style={"block"} indent={"radio-no-indent"}/>
                     </div>
                 <div className="extra-form">
                     <li className="tariff-header">Доп услуги</li>
-                        <CheckboxInput option={extraOptions}/>
+                        <CheckboxInput />
                 </div>
                 <div className="sized-loc-btn-form">
                     <ButtonCart />
@@ -73,7 +90,7 @@ const ModelContent = ({ setLocInfo }) => {
                         <Button text={"Итого"} width={"100%"} activeBTN={"unactive-btn"} disabled={"disabled"}/>}
                 </div>
             </div>
-            <OrderInf buttonName={"Итого"}/>
+            <OrderInf buttonName={"Итого"} days={days} hours={curHours} activeBTN={activeBTN}/>
         </div>
     )
 }
@@ -81,8 +98,16 @@ const ModelContent = ({ setLocInfo }) => {
 const mapStateToProps = (state) => {
     return{
         setLocInfo: state.setLocInfo,
-        setCar: state.setCar
+        setCar: state.setCar,
+        setColor: state.setColor,
+        setSinceDate: state.setSinceDate,
+        setEndDate: state.setEndDate,
+        setTariff: state.setTariff,
+        setOption: state.setOption
     }
 }
 
-export default connect(mapStateToProps)(ModelContent);
+export default connect(mapStateToProps, {
+    chooseSinceDate: chooseSinceDate,
+    chooseEndDate: chooseEndDate
+})(ModelContent);

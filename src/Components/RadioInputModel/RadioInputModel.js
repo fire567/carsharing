@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import { changeCategory } from "../actions/index";
 import "./RadioInputModel.css";
 
-const RadioInputModel = ({ changeCategory, radioInputs, style, indent, setCar }) => {
+const RadioInputModel = ({ changeCategory, radioInputs, style, indent }) => {
     const [ radio, setRadio ] = useState(0);
 
     const activeRadio = (id, category) => {

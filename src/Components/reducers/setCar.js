@@ -1,4 +1,4 @@
-export default (car = JSON.parse(localStorage.getItem('car')), action) => {
+export default (car = {}, action) => {
     if(action.type === "SET_CAR"){
         return action.payload;
     }

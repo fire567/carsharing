@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { fetchCars } from "../actions/index";
-import { chooseCar } from "../actions/index";
+import { fetchCars, chooseCar, chooseExtra, chooseTariff, chooseColor, chooseSinceDate, chooseEndDate } from "../actions/index";
 import "./CarList.css";
 
-const CarList = ({cars, fetchCars, category, chooseCar, setCar }) => {
+const CarList = ({cars, fetchCars, category, chooseCar, setCar, chooseExtra, chooseTariff, chooseColor, chooseSinceDate, chooseEndDate }) => {
     const [ activeCar, setActiveCar ] = useState(null);
     const [ filteredCars, setFilteresCars ] = useState([])
 
@@ -18,6 +17,11 @@ const CarList = ({cars, fetchCars, category, chooseCar, setCar }) => {
     const showActiveCar = (car) => {
         setActiveCar(car.id)
         chooseCar(car)
+        chooseExtra("")
+        chooseTariff("")
+        chooseColor(null)
+        chooseSinceDate(null)
+        chooseEndDate(null)
     }
 
     const showCars = () => {
@@ -26,7 +30,7 @@ const CarList = ({cars, fetchCars, category, chooseCar, setCar }) => {
             return cars.data.map((car)=>{
                 return(
                     <div 
-                        className={setCar.id === car.id ? "car-description-form-active" : "car-description-form"} 
+                        className={setCar !== null && setCar.id === car.id ? "car-description-form-active" : "car-description-form"} 
                         key={car.id} 
                         onClick={() => showActiveCar(car)}
                         style={{background: `url(${car.thumbnail.path}) no-repeat 100% 50%`, backgroundSize: "80%"}}
@@ -83,4 +87,9 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps, {
     fetchCars: fetchCars,
     chooseCar: chooseCar,
+    chooseExtra: chooseExtra,
+    chooseTariff: chooseTariff,
+    chooseColor: chooseColor,
+    chooseSinceDate: chooseSinceDate,
+    chooseEndDate: chooseEndDate,
 })(CarList);

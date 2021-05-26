@@ -1,4 +1,4 @@
-export default (adress = localStorage.getItem('address'), action) => {
+export default (adress = "", action) => {
     if(action.type === "SET_ADRESS"){
             return action.payload;
         }

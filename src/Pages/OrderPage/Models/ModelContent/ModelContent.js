@@ -9,7 +9,6 @@ import "./ModelContent.css";
 
 
 const ModelContent = ({ setLocInfo, setCar }) => {
-    //console.log(setCar)
     
     const radioInputs = [
         {id: 0, value: "Все модели", category: null },

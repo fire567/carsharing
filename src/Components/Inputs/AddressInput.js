@@ -6,12 +6,13 @@ import exitBtn from "../../assets/exitBtn.svg";
 const AddressInput = ({ setAdress, changeAdress, points, setTown }) => {
     const [arr, setArr ] = useState([])
     const [ addressActiveSelector, setAddressActiveSelector ] = useState(false);
-    localStorage.setItem('address', `${setAdress}`)
+    
 
     useEffect(() => {
         if(points.data != undefined){
         setArr(points.data.filter((point) => point.address.toLowerCase().includes(setAdress.toLowerCase())))
         }
+        
       }, [setAdress])
 
     window.addEventListener('click', (event) => {
@@ -113,7 +114,7 @@ const AddressInput = ({ setAdress, changeAdress, points, setTown }) => {
                             type="text" 
                             placeholder="Начните вводить пункт ..." 
                             className="address-loc-input" 
-                            value={localStorage.getItem('address')} 
+                            value={setAdress} 
                             onChange={(e) => currentAdress(e)}
                             onClick={() => activeInputClickHandler(true)}
                         >

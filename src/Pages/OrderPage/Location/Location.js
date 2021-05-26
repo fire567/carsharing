@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import OrderInf from "../../../Components/OrderInf/OrderInf";
 import Map from "../../../Components/Map/Map";
 import CityInput from "../../../Components/Inputs/CityInput";
@@ -9,7 +9,6 @@ import { connect } from "react-redux";
 import "./Location.css";
 
 const Location = ({ setLocInfo }) => {
-    localStorage.setItem('locInf', JSON.stringify(setLocInfo))
 
     return(
         <div className="loc-content">
@@ -25,7 +24,8 @@ const Location = ({ setLocInfo }) => {
                         <Button text={"Выбрать модель"} width={"100%"} activeBTN={"unactive-btn"} disabled={"disabled"}/>}
                 </div>
             </div>
-            <OrderInf buttonName={"Выбрать модель"} activeBTN={setLocInfo.length} link={"/carsharing/order-page/model"}/>
+            {setLocInfo !== null ?
+                <OrderInf buttonName={"Выбрать модель"} activeBTN={setLocInfo.length} link={"/carsharing/order-page/model"}/> : null}
         </div>
     );
 };

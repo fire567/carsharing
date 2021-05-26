@@ -1,4 +1,4 @@
-export default (town = localStorage.getItem('city'), action) => {
+export default (town = "", action) => {
     if(action.type === "SET_TOWN"){
             return action.payload;
         }

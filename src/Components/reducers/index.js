@@ -10,6 +10,10 @@ import setCategory from "./setCategory";
 import setCar from "./setCar";
 import cartReducer from "./cartReducer";
 import setColor from "./setColor";
+import setSinceDate from "./setSinceDate";
+import setEndDate from "./setEndDate";
+import setTariff from "./setTariff";
+import setOption from "./setOption";
 
 
 export default combineReducers({
@@ -24,4 +28,8 @@ export default combineReducers({
     setCar: setCar,
     cartReducer: cartReducer,
     setColor: setColor,
+    setSinceDate: setSinceDate,
+    setEndDate: setEndDate,
+    setTariff: setTariff,
+    setOption: setOption,
 })

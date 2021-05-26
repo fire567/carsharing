@@ -2,26 +2,54 @@ import React, { useEffect } from "react";
 import Button from "../Button/Button";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { locInfo, chooseCar } from "../actions/index";
+import { locInfo, chooseCar, chooseExtra, chooseTariff, chooseColor, chooseSinceDate, chooseEndDate } from "../actions/index";
 import { fetchPoints } from "../../Components/actions/index";
 import "./OrderInf.css";
 
-const OrderInf = ({ setTown, points, setAdress, locInfo, fetchPoints, setCar, setLocInfo, cartReducer, buttonName, chooseCar, activeBTN, link, setColor}) => {
-    localStorage.setItem('car', JSON.stringify(setCar))
-    localStorage.setItem('color', JSON.stringify(setColor))
+const OrderInf = ({ 
+    setTown, 
+    points, 
+    setAdress, 
+    locInfo, 
+    fetchPoints, 
+    setCar, 
+    setLocInfo, 
+    cartReducer, 
+    buttonName, 
+    chooseCar, 
+    activeBTN, 
+    link, 
+    setColor,
+    days,
+    hours,
+    setSinceDate,
+    setEndDate,
+    setTariff,
+    setOption,
+    chooseExtra,
+    chooseTariff,
+    chooseColor,
+    chooseSinceDate,
+    chooseEndDate}) => {
 
     useEffect(() => {
+        if(setLocInfo.length === 0){
+            chooseCar([])
+        }
+        if(setCar.length === 0){
+            chooseExtra("")
+            chooseTariff("")
+            chooseColor(null)
+            chooseSinceDate(null)
+            chooseEndDate(null)
+        }
+           
         fetchPoints()
         if(points.data != undefined){
         locInfo(points.data.filter((point) => point.cityId != null && point.cityId.name === setTown &&  point.address === setAdress))
-            if(setLocInfo.length === 0){
-                //alert("dfg")
-                chooseCar([])
-            }
+            
         }
-      }, [setTown, setAdress, setLocInfo.length ])
-
-
+      }, [setTown, setAdress, setLocInfo.length])
     
     const showPointInf = () => {
         return points.data.map((point) => {
@@ -79,6 +107,51 @@ const OrderInf = ({ setTown, points, setAdress, locInfo, fetchPoints, setCar, se
         )
     }
 
+    const showDateInf = () => {
+        return (
+            <div className="item-form">
+                <div className="item-name">
+                    Длительность аренды
+                </div>
+                <div className="item-line">
+                </div>
+                <div className="item-value">
+                        {days}д. {Math.abs(hours)}ч.
+                </div>
+            </div>
+        )
+    }
+
+    const showTariffInf = () => {
+        return (
+            <div className="item-form">
+                <div className="item-name">
+                    Тариф
+                </div>
+                <div className="item-line">
+                </div>
+                <div className="item-value">
+                    {setTariff}
+                </div>
+            </div>
+        )
+    }
+
+    const showExtraInf = () => {
+        return (
+            <div className="item-form">
+                <div className="item-name">
+                    {setOption}
+                </div>
+                <div className="item-line">
+                </div>
+                <div className="item-value">
+                    Да
+                </div>
+            </div>
+        )
+    }
+
     return(
         <div className="loc-right-side">
             <div className={cartReducer === true ? "active" : "hidden-part"}>
@@ -86,9 +159,12 @@ const OrderInf = ({ setTown, points, setAdress, locInfo, fetchPoints, setCar, se
                     Ваш заказ:
                 </div>
                 {points.data === undefined ? null : showPointInf()}
-                {setCar.name != null && setLocInfo != [] ? showModelInf() : null}
+                {setCar.length !== 0 && setLocInfo !== [] ? showModelInf() : null}
                 {setColor != null && setLocInfo != [] ? showColorInf() : null}
-                {setCar.name != null && setLocInfo != 1 ? 
+                {setTariff && setLocInfo != [] ? showTariffInf() : null}
+                {days !== undefined || hours !== undefined && setLocInfo != [] ? showDateInf() : null}
+                {setOption && setLocInfo != [] ? showExtraInf() : null}
+                {setCar.length !== 0 && setLocInfo != 1 ? 
                     <div className="price-block">
                         <div className="price-name">
                             Цена:
@@ -117,6 +193,10 @@ const mapStateToProps = (state) => {
         setLocInfo: state.setLocInfo,
         cartReducer: state.cartReducer,
         setColor: state.setColor,
+        setSinceDate: state.setSinceDate,
+        setEndDate: state.setEndDate,
+        setTariff: state.setTariff,
+        setOption: state.setOption
     }
 }
 
@@ -124,4 +204,9 @@ export default connect(mapStateToProps, {
     locInfo: locInfo,
     fetchPoints: fetchPoints,
     chooseCar: chooseCar,
+    chooseExtra: chooseExtra,
+    chooseTariff: chooseTariff,
+    chooseColor: chooseColor,
+    chooseSinceDate: chooseSinceDate,
+    chooseEndDate: chooseEndDate,
 })(OrderInf);

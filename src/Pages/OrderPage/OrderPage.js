@@ -12,6 +12,8 @@ import "./OrderPage.css";
 
 const OrderPage = ({ fetchPoints, fetchCities }) => {
     const [switchMenu, setSwitchMenu ] = useState(false);
+    
+    
 
     useEffect(() => {
         fetchPoints();

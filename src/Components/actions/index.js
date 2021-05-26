@@ -88,3 +88,31 @@ export const chooseColor = (color) => {
         payload: color,
     }
 }
+
+export const chooseSinceDate = (date) => {
+    return{
+        type: "SET_SINCEDATE",
+        payload: date,
+    }
+}
+
+export const chooseEndDate = (date) => {
+    return{
+        type: "SET_ENDDATE",
+        payload: date,
+    }
+}
+
+export const chooseTariff = (tariff) => {
+    return{
+        type: "SET_TARIFF",
+        payload: tariff,
+    }
+} 
+
+export const chooseExtra = (option) => {
+    return{
+        type: "SET_EXTRA",
+        payload: option,
+    }
+} 
