@@ -1,4 +1,4 @@
-export default (info = JSON.parse(localStorage.getItem('locInf')), action) => {
+export default (info = [], action) => {
     if(action.type === "SET_LOCINFO"){
             return action.payload;
         }
