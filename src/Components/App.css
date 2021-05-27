@@ -1,7 +1,42 @@
-.App{
-    display: flex;
-}
 
 a:hover{
     text-decoration: none;
+}
+
+body{
+    height: 100%;
+}
+
+
+
+html{
+    height: 100%;
+}
+
+#root{
+    height: 100%;
+}
+
+.App{
+    height: 100%;
+}
+
+@font-face {
+    font-family: "Roboto-Light";
+    src: url(../Fonts/Roboto/Roboto-Light.ttf)
+}
+
+@font-face {
+    font-family: "Roboto-Regular";
+    src: url(../Fonts/Roboto/Roboto-Regular.ttf)
+}
+
+@font-face {
+    font-family: "Roboto-Bold";
+    src: url(../Fonts/Roboto/Roboto-Bold.ttf)
+}
+
+@font-face {
+    font-family: "Roboto-Thin";
+    src: url(../Fonts/Roboto/Roboto-Thin.ttf)
 }

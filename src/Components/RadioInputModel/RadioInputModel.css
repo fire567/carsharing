@@ -1,0 +1,41 @@
+.radio-input-form{
+    font-family: "Roboto-Regular";
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+@media (max-width: 550px) {
+    .radio-input-form {
+        margin-left: auto;
+        justify-content: center;
+        margin-top: 4%;
+    }
+  }
+
+.radio-input{
+    display:flex;
+}
+
+.radio-input:not(:first-child){
+    margin-left: 8px;
+}
+
+.radio-value{
+    list-style: none;
+}
+
+.radio-pic{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-right: 8px;
+}
+
+.radio-no-indent{
+    display: flex;
+}
+
+.radio-no-indent:not(:first-child){
+    margin-top: 9px;
+}

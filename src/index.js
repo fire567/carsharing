@@ -1,15 +1,44 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from "redux";
+import { createStore, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
 import { Provider }  from "react-redux";
 import reducers from "./Components/reducers"
 import { BrowserRouter } from "react-router-dom";
 import App from './Components/App.js';
 
+const loadState = () => {
+  try {
+      const serialisedState = window.localStorage.getItem('app_state');
+
+      if (!serialisedState) return undefined;
+      return JSON.parse(serialisedState);
+  } catch (err) {
+      return undefined;
+  }
+};
+
+const oldState = loadState();
+const store = createStore(reducers, oldState,  applyMiddleware(thunk))
+
+
+console.log(oldState)
+
+const saveState = (state) => {
+  try {
+      const serialisedState = JSON.stringify(state);
+      window.localStorage.setItem('app_state', serialisedState);
+  } catch (err) {
+  }
+};
+
+store.subscribe(() => {
+  saveState(store.getState());
+});
 
 ReactDOM.render(
   <BrowserRouter>
-  <Provider store={createStore(reducers)}>
+  <Provider store={store}>
     <App />
   </Provider>
   </BrowserRouter>,

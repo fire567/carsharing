@@ -1,0 +1,96 @@
+.order-links-form{
+    display: flex;
+    font-family: "Roboto-Bold";
+    height: 3.3%;
+    padding-left: 4%;
+    font-size: 14px;
+    line-height: 16px;
+    align-items: center;
+    margin-left: 64px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #EEEEEE;
+}
+
+@media (max-width: 1024px) {
+    .order-links-form {
+        margin-left: 85.77px;
+        padding-left: 4%;
+    }
+  }
+
+@media (max-width: 550px) {
+    .order-links-form {
+        margin-left: 0px;
+        padding-left: 0px;
+        height: auto;
+        display: block;
+        line-height: 1.5;
+    }
+  }
+
+
+.order-link{
+    background-color: white;
+    color: #999999;
+    outline: none;
+    border: none;
+    padding: unset;
+}
+
+
+.order-link-active{
+    background-color: white;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    color: #0EC261;
+    padding: unset;
+}
+
+.order-link-active:hover{
+    color: #0EC261;
+}
+
+.order-links{
+    display: flex;
+}
+
+@media (max-width: 550px) {
+    .order-links {
+        justify-content: center;
+    }
+  }
+
+.order-links:not(:first-child){
+    padding-left: 16px;
+}
+
+@media (max-width: 550px) {
+    .order-links:not(:first-child) {
+        padding-left: 0px;
+    }
+  }
+
+.triangle{
+    display: flex;
+    padding-left: 16px;
+}
+
+@media (max-width: 550px) {
+    .triangle {
+        display: none;
+    }
+  }
+
+.triangle-hidden{
+    display: none;
+}
+
+.order-link-avalible{
+    color: black;
+    outline: none;
+    border: none;
+    background-color: white;
+    padding: unset;
+}

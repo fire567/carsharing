@@ -1,0 +1,29 @@
+.ord-menu-form{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    transform: translate(0px);
+    transition: 0.05s;
+    background-color: white;
+}
+
+.hidden-menu-form{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    transform: translate(100%);
+    transition: 0.05s;
+}
+
+.ordr-exit-pic{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 30px;
+    margin-top: 30px;
+}
+
+.ordr-exit-pic path{
+    stroke:#151B1F;
+}
