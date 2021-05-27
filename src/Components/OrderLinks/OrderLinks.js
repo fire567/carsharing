@@ -7,9 +7,9 @@ import "./OrderLinks.css";
 
 const OrderLinks = ({ setLocInfo, activeLink, setCar }) => {
     const links = [
-        {id: 0, value: "Местоположение", link: "/carsharing/order-page/loc"},
-        {id: 1, value: "Модель", link: "/carsharing/order-page/model"},
-        {id: 2, value: "Дополнительно", link: "/carsharing/order-page/extraopt"},
+        {id: 0, value: "Местоположение", link: "/order-page/loc"},
+        {id: 1, value: "Модель", link: "/order-page/model"},
+        {id: 2, value: "Дополнительно", link: "/order-page/extraopt"},
         {id: 3, value: "Итого"},
     ];
 

@@ -25,7 +25,7 @@ const Location = ({ setLocInfo }) => {
                 </div>
             </div>
             {setLocInfo !== null ?
-                <OrderInf buttonName={"Выбрать модель"} activeBTN={setLocInfo.length} link={"/carsharing/order-page/model"}/> : null}
+                <OrderInf buttonName={"Выбрать модель"} activeBTN={setLocInfo.length} link={"/order-page/model"}/> : null}
         </div>
     );
 };

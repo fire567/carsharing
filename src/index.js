@@ -4,7 +4,7 @@ import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import { Provider }  from "react-redux";
 import reducers from "./Components/reducers"
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import App from './Components/App.js';
 
 const loadState = () => {
@@ -22,7 +22,7 @@ const oldState = loadState();
 const store = createStore(reducers, oldState,  applyMiddleware(thunk))
 
 
-console.log(oldState)
+console.log(process.env)
 
 const saveState = (state) => {
   try {
@@ -37,10 +37,10 @@ store.subscribe(() => {
 });
 
 ReactDOM.render(
-  <BrowserRouter>
+  <HashRouter basename={process.env.PUBLIC_URL}>
   <Provider store={store}>
     <App />
   </Provider>
-  </BrowserRouter>,
+  </HashRouter>,
   document.getElementById('root')
 );

@@ -9,10 +9,10 @@ import "./App.css"
 const App = () => {
   return (
     <div className="App">
-      <Route path="/carsharing" component={MainPage} exact/>
-      <Route path="/carsharing/order-page/loc" component={OrderPage} exact />
-      <Route path="/carsharing/order-page/model" component={Models} exact />
-      <Route path="/carsharing/order-page/extraopt" component={ExtraOpt} exact />
+      <Route path="/" component={MainPage} exact/>
+      <Route path="/order-page/loc" component={OrderPage} exact />
+      <Route path="/order-page/model" component={Models} exact />
+      <Route path="/order-page/extraopt" component={ExtraOpt} exact />
     </div>
   );
 }

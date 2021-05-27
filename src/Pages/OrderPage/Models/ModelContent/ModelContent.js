@@ -27,7 +27,7 @@ const ModelContent = ({ setLocInfo, setCar }) => {
                         <Button text={"Дополнительно"} width={"100%"} activeBTN={"unactive-btn"} disabled={"disabled"}/>}
                 </div>
             </div>
-            <OrderInf buttonName={"Дополнительно"} activeBTN={setCar} link={"/carsharing/order-page/extraopt"}/>
+            <OrderInf buttonName={"Дополнительно"} activeBTN={setCar} link={"/order-page/extraopt"}/>
         </div>
     )
 }
