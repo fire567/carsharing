@@ -14,6 +14,8 @@ import setSinceDate from "./setSinceDate";
 import setEndDate from "./setEndDate";
 import setTariff from "./setTariff";
 import setOption from "./setOption";
+import setHours from "./setHours";
+import daysReducer from "./daysReducer";
 
 
 export default combineReducers({
@@ -32,4 +34,6 @@ export default combineReducers({
     setEndDate: setEndDate,
     setTariff: setTariff,
     setOption: setOption,
+    hours: setHours,
+    days: daysReducer,
 })

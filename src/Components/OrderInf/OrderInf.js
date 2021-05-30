@@ -33,6 +33,7 @@ const OrderInf = ({
     chooseEndDate}) => {
 
     useEffect(() => {
+        
         if(setLocInfo.length === 0){
             chooseCar([])
         }
@@ -158,12 +159,12 @@ const OrderInf = ({
                 <div className="order-text">
                     Ваш заказ:
                 </div>
-                {points.data === undefined ? null : showPointInf()}
-                {setCar.length !== 0 && setLocInfo !== [] ? showModelInf() : null}
-                {setColor != null && setLocInfo != [] ? showColorInf() : null}
-                {setTariff && setLocInfo != [] ? showTariffInf() : null}
-                {days !== undefined || hours !== undefined && setLocInfo != [] ? showDateInf() : null}
-                {setOption && setLocInfo != [] ? showExtraInf() : null}
+                {!points.data ? null : showPointInf()}
+                {setCar.length !== 0 && setLocInfo ? showModelInf() : null}
+                {setColor && setLocInfo.length > 0 ? showColorInf() : null}
+                {setTariff && setLocInfo.length > 0 ? showTariffInf() : null}
+                {setSinceDate && setEndDate && setLocInfo != [] ? showDateInf() : null}
+                {setOption && setLocInfo > 0 ? showExtraInf() : null}
                 {setCar.length !== 0 && setLocInfo != 1 ? 
                     <div className="price-block">
                         <div className="price-name">
@@ -176,7 +177,7 @@ const OrderInf = ({
                 }
             
             <div className="loc-btn-form">
-                {activeBTN != 0 && activeBTN != undefined ? <Link to = {link}><Button text={`${buttonName}`} width={"100%"} activeBTN={"order-btn"} disabled={""}/></Link> : 
+                {activeBTN != 0 && activeBTN ? <Link to = {link}><Button text={`${buttonName}`} width={"100%"} activeBTN={"order-btn"} disabled={""}/></Link> : 
                     <Button text={`${buttonName}`} width={"100%"} activeBTN={"unactive-btn"} disabled={"disabled"}/>}
             </div>
             </div>
@@ -196,7 +197,9 @@ const mapStateToProps = (state) => {
         setSinceDate: state.setSinceDate,
         setEndDate: state.setEndDate,
         setTariff: state.setTariff,
-        setOption: state.setOption
+        setOption: state.setOption,
+        hours: state.hours,
+        days: state.days,
     }
 }
 

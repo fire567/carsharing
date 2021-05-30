@@ -21,8 +21,8 @@ const OrderPage = ({ fetchPoints, fetchCities }) => {
       }, [])
     
 
-    const menuChange = (qwe) => {
-        setSwitchMenu(qwe);
+    const menuChange = (changed) => {
+        setSwitchMenu(changed);
     }
 
     return(

@@ -1,27 +1,39 @@
-import React, { useEffect } from "react";
+import React from "react";
 import OrderInf from "../../../Components/OrderInf/OrderInf";
 import Map from "../../../Components/Map/Map";
-import CityInput from "../../../Components/Inputs/CityInput";
-import AddressInput from "../../../Components/Inputs/AddressInput";
 import ButtonCart from "../../../Components/ButtonCart/ButtonCart";
 import Button from "../../../Components/Button/Button";
+import PointInput from "../../../Components/Inputs/PointInput"
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import "./Location.css";
 
-const Location = ({ setLocInfo }) => {
+const Location = ({ setLocInfo, setTown, citiesReducer, setAdress, points }) => {
 
     return(
         <div className="loc-content">
             <div className="loc-left-side">
                 <div className="input-loc">
-                    <CityInput />
-                    <AddressInput />
+                    <PointInput 
+                        inputName = {"Город:"}
+                        setLoc = {setTown} 
+                        locations={citiesReducer} 
+                        currentInput={"city"}
+                        InputClass={"loc-input"}
+                    />
+                    <PointInput 
+                        inputName = {"Пункт выдачи:"}
+                        setLoc = {setAdress} 
+                        locations={points} 
+                        currentInput={"address"}
+                        InputClass={"address-loc-input"}
+                    />
                 </div>
                 <Map />
                 <div className="sized-loc-btn-form">
                     <ButtonCart />
-                    {setLocInfo != 0 ? <Button text={"Выбрать модель"} width={"100%"} activeBTN={"order-btn"} disabled={""}/> : 
-                        <Button text={"Выбрать модель"} width={"100%"} activeBTN={"unactive-btn"} disabled={"disabled"}/>}
+                    {setLocInfo != 0 ? <Link to="/order-page/model"><Button text={"Выбрать модель"} width={"100%"} disabled={""}/></Link> : 
+                        <Button text={"Выбрать модель"} width={"100%"} disabled={"disabled"}/>}
                 </div>
             </div>
             {setLocInfo !== null ?
@@ -32,7 +44,12 @@ const Location = ({ setLocInfo }) => {
 
 const mapStateToProps = (state) => {
     return{
-        setLocInfo: state.setLocInfo
+        setLocInfo: state.setLocInfo,
+        setTown: state.setTown,
+        citiesReducer: state.citiesReducer,
+        changeTown: state.changeTown,
+        setAdress: state.setAdress,
+        points: state.points
     }
 }
 

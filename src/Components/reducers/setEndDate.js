@@ -1,4 +1,4 @@
-export default (date = Date.parse(localStorage.getItem('endDate')), action) => {
+export default (date = null, action) => {
     if(action.type === "SET_ENDDATE"){
             return action.payload;
         }

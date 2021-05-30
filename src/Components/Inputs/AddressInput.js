@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import {changeAdress} from "../actions/index";
+import InputSelector from "./InputSelector";
 import exitBtn from "../../assets/exitBtn.svg";
 
 const AddressInput = ({ setAdress, changeAdress, points, setTown }) => {
-    const [arr, setArr ] = useState([])
+    const [foundAddresses, setFoundAddresses ] = useState([])
     const [ addressActiveSelector, setAddressActiveSelector ] = useState(false);
     
-
     useEffect(() => {
-        if(points.data != undefined){
-        setArr(points.data.filter((point) => point.address.toLowerCase().includes(setAdress.toLowerCase())))
+        if(points.data){
+            console.log(points)
+            setFoundAddresses(points.data.filter((point) => point.address.toLowerCase().includes(setAdress.toLowerCase())))
         }
-        
       }, [setAdress])
 
     window.addEventListener('click', (event) => {
@@ -24,12 +24,8 @@ const AddressInput = ({ setAdress, changeAdress, points, setTown }) => {
         }
       });
 
-    const currentAdress = (e) => {
-        changeAdress(e.target.value)
-    }
-
-    const changeAdressName = (adress) => {
-        changeAdress(adress)
+    const currentAdress = (event) => {
+        changeAdress(event.target.value)
     }
 
     const deleteText = () => {
@@ -40,15 +36,11 @@ const AddressInput = ({ setAdress, changeAdress, points, setTown }) => {
         setAddressActiveSelector(value)
     }
 
-
-
     const adressSelector = () => {
         return points.data.map((address) => {
             if(address.address.toLowerCase().includes(setAdress.toLowerCase())){
             return (
-                <option key = {address.id} className="loc-name" onClick={() => changeAdressName(address.address)}>
-                    {address.address}
-                </option>
+                <InputSelector address={address}/>
             )
             }
         })
@@ -59,9 +51,7 @@ const AddressInput = ({ setAdress, changeAdress, points, setTown }) => {
             if(address.cityId !== null){
                 if(setAdress.length === 0){
                     return(
-                    <option key = {address.id} className="loc-name" onClick={() => changeAdressName(address.address)}>
-                        {address.address}
-                    </option>
+                        <InputSelector address={address}/>
                     )
                 }
         }
@@ -73,9 +63,7 @@ const AddressInput = ({ setAdress, changeAdress, points, setTown }) => {
             if(address.cityId !== null){
                 if(address.cityId.name === setTown){
                 return (
-                    <option key = {address.id} className="loc-name" onClick={() => changeAdressName(address.address)}>
-                        {address.address}
-                    </option>
+                    <InputSelector address={address}/>
                 )
                 }
         }
@@ -83,7 +71,7 @@ const AddressInput = ({ setAdress, changeAdress, points, setTown }) => {
     }
 
     const showSelector = () => {
-        if(arr.length === 0 && setAdress.length >= 2){
+        if(foundAddresses.length === 0 && setAdress.length >= 2){
             return null
         }else if(setTown.length === 0 && setAdress.length >= 2 && addressActiveSelector){
             return(
@@ -115,14 +103,14 @@ const AddressInput = ({ setAdress, changeAdress, points, setTown }) => {
                             placeholder="Начните вводить пункт ..." 
                             className="address-loc-input" 
                             value={setAdress} 
-                            onChange={(e) => currentAdress(e)}
+                            onChange={currentAdress}
                             onClick={() => activeInputClickHandler(true)}
                         >
                         </input>
-                        {setAdress.length > 0 ? 
+                        {setAdress.length > 0 && 
                             <button type="reset" className="reset-btn" onClick={() => deleteText()}>
                                 <img src={`${exitBtn}`}  />
-                            </button> : null
+                            </button>
                         }
                         
                         {showSelector()}

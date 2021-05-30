@@ -14,7 +14,7 @@ const OrderMenu = ({ cartReducer, showCart }) => {
 
 
     return (
-        <div className={cartReducer === true ? "ord-menu-form" : "hidden-menu-form"}>
+        <div className={cartReducer ? "ord-menu-form" : "hidden-menu-form"}>
             <ReactSVG src={exit} className="ordr-exit-pic" alt="exit-pic" onClick={() => exitMenu()}/>
             <OrderInf />
         </div>

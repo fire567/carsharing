@@ -3,9 +3,17 @@
     cursor: pointer;
     font-weight: 500;
     font-size: 32px;
-    line-height: 45px;
+    line-height: 52px;
     color: #FFFFFF;
 }
+
+@media (max-width: 1024px) {
+    .link {
+        font-weight: 500;
+        font-size: 28px;
+        line-height: 45px;
+    }
+  }
 
 @media (max-width: 540px) {
     .link {
@@ -22,12 +30,19 @@
 }
 
 .links-form{
+    font-family: "Roboto-Regular";
     position: absolute;
     top: 36%;
-    left: 12%;
+    left: 128px;
 }
 
-@media (max-width: 540px) {
+@media (max-width: 1024px) {
+    .links-form {
+        left: 92px;
+    }
+  }
+
+@media (max-width: 550px) {
     .links-form {
         top: 79px;
         left: 22px;
@@ -62,6 +77,6 @@
 
 .social-link{
     display:flex;
-    padding-top: 10%;
+    padding-top: 38px;
 }
 

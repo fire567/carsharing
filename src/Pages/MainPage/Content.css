@@ -4,7 +4,7 @@
 
 .header{
     display: flex;
-    margin-left: 32px;
+    margin-left: 64px;
 }
 
 .location{
@@ -96,7 +96,7 @@
 
 .main-content{
     margin-top: 22%;
-    margin-left: 32px;
+    margin-left: 64px;
 }
 
 @media (max-width: 550px) {
@@ -141,7 +141,6 @@
 
 .purpose{
     margin-top: 24px;
-    width: 449px;
     font-weight: 100;
     font-size: 26px;
     line-height: 30px;
@@ -162,6 +161,12 @@
     margin-top: 60px;
     width: 250px;
 }
+
+@media (max-width: 550px) {
+    .btn-form{
+        width: 100%;
+    }
+  }
 
 .footer{
     display: flex;

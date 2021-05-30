@@ -1,6 +1,12 @@
 .map-form{
     margin-left: 6%;
-    margin-right: 6%;
+    margin-right: 20%;
+}
+
+@media (max-width: 1024px) {
+    .map-form {
+        margin-right: 6%;
+    }
 }
 
 .map-text{

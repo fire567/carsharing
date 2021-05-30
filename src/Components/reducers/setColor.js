@@ -1,4 +1,4 @@
-export default (color = JSON.parse(localStorage.getItem('color')), action) => {
+export default (color = null, action) => {
     if(action.type === "SET_COLOR"){
             return action.payload;
         }

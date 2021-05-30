@@ -6,13 +6,19 @@
     .cart-form {
         display: flex;
         align-items: flex-end;
-        width: 58px;
+        width: 47px;
         height: 48px;
         background-color: #0EC261;
         border-radius: 10px;
         outline: none;
         border: none;
         margin-right: 15px;
+    }
+  }
+
+  @media (max-width: 550px) {
+    .cart-form {
+        border-radius: 0px;
     }
   }
 

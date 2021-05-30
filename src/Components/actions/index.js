@@ -116,3 +116,17 @@ export const chooseExtra = (option) => {
         payload: option,
     }
 } 
+
+export const setHours = (hours) => {
+    return{
+        type: "SET_HOURS",
+        payload: hours,
+    }
+} 
+
+export const setDays = (days) => {
+    return{
+        type: "SET_DAYS",
+        payload: days,
+    }
+} 

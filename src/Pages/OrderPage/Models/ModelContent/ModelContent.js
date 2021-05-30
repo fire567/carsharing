@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import OrderInf from "../../../../Components/OrderInf/OrderInf";
 import RadioInputModel from "../../../../Components/RadioInputModel/RadioInputModel";
 import CarList from "../../../../Components/CarList/CarList";
@@ -9,21 +10,18 @@ import "./ModelContent.css";
 
 
 const ModelContent = ({ setLocInfo, setCar }) => {
-    
-    const radioInputs = [
-        {id: 0, value: "Все модели", category: null },
-        {id: 1, value: "Эконом", category: "Эконом"},
-        {id: 2, value: "Премиум", category: "Премиум"},
-    ]
 
     return(
         <div className="model-content">
             <div className="model-left-side">
-                <RadioInputModel radioInputs={radioInputs} style={"flex"} indent={"radio-input"}/>
+                <RadioInputModel style={"flex"} indent={"radio-input"}/>
                 <CarList />
                 <div className="sized-loc-btn-form">
                     <ButtonCart />
-                    {setLocInfo != 0 ? <Button text={"Дополнительно"} width={"100%"} activeBTN={"order-btn"} disabled={""}/> : 
+                    {setCar.length !== 0 ? 
+                    <Link to = "/order-page/extraopt">
+                        <Button text={"Дополнительно"} width={"100%"} activeBTN={"order-btn"} disabled={""}/>
+                    </Link> : 
                         <Button text={"Дополнительно"} width={"100%"} activeBTN={"unactive-btn"} disabled={"disabled"}/>}
                 </div>
             </div>

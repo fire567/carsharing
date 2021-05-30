@@ -1,16 +1,15 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import {changeTown} from "../actions/index";
 import exitBtn from "../../assets/exitBtn.svg";
 
 const CityInput = ({ setTown, citiesReducer, changeTown, setAdress, points }) => {
     const [ activeSelector, setActiveSelector ] = useState(false);
-    const [arr, setArr ] = useState([])
+    const [foundCity, setFoundCity ] = useState([])
     
-
     useEffect(() => {
-        if(citiesReducer.data != undefined){
-        setArr(citiesReducer.data.filter((city) => city.name.toLowerCase().includes(setTown.toLowerCase())))
+        if(citiesReducer.data){
+            setFoundCity(citiesReducer.data.filter((city) => city.name.toLowerCase().includes(setTown.toLowerCase())))
         }
       }, [setTown])
 
@@ -35,12 +34,9 @@ const CityInput = ({ setTown, citiesReducer, changeTown, setAdress, points }) =>
         changeTown("")
     }
 
-    const inputClickHandler = (value) => {
+    const handleInputClick = (value) => {
         setActiveSelector(value)
     }
-    
-    
-
     
     const citySelector = () => {
         return citiesReducer.data.map((city) => {
@@ -55,7 +51,7 @@ const CityInput = ({ setTown, citiesReducer, changeTown, setAdress, points }) =>
     }
 
     const cityAutoFill = () => {
-        if(points.data != undefined){
+        if(points.data !== undefined){
         return points.data.map((address) => {
             if(address.address === setAdress){
                 changeTownName(address.cityId.name)
@@ -65,31 +61,29 @@ const CityInput = ({ setTown, citiesReducer, changeTown, setAdress, points }) =>
     }
 
     const showCitySelector = () => {
-        if(arr.length === 0 && setTown != null && setTown.length >= 2){
+        if(foundCity.length === 0 && setTown !== null && setTown.length >= 2){
             return null
         }else if(setAdress.length === 0 && setTown.length >= 2 && activeSelector){
             return(
-                    <div className="selector" onClick={() => inputClickHandler(false)}>
+                    <div className="selector" onClick={() => handleInputClick(false)}>
                         {citiesReducer.data === undefined ? "Loading..." : citySelector()}
                     </div>
             )
         }else if(setAdress.length === 0 && activeSelector){
             return(
-            <div className="selector" onClick={() => inputClickHandler(false)}>
+            <div className="selector" onClick={() => handleInputClick(false)}>
                 {citiesReducer.data === undefined ? "Loading..." : citySelector()}
             </div>
             )
-        }else if(setAdress.length >= 2 && setTown != null && setTown.length === 0){
+        }else if(setAdress.length >= 2 && setTown !== null && setTown.length === 0){
             return(
-                <div className="selector" onClick={() => inputClickHandler(false)}>
+                <div className="selector" onClick={() => handleInputClick(false)}>
                     {citiesReducer.data === undefined && points.data === undefined ? "Loading..." : cityAutoFill()}
                 </div>
             )
         }
     }
    
-
-
     return(
         <form className="input-form">
                         <div className="town-name">Город:</div>
@@ -98,14 +92,14 @@ const CityInput = ({ setTown, citiesReducer, changeTown, setAdress, points }) =>
                             placeholder="Начните вводить город ..." 
                             className="loc-input" 
                             value={setTown} 
-                            onChange={(e) => currentTown(e)}
-                            onClick={() => inputClickHandler(true)}
+                            onChange={currentTown}
+                            onClick={() => handleInputClick(true)}
                         >
                         </input>
-                        {setTown.length > 0 ? 
+                        {setTown.length > 0 && 
                             <button type="reset" className="reset-btn" onClick={() => deleteTextCity()}>
                                 <img src={`${exitBtn}`}  />
-                            </button> : null
+                            </button>
                         }
                         
                         {showCitySelector()}
@@ -126,5 +120,3 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps, {
     changeTown:changeTown,
 })(CityInput);
-
-

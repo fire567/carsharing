@@ -6,20 +6,27 @@ import RadioInputColor from "../../../../Components/radioInputColor/radioInputCo
 import CheckboxInput from "../../../../Components/CheckboxInput/CheckboxInput";
 import ButtonCart from "../../../../Components/ButtonCart/ButtonCart";
 import Button from "../../../../Components/Button/Button";
-import {chooseSinceDate, chooseEndDate} from "../../../../Components/actions/index";
+import {chooseSinceDate, chooseEndDate, setHours, setDays} from "../../../../Components/actions/index";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "./ExtraOptContent.css";
 import "react-datepicker/dist/react-datepicker.css";
 
 
-const ModelContent = ({ setLocInfo, chooseSinceDate, setSinceDate, chooseEndDate, setEndDate, setColor, setTariff, setOption }) => {
+const ModelContent = ({ chooseSinceDate, setSinceDate, chooseEndDate, setEndDate, setColor, setTariff, setOption, setHours, setDays }) => {
     const [ diff, setDiff ] = useState(null);
     const [ activeBTN, setActiveBTN] = useState(0)
+    
+
     var hour = 1000 * 60 * 60;
-    var hours = Math.floor(diff/hour)
-    var days = Math.floor(hours/24);
-    var curHours = Math.floor(days * 24 - hours)
+            var hours = Math.floor(diff/hour)
+            var days = Math.floor(hours/24);
+            setHours(Math.floor(days * 24 - hours));
+            setDays(days)
+            
+
+    
 
     useEffect(() => {
         if(setSinceDate !== null && setEndDate !== null){
@@ -30,7 +37,17 @@ const ModelContent = ({ setLocInfo, chooseSinceDate, setSinceDate, chooseEndDate
         }
     }, [setSinceDate, setEndDate, setColor, setTariff, setOption])
 
-    console.log(days)
+    const sinceDate = (event) => {
+        console.log(Date.parse(event))
+        chooseSinceDate(Date.parse(event))
+    }
+
+    const endDate = ( event ) => {
+        console.log(Date.parse(event))
+        chooseEndDate(Date.parse(event))
+    } 
+
+    
 
     return(
         <div className="extra-content">
@@ -45,7 +62,7 @@ const ModelContent = ({ setLocInfo, chooseSinceDate, setSinceDate, chooseEndDate
                         <div className="since-date">С </div>
                         <DatePicker 
                             selected={setSinceDate} 
-                            onChange={(e) => chooseSinceDate(e)} 
+                            onChange={sinceDate} 
                             dateFormat={"dd.MM.yyyy HH:mm"}
                             minDate={new Date()}
                             showTimeSelect
@@ -61,7 +78,7 @@ const ModelContent = ({ setLocInfo, chooseSinceDate, setSinceDate, chooseEndDate
                         <div className="since-date">По </div>
                         <DatePicker 
                             selected={setEndDate} 
-                            onChange={(e) => chooseEndDate(e)} 
+                            onChange={endDate} 
                             dateFormat={"dd.MM.yyyy HH:mm"}
                             minDate={setSinceDate}
                             showTimeSelect
@@ -78,7 +95,7 @@ const ModelContent = ({ setLocInfo, chooseSinceDate, setSinceDate, chooseEndDate
                 </div>
                 <div className="tariff-form">
                     <li className="tariff-header">Тарифы</li>
-                        <RadioInputTariff style={"block"} indent={"radio-no-indent"}/>
+                        <RadioInputTariff style={"block"} indent={"radio-no-indent"} diff={diff}/>
                     </div>
                 <div className="extra-form">
                     <li className="tariff-header">Доп услуги</li>
@@ -86,11 +103,11 @@ const ModelContent = ({ setLocInfo, chooseSinceDate, setSinceDate, chooseEndDate
                 </div>
                 <div className="sized-loc-btn-form">
                     <ButtonCart />
-                    {setLocInfo != 0 ? <Button text={"Итого"} width={"100%"} activeBTN={"order-btn"} disabled={""}/> : 
+                    {activeBTN !== 0 ? <Button text={"Итого"} width={"100%"} activeBTN={"order-btn"} disabled={""}/> : 
                         <Button text={"Итого"} width={"100%"} activeBTN={"unactive-btn"} disabled={"disabled"}/>}
                 </div>
             </div>
-            <OrderInf buttonName={"Итого"} days={days} hours={curHours} activeBTN={activeBTN}/>
+            <OrderInf buttonName={"Итого"} activeBTN={activeBTN}/>
         </div>
     )
 }
@@ -109,5 +126,7 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps, {
     chooseSinceDate: chooseSinceDate,
-    chooseEndDate: chooseEndDate
+    chooseEndDate: chooseEndDate,
+    setHours: setHours,
+    setDays: setDays,
 })(ModelContent);

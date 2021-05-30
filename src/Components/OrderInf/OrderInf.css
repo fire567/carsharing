@@ -61,6 +61,12 @@
     width: 74px;
 }
 
+@media (max-width: 1024px) {
+    .item-line {
+        width: 43%;
+    }
+}
+
 
 .item-value{
     font-family: "Roboto-Thin";
