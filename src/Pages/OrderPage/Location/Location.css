@@ -50,6 +50,12 @@
     outline:none;
 }
 
+@media (max-width: 550px) {
+    .loc-input {
+        width: 192px;
+    }
+  }
+
 .address-loc-input{
     width: 224px;
     margin-left: 10px;
@@ -58,11 +64,36 @@
     outline:none;
 }
 
+@media (max-width: 550px) {
+    .address-loc-input {
+        width: 192px;
+    }
+  }
+
+  @media (max-width: 280px){
+    .address-loc-input {
+        width: 153px;
+    }
+  }
+
 .input-form{
     position: relative;
     display: flex;
     justify-content: flex-end;
 }
+
+@media (max-width: 550px) {
+    .input-form {
+        padding-right: 12%;
+    }
+  }
+
+@media (max-width: 280px) {
+    .input-form {
+        padding-right: 23%;
+    }
+  }
+
 
 .input-form:not(:first-child){
     margin-top: 13px;
@@ -70,7 +101,7 @@
 
 .reset-btn{
     position: absolute;
-    left: 318px;
+    
     border: none;
     outline: none;
     background-color: white;
