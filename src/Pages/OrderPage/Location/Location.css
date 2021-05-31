@@ -122,6 +122,12 @@
     overflow-y: scroll
 }
 
+@media (max-width: 550px) {
+    .selector {
+        width: 192px;
+    }
+  }
+
 .selector::-webkit-scrollbar-thumb {
     border-radius: 60px;
     background-color: #0EC261;

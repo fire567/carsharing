@@ -86,8 +86,6 @@ const CityInput = ({ setLoc, locations, changeTown, changeAdress, currentInput, 
         })
     }
 
-    console.log(points.data)
-
     const cityAutoSelector = () => {
         return points.data.map((address) => {
             if(address !== null){
@@ -109,7 +107,7 @@ const CityInput = ({ setLoc, locations, changeTown, changeAdress, currentInput, 
                     {locations.data === undefined ? "Loading..." : adressAutoSelector()}
                 </div>
             )
-        }else if(currentInput === "city" && setAdress.length > 2 && activeSelector){
+        }else if(setTown.length > 2 && currentInput === "city" && setAdress.length > 2 && activeSelector){
             return(
                 <div className="selector" onClick={() => handleInputClick(true)}>
                     {locations.data === undefined ? "Loading..." : cityAutoSelector()}

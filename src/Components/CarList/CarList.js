@@ -7,10 +7,12 @@ const CarList = ({cars, fetchCars, category, chooseCar, setCar, chooseExtra, cho
     const [ activeCar, setActiveCar ] = useState(null);
     const [ filteredCars, setFilteresCars ] = useState([])
 
+    console.log(cars.data[3].categoryId)
+
     useEffect(() => {
         fetchCars()
-        if(cars.data != undefined){
-            setFilteresCars(cars.data.filter((car) => car.categoryId.name === category))
+        if(cars.data !== undefined  && cars.data.categoryId){
+            setFilteresCars(cars.data.filter((car) => car.categoryId.name !== null && car.categoryId.name === category))
         }
     }, [category])
 
