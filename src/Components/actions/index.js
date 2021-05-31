@@ -130,3 +130,59 @@ export const setDays = (days) => {
         payload: days,
     }
 } 
+
+export const setTariffPrice = (price) => {
+    return{
+        type: "SET_TARIFFPRICE",
+        payload: price,
+    }
+} 
+
+export const setMinutesPrice = (price) => {
+    return{
+        type: "SET_MINUTESPRICE",
+        payload: price,
+    }
+} 
+
+export const setDaysPrice = (price) => {
+    return{
+        type: "SET_DAYSPRICE",
+        payload: price,
+    }
+} 
+
+export const setTotalPrice = (price) => {
+    return{
+        type: "SET_TOTALPRICE",
+        payload: price,
+    }
+} 
+
+export const setDiff = (diff) => {
+    return{
+        type: "SET_DIFF",
+        payload: diff,
+    }
+} 
+
+export const setGasolinePrice = (price) => {
+    return{
+        type: "SET_GASOLINE",
+        payload: price,
+    }
+}
+
+export const setChildChairPrice = (price) => {
+    return{
+        type: "SET_CHAIR",
+        payload: price,
+    }
+}
+
+export const setExtraOptPrice = (price) => {
+    return{
+        type: "SET_EXSTRAOPT",
+        payload: price,
+    }
+}

@@ -6,7 +6,7 @@ import RadioInputColor from "../../../../Components/radioInputColor/radioInputCo
 import CheckboxInput from "../../../../Components/CheckboxInput/CheckboxInput";
 import ButtonCart from "../../../../Components/ButtonCart/ButtonCart";
 import Button from "../../../../Components/Button/Button";
-import {chooseSinceDate, chooseEndDate, setHours, setDays} from "../../../../Components/actions/index";
+import {chooseSinceDate, chooseEndDate, setHours, setDays, setDiff} from "../../../../Components/actions/index";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import DatePicker from "react-datepicker";
@@ -14,8 +14,18 @@ import "./ExtraOptContent.css";
 import "react-datepicker/dist/react-datepicker.css";
 
 
-const ModelContent = ({ chooseSinceDate, setSinceDate, chooseEndDate, setEndDate, setColor, setTariff, setOption, setHours, setDays }) => {
-    const [ diff, setDiff ] = useState(null);
+const ModelContent = ({ 
+    chooseSinceDate,
+    setSinceDate,
+    chooseEndDate, 
+    setEndDate, 
+    setColor, 
+    setTariff, 
+    setOption, 
+    setHours, 
+    setDays, 
+    setDiff, 
+    diff }) => {
     const [ activeBTN, setActiveBTN] = useState(0)
     
 
@@ -95,7 +105,7 @@ const ModelContent = ({ chooseSinceDate, setSinceDate, chooseEndDate, setEndDate
                 </div>
                 <div className="tariff-form">
                     <li className="tariff-header">Тарифы</li>
-                        <RadioInputTariff style={"block"} indent={"radio-no-indent"} diff={diff}/>
+                        <RadioInputTariff style={"block"} diff={diff} indent={"radio-no-indent"}/>
                     </div>
                 <div className="extra-form">
                     <li className="tariff-header">Доп услуги</li>
@@ -120,7 +130,8 @@ const mapStateToProps = (state) => {
         setSinceDate: state.setSinceDate,
         setEndDate: state.setEndDate,
         setTariff: state.setTariff,
-        setOption: state.setOption
+        setOption: state.setOption,
+        diff: state.diff
     }
 }
 
@@ -129,4 +140,5 @@ export default connect(mapStateToProps, {
     chooseEndDate: chooseEndDate,
     setHours: setHours,
     setDays: setDays,
+    setDiff: setDiff,
 })(ModelContent);

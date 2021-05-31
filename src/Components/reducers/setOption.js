@@ -1,6 +1,7 @@
-export default (option = localStorage.getItem('option'), action) => {
+
+export default (option = "", action) => {
     if(action.type === "SET_EXTRA"){
-            return action.payload;
+            return action.payload
         }
     return option;
 }

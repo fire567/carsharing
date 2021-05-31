@@ -1,21 +1,39 @@
-import React, { useState, Suspense} from "react";
+import React, { useEffect, setState } from "react";
 import {ReactSVG} from "react-svg";
 import checkboxDufault from "../../assets/checkboxDefault.svg";
 import checkboxActive from "../../assets/checkboxActive.svg";
 import { connect } from "react-redux";
-import { chooseExtra } from "../actions/index";
+import { chooseExtra, setGasolinePrice, setChildChairPrice, setExtraOptPrice } from "../actions/index";
 import "./CheckboxInput.css";
 
-const CheckboxInput = ({ chooseExtra, setOption }) => {
+const CheckboxInput = ({ chooseExtra, setOption, gasolinePrice, setGasolinePrice, setChildChairPrice, chair, extraOptPrice, setExtraOptPrice }) => {
+    const [arr, setArr] = setState("")
     const extraOptions = [
         {id: 0, value: "Полный бак, 500р", category: "Полный бак"},
         {id: 1, value: "Детское кресло, 200р", category: "Детское кресло"},
         {id: 2, value: "Правый руль, 1600р", category: "Правый руль"},
     ]
 
+    
+
+    
+
+    useEffect(() => {
+        if(setOption === "Полный бак"){
+            setGasolinePrice(500)
+        }
+        if(setOption === "Детское кресло"){
+            setChildChairPrice(200)
+        }
+        setExtraOptPrice(Math.floor(gasolinePrice + chair))
+    }, [setOption, gasolinePrice, chair])
+
     const activeCheckbox = (value) => {
         chooseExtra(value)
+        setArr([...arr, value])
+        console.log(arr)
     }
+
 
     
 
@@ -36,10 +54,16 @@ const CheckboxInput = ({ chooseExtra, setOption }) => {
 
 const mapStateToProps = (state) => {
     return{
-        setOption: state.setOption
+        setOption: state.setOption,
+        gasolinePrice: state.gasolinePrice,
+        chair: state.chair,
+        extraOptPrice: state.extraOptPrice,
     }
 }
 
 export default connect(mapStateToProps, {
-    chooseExtra: chooseExtra
+    chooseExtra: chooseExtra,
+    setGasolinePrice: setGasolinePrice,
+    setChildChairPrice: setChildChairPrice,
+    setExtraOptPrice: setExtraOptPrice,
 })(CheckboxInput);

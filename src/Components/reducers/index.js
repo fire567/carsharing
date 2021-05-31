@@ -16,6 +16,14 @@ import setTariff from "./setTariff";
 import setOption from "./setOption";
 import setHours from "./setHours";
 import daysReducer from "./daysReducer";
+import tariffPriceReducer from "./tariffPriceReducer";
+import daysPriceReducer from "./daysPriceReducer";
+import minutesPriceReducer from "./minutesPriceReducer";
+import totalReducer from "./totalReducer";
+import diffReducer from "./diffReducer";
+import gasolinePriceRedicer from "./gasolinePriceReducer";
+import childChairPrice from "./childChairPrice";
+import extraOptPrice from "./extraOptPrice";
 
 
 export default combineReducers({
@@ -36,4 +44,12 @@ export default combineReducers({
     setOption: setOption,
     hours: setHours,
     days: daysReducer,
+    tariffPrice: tariffPriceReducer,
+    daysPrice: daysPriceReducer,
+    minutesPrice: minutesPriceReducer,
+    totalPrice: totalReducer,
+    diff: diffReducer,
+    gasolinePrice: gasolinePriceRedicer,
+    chair: childChairPrice,
+    extraOptPrice: extraOptPrice,
 })

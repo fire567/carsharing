@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import Button from "../Button/Button";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { locInfo, chooseCar, chooseExtra, chooseTariff, chooseColor, chooseSinceDate, chooseEndDate } from "../actions/index";
+import { locInfo, chooseCar, chooseExtra, chooseTariff, chooseColor, chooseSinceDate, chooseEndDate, setTariffPrice, setTotalPrice } from "../actions/index";
 import { fetchPoints } from "../../Components/actions/index";
 import "./OrderInf.css";
 
@@ -30,7 +30,12 @@ const OrderInf = ({
     chooseTariff,
     chooseColor,
     chooseSinceDate,
-    chooseEndDate}) => {
+    chooseEndDate,
+    tariffPrice, 
+    setTariffPrice,
+    setTotalPrice,
+    totalPrice,}) => {
+
 
     useEffect(() => {
         
@@ -43,6 +48,8 @@ const OrderInf = ({
             chooseColor(null)
             chooseSinceDate(null)
             chooseEndDate(null)
+            setTariffPrice(0)
+            
         }
            
         fetchPoints()
@@ -153,6 +160,37 @@ const OrderInf = ({
         )
     }
 
+    const calculatePrice = () => {
+        setTotalPrice(Math.floor(setCar.priceMin + tariffPrice))
+        return totalPrice
+    }
+
+    const showPrice = () => {
+            if(setCar.length !== 0 && setLocInfo != 1 && tariffPrice === 0){
+                return(
+                <div className="price-block">
+                        <div className="price-name">
+                            Цена:
+                        </div>
+                        <div className="price">
+                            от {setCar.priceMin} до {setCar.priceMax} ₽
+                        </div>
+                </div>
+                )
+            }else if(tariffPrice !== 0){
+                return(
+                    <div className="price-block">
+                        <div className="price-name">
+                            Цена:
+                        </div>
+                        <div className="price">
+                            от {calculatePrice()}  ₽
+                        </div>
+                    </div>
+                )
+            }
+    }
+
     return(
         <div className="loc-right-side">
             <div className={cartReducer === true ? "active" : "hidden-part"}>
@@ -164,17 +202,8 @@ const OrderInf = ({
                 {setColor && setLocInfo.length > 0 ? showColorInf() : null}
                 {setTariff && setLocInfo.length > 0 ? showTariffInf() : null}
                 {setSinceDate && setEndDate && setLocInfo != [] ? showDateInf() : null}
-                {setOption && setLocInfo > 0 ? showExtraInf() : null}
-                {setCar.length !== 0 && setLocInfo != 1 ? 
-                    <div className="price-block">
-                        <div className="price-name">
-                            Цена:
-                        </div>
-                        <div className="price">
-                            от {setCar.priceMin} до {setCar.priceMax} ₽
-                        </div>
-                    </div> : null
-                }
+                {setOption && setLocInfo != [] ? showExtraInf() : null}
+                {showPrice()}
             
             <div className="loc-btn-form">
                 {activeBTN != 0 && activeBTN ? <Link to = {link}><Button text={`${buttonName}`} width={"100%"} activeBTN={"order-btn"} disabled={""}/></Link> : 
@@ -200,6 +229,8 @@ const mapStateToProps = (state) => {
         setOption: state.setOption,
         hours: state.hours,
         days: state.days,
+        tariffPrice: state.tariffPrice,
+        totalPrice: state.totalPrice,
     }
 }
 
@@ -212,4 +243,6 @@ export default connect(mapStateToProps, {
     chooseColor: chooseColor,
     chooseSinceDate: chooseSinceDate,
     chooseEndDate: chooseEndDate,
+    setTariffPrice: setTariffPrice,
+    setTotalPrice:setTotalPrice,
 })(OrderInf);

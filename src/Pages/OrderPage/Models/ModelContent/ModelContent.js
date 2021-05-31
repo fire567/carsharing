@@ -9,7 +9,7 @@ import Button from "../../../../Components/Button/Button";
 import "./ModelContent.css";
 
 
-const ModelContent = ({ setLocInfo, setCar }) => {
+const ModelContent = ({ setCar }) => {
 
     return(
         <div className="model-content">

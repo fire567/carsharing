@@ -14,7 +14,8 @@ const RadioInputModel = ({ changeCategory, style, indent, category }) => {
     const radioInputs = [
         {id: 0, value: "Все модели", category: null },
         {id: 1, value: "Эконом", category: "Эконом"},
-        {id: 2, value: "Премиум", category: "Премиум"},
+        {id: 2, value: "Спорт", category: "Спорт"},
+        {id: 3, value: "Супер Эконом", category: "Супер Эконом"},
     ]
 
     return (

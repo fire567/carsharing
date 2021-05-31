@@ -4,7 +4,7 @@ import {changeTown, changeAdress} from "../actions/index";
 import InputSelector from "./InputSelector";
 import exitBtn from "../../assets/exitBtn.svg";
 
-const CityInput = ({ setLoc, locations, changeTown, changeAdress, currentInput, inputName, InputClass, setTown, setAdress, points}) => {
+const CityInput = ({ setLoc, setLocInfo,  locations, changeTown, changeAdress, currentInput, inputName, InputClass, setTown, setAdress, points}) => {
     const [ activeSelector, setActiveSelector ] = useState(false);
     const [foundCity, setFoundCity ] = useState([])
     
@@ -100,14 +100,14 @@ const CityInput = ({ setLoc, locations, changeTown, changeAdress, currentInput, 
 
     const showCitySelector = () => {
         if(foundCity.length === 0 && setLoc !== null && setLoc.length >= 2){
-            return null
-        }else if(currentInput === "address" && setTown.length > 2 && activeSelector){
+            return null;
+        }else if(setLocInfo.length < 1 && currentInput === "address" && setTown.length > 2 && activeSelector){
             return(
-                <div className="selector" onClick={() => handleInputClick(true)}>
+                <div className="selector" onClick={() => handleInputClick(false)}>
                     {locations.data === undefined ? "Loading..." : adressAutoSelector()}
                 </div>
             )
-        }else if(setTown.length > 2 && currentInput === "city" && setAdress.length > 2 && activeSelector){
+        }else if(setLocInfo.length < 1 && setTown.length > 2 && currentInput === "city" && setAdress.length > 2 && activeSelector){
             return(
                 <div className="selector" onClick={() => handleInputClick(true)}>
                     {locations.data === undefined ? "Loading..." : cityAutoSelector()}
@@ -128,7 +128,7 @@ const CityInput = ({ setLoc, locations, changeTown, changeAdress, currentInput, 
             )
         }
     }
-   
+
     return(
         <form className="input-form">
                         <div className="town-name">{inputName}</div>
@@ -158,6 +158,7 @@ const mapStateToProps = (state) => {
         setTown: state.setTown,
         points: state.points,
         setAdress: state.setAdress,
+        setLocInfo: state.setLocInfo,
     }
 }
 

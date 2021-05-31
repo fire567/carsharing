@@ -1,29 +1,66 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { fetchCars, chooseCar, chooseExtra, chooseTariff, chooseColor, chooseSinceDate, chooseEndDate } from "../actions/index";
+import { 
+    fetchCars, 
+    chooseCar, 
+    chooseExtra, 
+    chooseTariff, 
+    chooseColor, 
+    chooseSinceDate, 
+    chooseEndDate, 
+    setTariffPrice, 
+    setGasolinePrice, 
+    setChildChairPrice,
+    setExtraOptPrice,
+} from "../actions/index";
 import "./CarList.css";
 
-const CarList = ({cars, fetchCars, category, chooseCar, setCar, chooseExtra, chooseTariff, chooseColor, chooseSinceDate, chooseEndDate }) => {
+const CarList = ({
+    cars, 
+    fetchCars, 
+    category, 
+    chooseCar, 
+    setCar, 
+    chooseExtra, 
+    chooseTariff, 
+    chooseColor, 
+    chooseSinceDate, 
+    chooseEndDate,
+    setTariffPrice,
+    setGasolinePrice,
+    setChildChairPrice,
+    setExtraOptPrice,
+    }) => {
     const [ activeCar, setActiveCar ] = useState(null);
     const [ filteredCars, setFilteresCars ] = useState([])
 
-    console.log(cars.data[3].categoryId)
+    const prepareImgLink = (imgLink) => {
+        if (imgLink.match('base64')) {
+          return imgLink
+        }
+        return `https://api-factory.simbirsoft1.com${imgLink}`
+      };
+    
 
     useEffect(() => {
         fetchCars()
-        if(cars.data !== undefined  && cars.data.categoryId){
-            setFilteresCars(cars.data.filter((car) => car.categoryId.name !== null && car.categoryId.name === category))
+        if(cars.data !== undefined){
+            setFilteresCars(cars.data.filter((car) => car.categoryId && car.categoryId.name === category))
         }
     }, [category])
 
     const showActiveCar = (car) => {
         setActiveCar(car.id)
         chooseCar(car)
-        chooseExtra("")
+        chooseExtra(null)
         chooseTariff("")
         chooseColor(null)
         chooseSinceDate(null)
         chooseEndDate(null)
+        setTariffPrice(0)
+        setGasolinePrice(0)
+        setChildChairPrice(0)
+        setExtraOptPrice(0)
     }
 
     const showCars = () => {
@@ -35,7 +72,7 @@ const CarList = ({cars, fetchCars, category, chooseCar, setCar, chooseExtra, cho
                         className={setCar !== null && setCar.id === car.id ? "car-description-form-active" : "car-description-form"} 
                         key={car.id} 
                         onClick={() => showActiveCar(car)}
-                        style={{background: `url(${car.thumbnail.path}) no-repeat 100% 50%`, backgroundSize: "80%"}}
+                        style={{background: `url(${prepareImgLink(car.thumbnail.path)}) no-repeat 100% 50%`, backgroundSize: "80%"}}
                     >
                     <li className="car-name">
                         {car.name}
@@ -54,7 +91,7 @@ const CarList = ({cars, fetchCars, category, chooseCar, setCar, chooseExtra, cho
                     className={setCar.id === car.id ? "car-description-form-active" : "car-description-form"} 
                     key={car.id} 
                     onClick={() => showActiveCar(car)}
-                    style={{background: `url(${car.thumbnail.path}) no-repeat 100% 50%`, backgroundSize: "80%"}}
+                    style={{background: `url(${prepareImgLink(car.thumbnail.path)}) no-repeat 100% 50%`, backgroundSize: "80%"}}
                 >
                 <li className="car-name">
                     {car.name}
@@ -94,4 +131,8 @@ export default connect(mapStateToProps, {
     chooseColor: chooseColor,
     chooseSinceDate: chooseSinceDate,
     chooseEndDate: chooseEndDate,
+    setTariffPrice:setTariffPrice,
+    setGasolinePrice:setGasolinePrice,
+    setChildChairPrice: setChildChairPrice,
+    setExtraOptPrice: setExtraOptPrice,
 })(CarList);
