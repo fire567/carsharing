@@ -21,9 +21,6 @@ const loadState = () => {
 const oldState = loadState();
 const store = createStore(reducers, oldState,  applyMiddleware(thunk))
 
-
-console.log(process.env)
-
 const saveState = (state) => {
   try {
       const serialisedState = JSON.stringify(state);

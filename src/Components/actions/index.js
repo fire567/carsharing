@@ -186,3 +186,17 @@ export const setExtraOptPrice = (price) => {
         payload: price,
     }
 }
+
+export const setActiveExtraBTN = (active) => {
+    return{
+        type: "SET_ACTIVEEXTRA",
+        payload: active,
+    }
+}
+
+export const setActiveLink = (link) => {
+    return{
+        type: "SET_ACTIVELINK",
+        payload: link,
+    }
+}

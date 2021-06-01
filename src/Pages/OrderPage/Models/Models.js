@@ -19,7 +19,7 @@ const Models = () => {
         <div className="order-page-model">
             <Sidebar menu={menuChange}/>
             <Header />
-            <OrderLinks activeLink={1}/>
+            <OrderLinks/>
             <ModelContent />
             <Menu switchMenu={switchMenu} menuChange={menuChange}/>
             <OrderMenu />

@@ -6,7 +6,7 @@ import RadioInputColor from "../../../../Components/radioInputColor/radioInputCo
 import CheckboxInput from "../../../../Components/CheckboxInput/CheckboxInput";
 import ButtonCart from "../../../../Components/ButtonCart/ButtonCart";
 import Button from "../../../../Components/Button/Button";
-import {chooseSinceDate, chooseEndDate, setHours, setDays, setDiff} from "../../../../Components/actions/index";
+import {chooseSinceDate, chooseEndDate, setHours, setDays, setDiff, setActiveExtraBTN} from "../../../../Components/actions/index";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import DatePicker from "react-datepicker";
@@ -25,8 +25,9 @@ const ModelContent = ({
     setHours, 
     setDays, 
     setDiff, 
-    diff }) => {
-    const [ activeBTN, setActiveBTN] = useState(0)
+    diff,
+    activeExtra,
+    setActiveExtraBTN }) => {
     
 
     var hour = 1000 * 60 * 60;
@@ -43,7 +44,7 @@ const ModelContent = ({
             setDiff(Math.floor(setEndDate - setSinceDate))
         }
         if(setColor !== null && setTariff !== "" && setOption !== "" && setSinceDate !== null && setEndDate !== null){
-            setActiveBTN(1);
+            setActiveExtraBTN(1);
         }
     }, [setSinceDate, setEndDate, setColor, setTariff, setOption])
 
@@ -113,11 +114,11 @@ const ModelContent = ({
                 </div>
                 <div className="sized-loc-btn-form">
                     <ButtonCart />
-                    {activeBTN !== 0 ? <Button text={"Итого"} width={"100%"} activeBTN={"order-btn"} disabled={""}/> : 
+                    {activeExtra !== 0 ? <Button text={"Итого"} width={"100%"} activeBTN={"order-btn"} disabled={""}/> : 
                         <Button text={"Итого"} width={"100%"} activeBTN={"unactive-btn"} disabled={"disabled"}/>}
                 </div>
             </div>
-            <OrderInf buttonName={"Итого"} activeBTN={activeBTN}/>
+            <OrderInf buttonName={"Итого"} activeBTN={activeExtra}/>
         </div>
     )
 }
@@ -131,7 +132,8 @@ const mapStateToProps = (state) => {
         setEndDate: state.setEndDate,
         setTariff: state.setTariff,
         setOption: state.setOption,
-        diff: state.diff
+        diff: state.diff,
+        activeExtra: state.activeExtra,
     }
 }
 
@@ -141,4 +143,5 @@ export default connect(mapStateToProps, {
     setHours: setHours,
     setDays: setDays,
     setDiff: setDiff,
+    setActiveExtraBTN: setActiveExtraBTN,
 })(ModelContent);

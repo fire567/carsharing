@@ -24,6 +24,8 @@ import diffReducer from "./diffReducer";
 import gasolinePriceRedicer from "./gasolinePriceReducer";
 import childChairPrice from "./childChairPrice";
 import extraOptPrice from "./extraOptPrice";
+import activeExtraReducer from "./activeExtraReducer";
+import activeLinkReducer from "./activeLinkReducer";
 
 
 export default combineReducers({
@@ -52,4 +54,6 @@ export default combineReducers({
     gasolinePrice: gasolinePriceRedicer,
     chair: childChairPrice,
     extraOptPrice: extraOptPrice,
+    activeExtra: activeExtraReducer,
+    activeLink: activeLinkReducer,
 })

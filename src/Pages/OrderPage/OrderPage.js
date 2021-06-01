@@ -29,7 +29,7 @@ const OrderPage = ({ fetchPoints, fetchCities }) => {
         <div className="order-page">
             <Sidebar menu={menuChange}/>
             <Header />
-            <OrderLinks activeLink={0}/>
+            <OrderLinks/>
             <Location />
             <Menu switchMenu={switchMenu} menuChange={menuChange}/>
             <OrderMenu />

@@ -7,7 +7,6 @@ import { chooseExtra, setGasolinePrice, setChildChairPrice, setExtraOptPrice } f
 import "./CheckboxInput.css";
 
 const CheckboxInput = ({ chooseExtra, setOption, gasolinePrice, setGasolinePrice, setChildChairPrice, chair, extraOptPrice, setExtraOptPrice }) => {
-    const [arr, setArr] = setState("")
     const extraOptions = [
         {id: 0, value: "Полный бак, 500р", category: "Полный бак"},
         {id: 1, value: "Детское кресло, 200р", category: "Детское кресло"},
@@ -15,7 +14,7 @@ const CheckboxInput = ({ chooseExtra, setOption, gasolinePrice, setGasolinePrice
     ]
 
     
-
+    
     
 
     useEffect(() => {
@@ -30,8 +29,6 @@ const CheckboxInput = ({ chooseExtra, setOption, gasolinePrice, setGasolinePrice
 
     const activeCheckbox = (value) => {
         chooseExtra(value)
-        setArr([...arr, value])
-        console.log(arr)
     }
 
 

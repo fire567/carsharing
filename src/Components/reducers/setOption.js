@@ -1,7 +1,7 @@
 
-export default (option = "", action) => {
+export default (option = 0, action) => {
     if(action.type === "SET_EXTRA"){
-            return action.payload
+            return  action.payload
         }
     return option;
 }

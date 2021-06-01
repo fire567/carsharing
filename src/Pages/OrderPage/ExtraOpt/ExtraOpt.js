@@ -18,7 +18,7 @@ const ExtraOpt = () => {
         <div className="order-page-model">
             <Sidebar menu={menuChange}/>
             <Header />
-            <OrderLinks activeLink={2}/>
+            <OrderLinks/>
             <ExtraOptContent />
             <Menu switchMenu={switchMenu} menuChange={menuChange}/>
             <OrderMenu />
