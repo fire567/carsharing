@@ -1,28 +1,29 @@
 import React, { useState, useEffect } from "react";
 import "./Map.css";
+import {setMapResult, removeAddressesList, zoomedPoint} from "../actions/index";
 import { GoogleMap, withScriptjs, withGoogleMap, Marker  } from "react-google-maps";
-import { useLoadScript } from "@react-google-maps/api";
-import GooglePlacesAutocomplete ,{ geocodeByAddress, getLatLng } from 'react-google-places-autocomplete';
+import { geocodeByAddress, getLatLng } from 'react-google-places-autocomplete';
 
-/*import usePlacesAutocomplete, {
-    geocodeByAddress,
-    getGeocode,
-    getLatLng,
-} from "use-places-autocomplete";*/
+
 import {connect} from "react-redux";
 
-const Map = ({setAdress}) => {
+const Map = ({setAdress, setTown, setMapResult, mapReducer, addressesList, removeAddressesList, zoomedPoint, zoomedPointReducer}) => {
     
     const [url, setURL] = useState("")
-    const [result, setResult ] = useState({lat: 54.269839, lng: 48.289852})
+    
+    //var address = addressesList.filter((address) => address.address === setAdress);
+    console.log(zoomedPointReducer)
 
     const showMap = () => {
         return(
             <GoogleMap 
                     defaultZoom={setAdress !== "" ? 17 : 10} 
-                    defaultCenter={setAdress !== "" ? {lat: result.lat, lng: result.lng} : {lat: 54.269839, lng: 48.289852}}
+                    defaultCenter={zoomedPointReducer && setAdress !== "" ? {lat: zoomedPointReducer.lat, lng: zoomedPointReducer.lng} : {lat: 54.269839, lng: 48.289852}}
             >
-            <Marker position={setAdress !== "" ? {lat: result.lat, lng: result.lng} : {lat: 54.269839, lng: 48.289852}}/>
+            {mapReducer.map((point) => 
+                <Marker position={point !== [] ? {lat: point.lat, lng: point.lng} : {lat: 54.269839, lng: 48.289852}}/>
+            )}
+            
             </ GoogleMap>
         );
     };
@@ -30,14 +31,20 @@ const Map = ({setAdress}) => {
     
 
     useEffect( () => {
+        removeAddressesList()
         setURL("https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyChGoJ-GUzB6Vey3CQ-cG-G5CrgMOLDf5I")
-        geocodeByAddress(setAdress)
+        addressesList.map((point) => {
+            geocodeByAddress(`${setTown},${point.address}`)
+            .then(results => getLatLng(results[0]))
+            .then(latLng => setMapResult(latLng))
+            .catch(error => console.error('Error', error))
+        })
+            geocodeByAddress(`${setTown},${setAdress}`)
         .then(results => getLatLng(results[0]))
-        .then(latLng => setResult(latLng))
+        .then(latLng => zoomedPoint(latLng))
         .catch(error => console.error('Error', error))
-      }, [setAdress])
-
-      //if(isLoaded) return "cool"
+        
+      }, [addressesList])
 
     const WrappedMap = withScriptjs(withGoogleMap(showMap))
 
@@ -60,18 +67,21 @@ const Map = ({setAdress}) => {
             </div>
         </div>
     );
-    
-   return(
-       <div>
-       </div>
-   )
 };
 
 
  const mapStateToProps = ((state) => {
     return{
-        setAdress: state.setAdress
+        setAdress: state.setAdress,
+        setTown: state.setTown,
+        mapReducer: state.mapReducer,
+        addressesList: state.addressesList,
+        zoomedPointReducer: state.zoomedPointReducer,
     }
 })
 
-export default connect(mapStateToProps)(Map);
+export default connect(mapStateToProps, {
+    setMapResult: setMapResult,
+    removeAddressesList: removeAddressesList,
+    zoomedPoint: zoomedPoint
+})(Map);

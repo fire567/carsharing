@@ -42,11 +42,8 @@ const RadioInputTariff = ({
     const showradioInputsBlock = () => {
             return radioInputsBlock.map((item) => (
                 <div className={indent} key={item.id}>
-                    {setTariff === item.category ? 
-                        <ReactSVG src={radioActive} className="radio-pic" onClick={() => activeRadio(item.category)} alt="radio"/> :
-                        <ReactSVG src={radioDefault} className="radio-pic" onClick={() => activeRadio(item.category)} alt="radio"/>
-                    }
-                    <li className="radio-value">
+                    <ReactSVG src={setTariff === item.category ? radioActive : radioDefault} className="radio-pic" onClick={() => activeRadio(item.category)} alt="radio"/>
+                    <li className={setTariff === item.category ? "radio-value" : "radio-value-unactive"}>
                         {item.value}
                     </li>
                 </div>

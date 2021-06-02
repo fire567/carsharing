@@ -18,11 +18,8 @@ const RadioInputColor = ({ setCar, style, indent, chooseColor, setColor }) => {
             {
             setCar.colors.map((item, id) => (
                 <div className={indent} key={id}>
-                    {setColor === item ? 
-                        <ReactSVG src={radioActive} className="radio-pic" onClick={() => activeRadio(id, item)} alt="radio"/> :
-                        <ReactSVG src={radioDefault} className="radio-pic" onClick={() => activeRadio(id, item)} alt="radio"/>
-                    }
-                    <li className="radio-value">
+                        <ReactSVG src={setColor === item ? radioActive : radioDefault} className="radio-pic" onClick={() => activeRadio(id, item)} alt="radio"/>
+                    <li className={setColor === item ? "radio-value" : "radio-value-unactive"}>
                         {item}
                     </li>
                 </div>

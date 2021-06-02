@@ -20,16 +20,12 @@ const RadioInputModel = ({ changeCategory, style, indent, category }) => {
 
     return (
         <div className="radio-input-form" style={{display: `${style}`}}>
-            {
-            radioInputs.map((item) => (
+            {radioInputs.map((item) => (
                 <div className={indent} key={item.id}>
-                    {category === item.category ? 
-                        <ReactSVG src={radioActive} className="radio-pic" onClick={() => activeRadio(item.category)} alt="radio"/> :
-                        <ReactSVG src={radioDefault} className="radio-pic" onClick={() => activeRadio(item.category)} alt="radio"/>
-                    }
-                    <li className="radio-value">
-                        {item.value}
-                    </li>
+                        <ReactSVG src={category === item.category ? radioActive : radioDefault} className="radio-pic" onClick={() => activeRadio(item.category)} alt="radio"/>
+                        <li className={category === item.category ? "radio-value" : "radio-value-unactive"}>
+                            {item.value}
+                        </li>
                 </div>
             ))}
         </div>

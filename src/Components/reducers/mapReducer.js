@@ -1,7 +1,11 @@
-export default (map = [], action) => {
-    if(action.type === "FETCH_MAP") {
-        return 234;
+const initialState = [];
+
+export default (map = initialState, action) => {
+    if(action.type === "SET_MAPRESULT") {
+        return [...map, action.payload];
+    }else if(action.type === "SET_REMOVEADRESSESLIST"){
+        return []
     }
 
-    return 123;
+    return map;
 }

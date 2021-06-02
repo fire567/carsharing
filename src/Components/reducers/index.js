@@ -26,6 +26,9 @@ import childChairPrice from "./childChairPrice";
 import extraOptPrice from "./extraOptPrice";
 import activeExtraReducer from "./activeExtraReducer";
 import activeLinkReducer from "./activeLinkReducer";
+import mapReducer from "./mapReducer";
+import addressesList from "./addressesList";
+import zoomedPointReducer from "./zoomedPointReducer";
 
 
 export default combineReducers({
@@ -56,4 +59,7 @@ export default combineReducers({
     extraOptPrice: extraOptPrice,
     activeExtra: activeExtraReducer,
     activeLink: activeLinkReducer,
+    mapReducer: mapReducer,
+    addressesList: addressesList,
+    zoomedPointReducer: zoomedPointReducer,
 })

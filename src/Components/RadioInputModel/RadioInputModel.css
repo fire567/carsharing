@@ -39,3 +39,8 @@
 .radio-no-indent:not(:first-child){
     margin-top: 9px;
 }
+
+.radio-value-unactive{
+    list-style: none;
+    color: #999999
+}

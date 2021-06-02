@@ -200,3 +200,31 @@ export const setActiveLink = (link) => {
         payload: link,
     }
 }
+
+export const setMapResult = (result) => {
+    return{
+        type: "SET_MAPRESULT",
+        payload: result,
+    }
+}
+
+export const setAddressesList = (addresses) => {
+    return{
+        type: "SET_ADRESSESLIST",
+        payload: addresses,
+    }
+}
+
+export const removeAddressesList = (addresses) => {
+    return{
+        type: "SET_REMOVEADRESSESLIST",
+        payload: addresses,
+    }
+}
+
+export const zoomedPoint = (point) => {
+    return{
+        type: "SET_ZOOMEDPOINT",
+        payload: point,
+    }
+}

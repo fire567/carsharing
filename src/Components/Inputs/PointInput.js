@@ -1,17 +1,37 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import {changeTown, changeAdress} from "../actions/index";
+import {changeTown, changeAdress, setAddressesList} from "../actions/index";
 import InputSelector from "./InputSelector";
 import exitBtn from "../../assets/exitBtn.svg";
 
-const CityInput = ({ setLoc, setLocInfo,  locations, changeTown, changeAdress, currentInput, inputName, InputClass, setTown, setAdress, points}) => {
+const CityInput = ({ 
+    setLoc, 
+    setLocInfo,  
+    locations, 
+    changeTown, 
+    changeAdress, 
+    currentInput, 
+    inputName, 
+    InputClass, 
+    setTown, 
+    setAdress, 
+    points,
+    setAddressesList,
+    }) => {
     const [ activeSelector, setActiveSelector ] = useState(false);
     const [foundCity, setFoundCity ] = useState([])
+
     
     useEffect(() => {
+        
         if(locations.data){
             setFoundCity(locations.data.filter((loc) => loc.name.toLowerCase().includes(setLoc.toLowerCase())))
         }
+        if(points.data){
+            setAddressesList(points.data.filter((address) => address.cityId.name === setTown))
+        }
+        
+        
         window.addEventListener('click', (event) => {
             if(event.target.className !== InputClass){
                 setActiveSelector(false)
@@ -61,17 +81,30 @@ const CityInput = ({ setLoc, setLocInfo,  locations, changeTown, changeAdress, c
     const handleInputClick = (value) => {
         setActiveSelector(value)
     }
-    
+
     const citySelector = () => {
-        return locations.data.map((loc) => {
-            if(loc.name.toLowerCase().includes(setLoc.toLowerCase())){
-            return (
-                <option key={loc.id} className="loc-name" onClick={() => changeLocName(loc.name)}>
-                    {loc.name}
-                </option>
-            )
-            }
-        })
+        if(currentInput === "address"){
+            return locations.data.map((loc) => {
+                if(loc.name.toLowerCase().includes(setLoc.toLowerCase())){
+                return (
+                    <option key={loc.id} className="loc-name" onClick={() => changeLocName(loc.name)}>
+                        {loc.address}
+                    </option>
+                )
+                }
+            })
+        }else if(currentInput === "city"){
+            return locations.data.map((loc) => {
+                if(loc.name.toLowerCase().includes(setLoc.toLowerCase())){
+                return (
+                    <option key={loc.id} className="loc-name" onClick={() => changeLocName(loc.name)}>
+                        {loc.name}
+                    </option>
+                )
+                }
+            })
+        }
+        
     }
 
     const adressAutoSelector = () => {
@@ -165,4 +198,5 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps, {
     changeTown:changeTown,
     changeAdress: changeAdress,
+    setAddressesList: setAddressesList,
 })(CityInput);

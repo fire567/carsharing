@@ -40,7 +40,7 @@ const CheckboxInput = ({ chooseExtra, setOption, gasolinePrice, setGasolinePrice
             extraOptions.map((option) => (
                 <div className="checkbox-form" key={option.id}>
                         <ReactSVG src={setOption === option.category ? checkboxActive : checkboxDufault} className="checkbox-pic" alt="checkbox" onClick={() => activeCheckbox(option.category)}/>
-                    <div className="checkbox-value">
+                    <div className={setOption === option.category ? "checkbox-value" : "checkbox-value-undefined"}>
                         {option.value}
                     </div>
                 </div>

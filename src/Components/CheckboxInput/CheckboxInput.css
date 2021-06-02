@@ -5,3 +5,7 @@
 .checkbox-pic{
     margin-right: 8px;
 }
+
+.checkbox-value-undefined{
+    color: #999999;
+}
