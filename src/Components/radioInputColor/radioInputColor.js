@@ -14,7 +14,7 @@ const RadioInputColor = ({ setCar, style, indent, chooseColor, setColor }) => {
     }
 
     return (
-        <div className="radio-input-form" style={{display: `${style}`}}>
+        <div className="radio-input-form">
             {
             setCar.colors.map((item, id) => (
                 <div className={indent} key={id}>

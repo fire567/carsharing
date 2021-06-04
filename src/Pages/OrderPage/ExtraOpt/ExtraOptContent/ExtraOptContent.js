@@ -6,7 +6,7 @@ import RadioInputColor from "../../../../Components/radioInputColor/radioInputCo
 import CheckboxInput from "../../../../Components/CheckboxInput/CheckboxInput";
 import ButtonCart from "../../../../Components/ButtonCart/ButtonCart";
 import Button from "../../../../Components/Button/Button";
-import {chooseSinceDate, chooseEndDate, setHours, setDays, setDiff, setActiveExtraBTN} from "../../../../Components/actions/index";
+import {chooseSinceDate, chooseEndDate, setHours, setDays, setDiff, setActiveExtraBTN, setTariffPrice} from "../../../../Components/actions/index";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import DatePicker from "react-datepicker";
@@ -27,23 +27,28 @@ const ModelContent = ({
     setDiff, 
     diff,
     activeExtra,
-    setActiveExtraBTN }) => {
-    
-
-    var hour = 1000 * 60 * 60;
-            var hours = Math.floor(diff/hour)
-            var days = Math.floor(hours/24);
-            setHours(Math.floor(days * 24 - hours));
-            setDays(days)
-            
-
-    
+    setActiveExtraBTN,
+    setTariffPrice }) => {
 
     useEffect(() => {
         if(setSinceDate !== null && setEndDate !== null){
             setDiff(Math.floor(setEndDate - setSinceDate))
+            var hour = 1000 * 60 * 60;
+            var hours = Math.floor(diff/hour)
+            var days = Math.floor(hours/24);
+            setHours(Math.floor(days * 24 - hours));
+            setDays(days)
         }
-        if(setColor !== null && setTariff !== "" && setOption !== "" && setSinceDate !== null && setEndDate !== null){
+
+        if(setSinceDate === null){
+            chooseEndDate(null)
+        }
+
+        if(setSinceDate === null || setEndDate === null){
+            setTariffPrice(0)
+        }
+
+        if(setColor !== "" && setTariff !== "" && setOption !== null && setSinceDate !== null && setEndDate !== null){
             setActiveExtraBTN(1);
         }
     }, [setSinceDate, setEndDate, setColor, setTariff, setOption])
@@ -54,7 +59,6 @@ const ModelContent = ({
     }
 
     const endDate = ( event ) => {
-        console.log(Date.parse(event))
         chooseEndDate(Date.parse(event))
     } 
 
@@ -87,7 +91,21 @@ const ModelContent = ({
                 </form>
                 <form className="input-date-form">
                         <div className="since-date">По </div>
-                        <DatePicker 
+                        {setSinceDate ? 
+                            <DatePicker 
+                            className="end-date-input"
+                            selected={setEndDate} 
+                            onChange={endDate} 
+                            dateFormat={"dd.MM.yyyy HH:mm"}
+                            minDate={setSinceDate}
+                            showTimeSelect
+                            timeFormat={"HH:mm"}
+                            className="data-input"
+                            placeholderText="Введите дату и время ..."
+                        /> : 
+                            <DatePicker 
+                            className="end-date-input"
+                            disabled="disabled"
                             selected={setEndDate} 
                             onChange={endDate} 
                             dateFormat={"dd.MM.yyyy HH:mm"}
@@ -97,6 +115,7 @@ const ModelContent = ({
                             className="data-input"
                             placeholderText="Введите дату и время ..."
                         />
+                        }
                             <button type="reset" className="reset-data-btn" onClick={() => chooseEndDate(null)}>
                                 <img src={`${exitBtn}`}  />
                             </button> 
@@ -114,11 +133,11 @@ const ModelContent = ({
                 </div>
                 <div className="sized-loc-btn-form">
                     <ButtonCart />
-                    {activeExtra !== 0 ? <Button text={"Итого"} width={"100%"} activeBTN={"order-btn"} disabled={""}/> : 
+                    {activeExtra !== 0 ? <Link to = "/order-page/final-page"><Button text={"Итого"} width={"100%"} activeBTN={"order-btn"} disabled={""}/></Link> : 
                         <Button text={"Итого"} width={"100%"} activeBTN={"unactive-btn"} disabled={"disabled"}/>}
                 </div>
             </div>
-            <OrderInf buttonName={"Итого"} activeBTN={activeExtra}/>
+            <OrderInf buttonName={"Итого"} activeBTN={activeExtra} link={"/order-page/final-page"}/>
         </div>
     )
 }
@@ -144,4 +163,5 @@ export default connect(mapStateToProps, {
     setDays: setDays,
     setDiff: setDiff,
     setActiveExtraBTN: setActiveExtraBTN,
+    setTariffPrice: setTariffPrice,
 })(ModelContent);

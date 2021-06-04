@@ -32,17 +32,17 @@ const CheckboxInput = ({ chooseExtra, setOption, gasolinePrice, setGasolinePrice
     }
 
 
-    
+    //<ReactSVG src={setOption === option.category ? checkboxActive : checkboxDufault} className="checkbox-pic" alt="checkbox" onClick={() => activeCheckbox(option.category)}/>
 
     return (
         <div className="extra-input-form">
             {extraOptions ?
             extraOptions.map((option) => (
                 <div className="checkbox-form" key={option.id}>
-                        <ReactSVG src={setOption === option.category ? checkboxActive : checkboxDufault} className="checkbox-pic" alt="checkbox" onClick={() => activeCheckbox(option.category)}/>
-                    <div className={setOption === option.category ? "checkbox-value" : "checkbox-value-undefined"}>
+                    <input type="checkbox" className="checkbox" id={option.id}></input>
+                    <label for={option.id} className={"checkbox-value-undefined"}>
                         {option.value}
-                    </div>
+                    </label>
                 </div>
             )): null}
         </div>

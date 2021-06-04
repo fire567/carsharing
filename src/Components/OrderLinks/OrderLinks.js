@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import {Link} from "react-router-dom";
 import { connect } from "react-redux";
 import {setActiveLink} from "../actions/index";
@@ -12,7 +12,7 @@ const OrderLinks = ({ setLocInfo, setCar, activeExtra, setActiveLink, activeLink
         {id: 0, value: "Местоположение", link: "/order-page/loc"},
         {id: 1, value: "Модель", link: "/order-page/model"},
         {id: 2, value: "Дополнительно", link: "/order-page/extraopt"},
-        {id: 3, value: "Итого"},
+        {id: 3, value: "Итого", link: "/order-page/final-page"},
     ];
 
     useEffect(() => {

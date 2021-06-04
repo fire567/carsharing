@@ -1,5 +1,4 @@
 .model-content{
-    padding-left: 4%;
     display: flex;
     margin-left: 64px;
     height: 86.7%;
@@ -23,20 +22,22 @@
 }
 
 .model-left-side{
+    padding-left: 4%;
+    padding-right: 13%;
     width: 86%;
-    border-right: 1px solid #EEEEEE;
     margin-top: 32px;
+    overflow: hidden;
 }
 
 @media (max-width: 1024px) {
     .model-left-side {
-        width: 100%;
-        padding-right: 5%;
+        padding-right: 4%;
     }
 }
 
 @media (max-width: 550px) {
     .model-left-side {
-        height: inherit;
+        width: auto;
+        margin-top: 0px;
     }
 }

@@ -22,13 +22,15 @@
 
 .loc-left-side{
     width: 86%;
-    border-right: 1px solid #EEEEEE;
+    padding-right: 13%;
+    padding-left: 4%;
 }
 
 @media (max-width: 1024px) {
     .loc-left-side {
         width: 100%;
         border-right: 0px;
+        padding-right: 0px;
     }
   }
 
@@ -37,10 +39,15 @@
     font-weight: 100;
     font-size: 14px;
     margin-top: 32px;
-    margin-left: 5%;
-    width: 340px;
+    width: 331px;
     color: #121212;
 }
+
+@media (max-width: 550px) {
+    .input-loc {
+        width: 340px;
+    }
+  }
 
 .loc-input{
     width: 224px;

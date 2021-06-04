@@ -73,6 +73,7 @@ const CityInput = ({
     const deleteTextCity = () => {
         if(currentInput === "city"){
             changeTown("")
+            changeAdress("")
         }else if(currentInput === "address"){
             changeAdress("")
         }

@@ -2,6 +2,7 @@
     font-family: "Roboto-Regular";
     width: 500px;
     padding: 2% 3% 0 2%;
+    border-left: 1px solid #EEEEEE;
 }
 
 @media (max-width: 1024px) {
@@ -55,7 +56,8 @@
 }
 
 .item-line{
-    border-bottom: 1px dotted #999999;
+    flex: 1;
+    border-bottom: 2px dotted #999999;
     margin-left: 12px;
     margin-right: 12px;
     width: 74px;

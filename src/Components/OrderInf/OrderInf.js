@@ -13,6 +13,7 @@ import {
     setTariffPrice, 
     setTotalPrice, 
     setActiveLink,
+    setActiveExtraBTN,
 } from "../actions/index";
 import { fetchPoints } from "../../Components/actions/index";
 import "./OrderInf.css";
@@ -46,7 +47,8 @@ const OrderInf = ({
     setTariffPrice,
     setTotalPrice,
     totalPrice,
-    setActiveLink,}) => {
+    setActiveLink,
+    setActiveExtraBTN}) => {
 
 
     useEffect(() => {
@@ -54,6 +56,7 @@ const OrderInf = ({
         if(setLocInfo.length === 0){
             chooseCar([])
             setActiveLink(0)
+            setActiveExtraBTN(0)
         }
         if(setCar.length === 0 && setLocInfo.length !== 0){
             chooseExtra("")
@@ -63,6 +66,7 @@ const OrderInf = ({
             chooseEndDate(null)
             setTariffPrice(0)
             setActiveLink(1)
+            setActiveExtraBTN(0)
         }
            
         fetchPoints()
@@ -259,4 +263,5 @@ export default connect(mapStateToProps, {
     setTariffPrice: setTariffPrice,
     setTotalPrice:setTotalPrice,
     setActiveLink: setActiveLink,
+    setActiveExtraBTN: setActiveExtraBTN,
 })(OrderInf);

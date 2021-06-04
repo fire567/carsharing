@@ -1,6 +1,4 @@
-.checkbox-form{
-    display: flex;
-}
+
 
 .checkbox-pic{
     margin-right: 8px;
@@ -8,4 +6,73 @@
 
 .checkbox-value-undefined{
     color: #999999;
+}
+
+.checkbox-value{
+    list-style: none;
+}
+
+.checkbox-value-undefined::before{
+    list-style: none;
+}
+
+.checkbox {
+    display: none;
+}
+
+.checkbox-form label::before{
+    content: "";
+    display: inline-block;
+    margin-right: 9px;
+    height: 12px;
+    width: 12px;
+    
+    border: 1px solid;   
+}
+
+.checkbox-form label:hover::before {
+    border: 1px solid #0EC261;
+}
+
+.checkbox-form label::after {
+    content: "";
+    display: inline-block;
+    height: 6px;
+    width: 11px;
+    border-left: 3px solid #121212;
+    border-bottom: 3px solid #121212;
+    
+    transform: rotate(-45deg);
+}
+
+.checkbox-form{
+    position: relative;
+}
+
+
+/*Внешний блок*/
+.checkbox-form label::before {
+    top: 3px;
+}
+/*Галка*/
+.checkbox-form label::after {
+    position: absolute;
+    left: 3px;
+    top: 6.5px;
+}
+
+/*Прячем галку по умолчанию*/
+.checkbox-form input[type="checkbox"] + label::after {
+    content: none;
+}
+/*Показываем галку по состоянию checked*/
+.checkbox-form input[type="checkbox"]:checked + label::before {
+    margin-right: 9px;
+    border: 1px solid #0EC261;
+    }
+.checkbox-form input[type="checkbox"]:checked + label {
+    color: black;
+}
+.checkbox-form input[type="checkbox"]:checked + label::after {
+    content: "";
 }

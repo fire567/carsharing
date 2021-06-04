@@ -19,7 +19,7 @@ const RadioInputModel = ({ changeCategory, style, indent, category }) => {
     ]
 
     return (
-        <div className="radio-input-form" style={{display: `${style}`}}>
+        <div className="radio-input-form">
             {radioInputs.map((item) => (
                 <div className={indent} key={item.id}>
                         <ReactSVG src={category === item.category ? radioActive : radioDefault} className="radio-pic" onClick={() => activeRadio(item.category)} alt="radio"/>

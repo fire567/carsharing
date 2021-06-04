@@ -23,20 +23,20 @@ const RadioInputTariff = ({
         {id: 1, value: "На сутки, 1999₽/сутки", category: "На сутки"},
     ]
 
+    console.log(minutesPrice)
 
     useEffect(() => {
         setMinutesPrice(Math.floor(diff/(1000 * 60) * 7))
         setDaysPrice(Math.floor(diff/(1000 * 60 * 60 * 24)*1999))
-    }, [diff])
-     
-    const activeRadio = (value) => {
-        chooseTariff(value)
-        if(value === "Поминутно"){
+        if(setTariff === "Поминутно"){
             setTariffPrice(minutesPrice)
-        }else if(value === "На сутки"){
+        }else if(setTariff === "На сутки"){
             setTariffPrice(daysPrice)
         }
-        
+    }, [diff, setTariff])
+     
+    const activeRadio = (value) => {
+        chooseTariff(value) 
     }
 
     const showradioInputsBlock = () => {

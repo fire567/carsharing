@@ -12,6 +12,7 @@ import {
     setGasolinePrice, 
     setChildChairPrice,
     setExtraOptPrice,
+    setActiveExtraBTN,
 } from "../actions/index";
 import "./CarList.css";
 
@@ -30,6 +31,7 @@ const CarList = ({
     setGasolinePrice,
     setChildChairPrice,
     setExtraOptPrice,
+    setActiveExtraBTN,
     }) => {
     const [ activeCar, setActiveCar ] = useState(null);
     const [ filteredCars, setFilteresCars ] = useState([])
@@ -61,6 +63,7 @@ const CarList = ({
         setGasolinePrice(0)
         setChildChairPrice(0)
         setExtraOptPrice(0)
+        setActiveExtraBTN(0)
     }
 
     const showCars = () => {
@@ -72,7 +75,7 @@ const CarList = ({
                         className={setCar !== null && setCar.id === car.id ? "car-description-form-active" : "car-description-form"} 
                         key={car.id} 
                         onClick={() => showActiveCar(car)}
-                        style={{background: `url(${prepareImgLink(car.thumbnail.path)}) no-repeat 100% 50%`, backgroundSize: "80%"}}
+                        style={{background: `url(${prepareImgLink(car.thumbnail.path)}) no-repeat 85% 97%`, backgroundSize: "70%"}}
                     >
                     <li className="car-name">
                         {car.name}
@@ -91,7 +94,7 @@ const CarList = ({
                     className={setCar.id === car.id ? "car-description-form-active" : "car-description-form"} 
                     key={car.id} 
                     onClick={() => showActiveCar(car)}
-                    style={{background: `url(${prepareImgLink(car.thumbnail.path)}) no-repeat 100% 50%`, backgroundSize: "80%"}}
+                    style={{background: `url(${prepareImgLink(car.thumbnail.path)}) no-repeat 85% 97%`, backgroundSize: "70%"}}
                 >
                 <li className="car-name">
                     {car.name}
@@ -135,4 +138,5 @@ export default connect(mapStateToProps, {
     setGasolinePrice:setGasolinePrice,
     setChildChairPrice: setChildChairPrice,
     setExtraOptPrice: setExtraOptPrice,
+    setActiveExtraBTN: setActiveExtraBTN,
 })(CarList);

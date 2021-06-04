@@ -22,7 +22,6 @@
 
 .extra-left-side{
     width: 86%;
-    border-right: 1px solid #EEEEEE;
     margin-top: 32px;
 }
 
@@ -140,6 +139,10 @@
     outline:none;
 }
 
+.data-input:disabled{
+    background-color: white;
+}
+
 .data-input:active::-webkit-calendar-picker-indicator{
     visibility: visible;
 }
@@ -154,4 +157,5 @@
 .since-date{
     padding-top: 4px;
 }
+
 
