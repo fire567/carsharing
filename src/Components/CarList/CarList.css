@@ -57,6 +57,7 @@
 
 .car-description-form-active{
     position: relative;
+    padding: 16px;
     width: 100%;
     height: 223px;
     border: 1px solid #0EC261;

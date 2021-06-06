@@ -14,6 +14,7 @@ import {
     setTotalPrice, 
     setActiveLink,
     setActiveExtraBTN,
+    switchFinishMenu,
 } from "../actions/index";
 import { fetchPoints } from "../../Components/actions/index";
 import "./OrderInf.css";
@@ -48,7 +49,9 @@ const OrderInf = ({
     setTotalPrice,
     totalPrice,
     setActiveLink,
-    setActiveExtraBTN}) => {
+    setActiveExtraBTN,
+    switchFinishMenu,
+    switchFinish}) => {
 
 
     useEffect(() => {
@@ -208,6 +211,10 @@ const OrderInf = ({
             }
     }
 
+    const switchMenu = () => {
+        switchFinishMenu(!switchFinish)
+    }
+
     return(
         <div className="loc-right-side">
             <div className={cartReducer === true ? "active" : "hidden-part"}>
@@ -221,11 +228,27 @@ const OrderInf = ({
                 {setSinceDate && setEndDate && setLocInfo != [] ? showDateInf() : null}
                 {setOption && setLocInfo != [] ? showExtraInf() : null}
                 {showPrice()}
-            
-            <div className="loc-btn-form">
-                {activeBTN != 0 && activeBTN ? <Link to = {link}><Button text={`${buttonName}`} width={"100%"} activeBTN={"order-btn"} disabled={""}/></Link> : 
-                    <Button text={`${buttonName}`} width={"100%"} activeBTN={"unactive-btn"} disabled={"disabled"}/>}
-            </div>
+            {window.location.hash.split('carsharing')[1] === "/order-page/final-page" ? 
+                <div className="loc-btn-form" onClick={() => switchMenu()}>
+                    <Button 
+                        text={`${buttonName}`} 
+                        width={"100%"} 
+                        activeBTN={"order-btn"} 
+                        disabled={""}
+                        background={"linear-gradient(90deg, #0EC261 2.61%, #039F67 112.6%)"}
+                    />
+                </div> : 
+                <div className="loc-btn-form">
+                    {activeBTN != 0 && activeBTN ? <Link to = {link}><Button text={`${buttonName}`} width={"100%"} activeBTN={"order-btn"} disabled={""}/></Link> : 
+                        <Button 
+                            text={`${buttonName}`} 
+                            width={"100%"} 
+                            activeBTN={"unactive-btn"} 
+                            disabled={"disabled"}
+                            background={"linear-gradient(90deg, #0EC261 2.61%, #039F67 112.6%)"}
+                        />}
+                </div>
+            }
             </div>
         </div>
     )
@@ -248,6 +271,7 @@ const mapStateToProps = (state) => {
         days: state.days,
         tariffPrice: state.tariffPrice,
         totalPrice: state.totalPrice,
+        switchFinish: state.switchFinish,
     }
 }
 
@@ -264,4 +288,5 @@ export default connect(mapStateToProps, {
     setTotalPrice:setTotalPrice,
     setActiveLink: setActiveLink,
     setActiveExtraBTN: setActiveExtraBTN,
+    switchFinishMenu: switchFinishMenu,
 })(OrderInf);

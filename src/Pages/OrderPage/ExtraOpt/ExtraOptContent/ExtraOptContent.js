@@ -133,8 +133,23 @@ const ModelContent = ({
                 </div>
                 <div className="sized-loc-btn-form">
                     <ButtonCart />
-                    {activeExtra !== 0 ? <Link to = "/order-page/final-page"><Button text={"Итого"} width={"100%"} activeBTN={"order-btn"} disabled={""}/></Link> : 
-                        <Button text={"Итого"} width={"100%"} activeBTN={"unactive-btn"} disabled={"disabled"}/>}
+                    {activeExtra !== 0 ? 
+                        <Link to = "/order-page/final-page">
+                            <Button 
+                                text={"Итого"} 
+                                width={"100%"} 
+                                activeBTN={"order-btn"} 
+                                disabled={""}
+                                background={"linear-gradient(90deg, #0EC261 2.61%, #039F67 112.6%)"}
+                            />
+                    </Link> : 
+                        <Button 
+                            text={"Итого"} 
+                            width={"100%"} 
+                            activeBTN={"unactive-btn"} 
+                            disabled={"disabled"}
+                            background={"linear-gradient(90deg, #0EC261 2.61%, #039F67 112.6%)"}
+                        />}
                 </div>
             </div>
             <OrderInf buttonName={"Итого"} activeBTN={activeExtra} link={"/order-page/final-page"}/>

@@ -32,8 +32,21 @@ const Location = ({ setLocInfo, setTown, citiesReducer, setAdress, points }) => 
                 <Map />
                 <div className="sized-loc-btn-form">
                     <ButtonCart />
-                    {setLocInfo != 0 ? <Link to="/order-page/model"><Button text={"Выбрать модель"} width={"100%"} disabled={""}/></Link> : 
-                        <Button text={"Выбрать модель"} width={"100%"} disabled={"disabled"}/>}
+                    {setLocInfo != 0 ? 
+                    <Link to="/order-page/model">
+                        <Button 
+                            text={"Выбрать модель"} 
+                            width={"100%"} 
+                            disabled={""}
+                            background={"linear-gradient(90deg, #0EC261 2.61%, #039F67 112.6%)"}
+                        />
+                    </Link> : 
+                        <Button 
+                            text={"Выбрать модель"} 
+                            width={"100%"} 
+                            disabled={"disabled"}
+                            background={"linear-gradient(90deg, #0EC261 2.61%, #039F67 112.6%)"}
+                        />}
                 </div>
             </div>
             {setLocInfo !== null ?

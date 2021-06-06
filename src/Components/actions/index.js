@@ -228,3 +228,10 @@ export const zoomedPoint = (point) => {
         payload: point,
     }
 }
+
+export const switchFinishMenu = (active) => {
+    return{
+        type: "SWITCH_FINISHMENU",
+        payload: active,
+    }
+}
