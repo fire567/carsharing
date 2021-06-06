@@ -235,3 +235,14 @@ export const switchFinishMenu = (active) => {
         payload: active,
     }
 }
+
+export const postOrder = () => {
+    return async (dispatch) => {
+        const response = await API.get(`order/60bd13de2aed9a0b9b82fd63`);
+
+        dispatch({
+            type: 'POST_ORDER',
+            payload: response.data,
+        })
+    }
+}

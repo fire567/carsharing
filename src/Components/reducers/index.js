@@ -30,6 +30,7 @@ import mapReducer from "./mapReducer";
 import addressesList from "./addressesList";
 import zoomedPointReducer from "./zoomedPointReducer";
 import switchFinish from "./switchFinish"; 
+import postedOrder from "./postedOrder";
 
 
 export default combineReducers({
@@ -64,4 +65,5 @@ export default combineReducers({
     addressesList: addressesList,
     zoomedPointReducer: zoomedPointReducer,
     switchFinish: switchFinish,
+    postedOrder: postedOrder,
 })
