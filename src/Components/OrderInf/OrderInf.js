@@ -57,7 +57,7 @@ const OrderInf = ({
     useEffect(() => {
         
         if(setLocInfo.length === 0){
-            chooseCar([])
+            chooseCar({})
             setActiveLink(0)
             setActiveExtraBTN(0)
         }

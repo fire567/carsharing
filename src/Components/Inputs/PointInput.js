@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import {changeTown, changeAdress, setAddressesList} from "../actions/index";
+import {changeTown, changeAdress, setAddressesList, removeAddressesList} from "../actions/index";
 import InputSelector from "./InputSelector";
 import exitBtn from "../../assets/exitBtn.svg";
 
@@ -17,6 +17,7 @@ const CityInput = ({
     setAdress, 
     points,
     setAddressesList,
+    removeAddressesList
     }) => {
     const [ activeSelector, setActiveSelector ] = useState(false);
     const [foundCity, setFoundCity ] = useState([])
@@ -28,6 +29,7 @@ const CityInput = ({
             setFoundCity(locations.data.filter((loc) => loc.name.toLowerCase().includes(setLoc.toLowerCase())))
         }
         if(points.data){
+            setAddressesList([])
             setAddressesList(points.data.filter((address) => address.cityId.name === setTown))
         }
         
@@ -200,4 +202,5 @@ export default connect(mapStateToProps, {
     changeTown:changeTown,
     changeAdress: changeAdress,
     setAddressesList: setAddressesList,
+    removeAddressesList: removeAddressesList,
 })(CityInput);

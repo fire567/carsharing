@@ -33,7 +33,6 @@ const CarList = ({
     setExtraOptPrice,
     setActiveExtraBTN,
     }) => {
-    const [ activeCar, setActiveCar ] = useState(null);
     const [ filteredCars, setFilteresCars ] = useState([])
 
     const prepareImgLink = (imgLink) => {
@@ -52,7 +51,7 @@ const CarList = ({
     }, [category])
 
     const showActiveCar = (car) => {
-        setActiveCar(car.id)
+        console.log(car)
         chooseCar(car)
         chooseExtra(null)
         chooseTariff("")

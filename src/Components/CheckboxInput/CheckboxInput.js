@@ -36,8 +36,8 @@ const CheckboxInput = ({ chooseExtra, setOption, gasolinePrice, setGasolinePrice
             {extraOptions ?
             extraOptions.map((option) => (
                 <div className="checkbox-form" key={option.id}>
-                    <input type="checkbox" className="checkbox" id={option.id} onClick={() => activeCheckbox(option.category)}></input>
-                    <label for={option.id} className={"checkbox-value-undefined"}>
+                    <input type="checkbox" className="checkbox" id={option.id} ></input>
+                    <label for={option.id} className={"checkbox-value-undefined"} onClick={() => activeCheckbox(option.category)}>
                         {option.value}
                     </label>
                 </div>

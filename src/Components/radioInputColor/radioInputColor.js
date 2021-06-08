@@ -15,7 +15,7 @@ const RadioInputColor = ({ setCar, style, indent, chooseColor, setColor }) => {
 
     return (
         <div className="radio-input-form">
-            {
+            {setCar.colors !== undefined ?
             setCar.colors.map((item, id) => (
                 <div className={indent} key={id}>
                         <ReactSVG src={setColor === item ? radioActive : radioDefault} className="radio-pic" onClick={() => activeRadio(id, item)} alt="radio"/>
@@ -23,7 +23,7 @@ const RadioInputColor = ({ setCar, style, indent, chooseColor, setColor }) => {
                         {item}
                     </li>
                 </div>
-            )) }
+            )) : null }
         </div>
     );
 };

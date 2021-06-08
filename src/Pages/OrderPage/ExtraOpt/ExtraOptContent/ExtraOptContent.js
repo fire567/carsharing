@@ -54,7 +54,6 @@ const ModelContent = ({
     }, [setSinceDate, setEndDate, setColor, setTariff, setOption])
 
     const sinceDate = (event) => {
-        console.log(Date.parse(event))
         chooseSinceDate(Date.parse(event))
     }
 

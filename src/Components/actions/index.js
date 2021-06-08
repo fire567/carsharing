@@ -32,7 +32,6 @@ export const fetchPoints = () => {
 export const fetchCars = () => {
     return async (dispatch) => {
         const response = await API.get(`car/`);
-
         dispatch({
             type: 'FETCH_CARS',
             payload: response.data,
