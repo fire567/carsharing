@@ -13,8 +13,8 @@ const CheckboxInput = ({
     setGasolinePrice, 
     setChildChairPrice, 
     chair, 
-    extraOptPrice, 
     setExtraOptPrice, 
+    extraOptPrice,
     setActiveGas, 
     activeGas,
     setActiveChair,
@@ -32,42 +32,59 @@ const CheckboxInput = ({
     ]
 
     const activeCheckbox = (value) => {
-        
-        if(setOption === "Полный бак"){
-            setActiveGas(!activeGas)
-        }else if(setOption === "Детское кресло"){
-            setActiveChair(!activeChair)
-        }else if(setOption === "Правый руль"){
-            setRightHandActive(!activeRightHand)
-        }
-        
-        
         chooseExtra(value)
-    }
-
-    
-
-    useEffect(() => {
-        if(setOption === "Полный бак"){
-            if(activeGas === false){
+        if(value === "Полный бак"){
+            setActiveGas(!activeGas)
+            if(activeGas === true){
                 setGasolinePrice(500)
             }
             else setGasolinePrice(0)
-        }
-        if(setOption === "Детское кресло"){
-            if(activeChair === true){
+        }   
+        if(value === "Детское кресло"){
+            setActiveChair(!activeChair)
+            if(activeChair === false){
                 setChildChairPrice(200)
             }
             else setChildChairPrice(0) 
-        }
-        if(setOption === "Правый руль"){
+
+        }else if(value === "Правый руль"){
+            setRightHandActive(!activeRightHand)
             if(activeRightHand === true){
                 setRightHandPrice(1600)
             }
             else setRightHandPrice(0) 
         }
+
+        
+    }
+
+    
+    
+
+    useEffect(() => {
+        /*
+        setActiveGas(!activeGas)
+        if(setOption === "Полный бак"){
+            if(activeGas === true){
+                setGasolinePrice(500)
+            }
+            else setGasolinePrice(0)
+        }
+        else if(setOption === "Детское кресло"){
+            if(activeChair === true){
+                setChildChairPrice(200)
+            }
+            else setChildChairPrice(0) 
+        }
+        else if(setOption === "Правый руль"){
+            if(activeRightHand === true){
+                setRightHandPrice(1600)
+            }
+            else setRightHandPrice(0) 
+        }
+        */
         setExtraOptPrice(Math.floor(gasolinePrice + chair + rightHandPrice))
-    }, [setOption, gasolinePrice, chair, activeGas, activeChair, activeRightHand])
+    }, [setOption, gasolinePrice, chair, activeGas, chair, rightHandPrice])
 
     
 

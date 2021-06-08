@@ -18,7 +18,6 @@ const OrderPage = ({ fetchPoints, fetchCities, postedOrder, postOrder, fetchCars
     useEffect(() => {
         fetchPoints();
         fetchCities();
-        fetchCars();
       }, [])
     
 

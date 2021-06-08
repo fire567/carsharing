@@ -5,7 +5,7 @@ import radioActive from "../../assets/radioActive.svg";
 import { connect } from "react-redux";
 import {chooseColor} from "../actions/index"
 
-const RadioInputColor = ({ setCar, style, indent, chooseColor, setColor }) => {
+const RadioInputColor = ({ setCar, indent, chooseColor, setColor }) => {
     const [ radio, setRadio ] = useState(null);
 
     const activeRadio = (id, color) => {
@@ -13,15 +13,17 @@ const RadioInputColor = ({ setCar, style, indent, chooseColor, setColor }) => {
         chooseColor(color)
     }
 
+    //<ReactSVG src={setColor === item ? radioActive : radioDefault} className="radio-pic" onClick={() => activeRadio(id, item)} alt="radio"/>
+
     return (
         <div className="radio-input-form">
             {setCar.colors !== undefined ?
             setCar.colors.map((item, id) => (
-                <div className={indent} key={id}>
-                        <ReactSVG src={setColor === item ? radioActive : radioDefault} className="radio-pic" onClick={() => activeRadio(id, item)} alt="radio"/>
-                    <li className={setColor === item ? "radio-value" : "radio-value-unactive"}>
+                <div className={indent} key={id} className={item === setColor ? "radio-input-active" : "radio-input"}>
+                    <input type="radio" id={id} className="radio"></input>
+                    <label for={id} onClick={() => activeRadio(id, item)}>
                         {item}
-                    </li>
+                    </label>
                 </div>
             )) : null }
         </div>

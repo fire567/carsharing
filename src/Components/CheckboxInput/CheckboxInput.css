@@ -35,6 +35,7 @@
 }
 
 .checkbox-form label::after {
+    position: absolute;
     content: "";
     display: inline-block;
     height: 6px;

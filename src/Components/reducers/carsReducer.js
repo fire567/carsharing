@@ -1,4 +1,4 @@
-export default (cars = 0, action) => {
+export default (cars = [], action) => {
     if(action.type === "FETCH_CARS") {
         return action.payload;
     }

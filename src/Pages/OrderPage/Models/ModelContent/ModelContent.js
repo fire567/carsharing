@@ -14,7 +14,7 @@ const ModelContent = ({ setCar }) => {
     return(
         <div className="model-content">
             <div className="model-left-side">
-                <RadioInputModel style={"flex"} indent={"radio-input"}/>
+                <RadioInputModel style={"flex"}/>
                 <CarList />
                 <div className="sized-loc-btn-form">
                     <ButtonCart />

@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import Button from "../Button/Button";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import ShowExtraInf from "./ShowExtraInf/ShowExtraInf";
 import { 
     locInfo, 
     chooseCar, 
@@ -52,13 +53,16 @@ const OrderInf = ({
     setActiveExtraBTN,
     switchFinishMenu,
     switchFinish,
-    extraOptPrice}) => {
+    extraOptPrice,
+    activeGas,
+    activeChair,
+    activeRightHand}) => {
 
 
     useEffect(() => {
         
         if(setLocInfo.length === 0){
-            chooseCar({})
+            chooseCar([])
             setActiveLink(0)
             setActiveExtraBTN(0)
         }
@@ -166,30 +170,13 @@ const OrderInf = ({
         )
     }
 
-    const showExtraInf = () => {
-        return (
-            <div className="item-form">
-                <div className="item-name">
-                    {setOption}
-                </div>
-                <div className="item-line">
-                </div>
-                <div className="item-value">
-                    Да
-                </div>
-            </div>
-        )
-    }
-
-    //console.log(extraOptPrice)
-
     const calculatePrice = () => {
         setTotalPrice(Math.floor(setCar.priceMin + tariffPrice + extraOptPrice))
         return totalPrice
     }
 
     const showPrice = () => {
-            if(setCar.length !== 0 && setLocInfo != 1 && extraOptPrice === 0){
+            if(setCar.length !== 0 && setLocInfo != 1 && extraOptPrice === 0 && tariffPrice === 0){
                 return(
                 <div className="price-block">
                         <div className="price-name">
@@ -225,11 +212,13 @@ const OrderInf = ({
                     Ваш заказ:
                 </div>
                 {!points.data ? null : showPointInf()}
-                {setCar.length !== 0 && setLocInfo ? showModelInf() : null}
+                {setCar.length !== 0 && setLocInfo.length > 0 ? showModelInf() : null}
                 {setColor && setLocInfo.length > 0 ? showColorInf() : null}
                 {setTariff && setLocInfo.length > 0 ? showTariffInf() : null}
                 {setSinceDate && setEndDate && setLocInfo != [] ? showDateInf() : null}
-                {setOption && setLocInfo != [] ? showExtraInf() : null}
+                {activeGas && setLocInfo.length > 0 ? <ShowExtraInf option={"Полный бак"}/> : null}
+                {activeChair && setLocInfo.length > 0 ? <ShowExtraInf option={"Детское кресло"}/> : null}
+                {!activeRightHand && setLocInfo.length > 0 ? <ShowExtraInf option={"Правый руль"}/> : null}
                 {showPrice()}
             {window.location.hash.split('carsharing')[1] === "/order-page/final-page" ? 
                 <div className="loc-btn-form" onClick={() => switchMenu()}>
@@ -276,6 +265,9 @@ const mapStateToProps = (state) => {
         totalPrice: state.totalPrice,
         switchFinish: state.switchFinish,
         extraOptPrice: state.extraOptPrice,
+        activeGas: state.activeGas,
+        activeChair: state.activeChair,
+        activeRightHand: state.activeRightHand,
     }
 }
 
