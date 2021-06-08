@@ -23,6 +23,8 @@ const RadioInputTariff = ({
         {id: 1, value: "На сутки, 1999₽/сутки", category: "На сутки"},
     ]
 
+    console.log(tariffPrice)
+
     useEffect(() => {
         setMinutesPrice(Math.floor(diff/(1000 * 60) * 7))
         setDaysPrice(Math.floor(diff/(1000 * 60 * 60 * 24)*1999))
@@ -40,10 +42,12 @@ const RadioInputTariff = ({
     const showradioInputsBlock = () => {
             return radioInputsBlock.map((item) => (
                 <div className={indent} key={item.id}>
-                    <ReactSVG src={setTariff === item.category ? radioActive : radioDefault} className="radio-pic" onClick={() => activeRadio(item.category)} alt="radio"/>
-                    <li className={setTariff === item.category ? "radio-value" : "radio-value-unactive"}>
+                    <div className={setTariff === item.category ? "radio-input-active" : "radio-input"} key={item.id}>
+                    <input type="radio" id={item.id} className="radio"></input>
+                    <label for={item.id} onClick={() => activeRadio(item.category)}>
                         {item.value}
-                    </li>
+                    </label>
+                </div>
                 </div>
             ));
     }

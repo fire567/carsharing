@@ -245,3 +245,31 @@ export const postOrder = () => {
         })
     }
 }
+
+export const setActiveGas = (gas) => {
+    return{
+        type: "SET_ACTIVEGAS",
+        payload: gas,
+    }
+}
+
+export const setActiveChair = (chair) => {
+    return{
+        type: "SET_ACTIVECHAIR",
+        payload: chair,
+    }
+}
+
+export const setRightHandActive = (hand) => {
+    return{
+        type: "SET_ACTIVERIGHTHAND",
+        payload: hand,
+    }
+}
+
+export const setRightHandPrice = (price) => {
+    return{
+        type: "SET_RIGHTHAND",
+        payload: price,
+    }
+}

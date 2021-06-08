@@ -31,6 +31,10 @@ import addressesList from "./addressesList";
 import zoomedPointReducer from "./zoomedPointReducer";
 import switchFinish from "./switchFinish"; 
 import postedOrder from "./postedOrder";
+import activeGas from "./activeGas";
+import activeChair from "./activeChair";
+import rightHandPrice from "./rightHandPrice";
+import activeRightHand from "./activeRightHand"
 
 
 export default combineReducers({
@@ -66,4 +70,8 @@ export default combineReducers({
     zoomedPointReducer: zoomedPointReducer,
     switchFinish: switchFinish,
     postedOrder: postedOrder,
+    activeGas: activeGas,
+    activeChair: activeChair,
+    rightHandPrice: rightHandPrice,
+    activeRightHand: activeRightHand,
 })

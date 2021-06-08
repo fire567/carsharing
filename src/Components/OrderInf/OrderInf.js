@@ -51,7 +51,8 @@ const OrderInf = ({
     setActiveLink,
     setActiveExtraBTN,
     switchFinishMenu,
-    switchFinish}) => {
+    switchFinish,
+    extraOptPrice}) => {
 
 
     useEffect(() => {
@@ -180,13 +181,15 @@ const OrderInf = ({
         )
     }
 
+    //console.log(extraOptPrice)
+
     const calculatePrice = () => {
-        setTotalPrice(Math.floor(setCar.priceMin + tariffPrice))
+        setTotalPrice(Math.floor(setCar.priceMin + tariffPrice + extraOptPrice))
         return totalPrice
     }
 
     const showPrice = () => {
-            if(setCar.length !== 0 && setLocInfo != 1 && tariffPrice === 0){
+            if(setCar.length !== 0 && setLocInfo != 1 && extraOptPrice === 0){
                 return(
                 <div className="price-block">
                         <div className="price-name">
@@ -197,7 +200,7 @@ const OrderInf = ({
                         </div>
                 </div>
                 )
-            }else if(tariffPrice !== 0){
+            }else if(tariffPrice !== 0 || extraOptPrice !== 0){
                 return(
                     <div className="price-block">
                         <div className="price-name">
@@ -272,6 +275,7 @@ const mapStateToProps = (state) => {
         tariffPrice: state.tariffPrice,
         totalPrice: state.totalPrice,
         switchFinish: state.switchFinish,
+        extraOptPrice: state.extraOptPrice,
     }
 }
 
