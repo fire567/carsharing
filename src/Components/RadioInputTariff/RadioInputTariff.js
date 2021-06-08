@@ -23,7 +23,7 @@ const RadioInputTariff = ({
         {id: 1, value: "На сутки, 1999₽/сутки", category: "На сутки"},
     ]
 
-    console.log(minutesPrice)
+    console.log(tariffPrice)
 
     useEffect(() => {
         setMinutesPrice(Math.floor(diff/(1000 * 60) * 7))
