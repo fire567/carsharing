@@ -13,6 +13,10 @@ import {
     setChildChairPrice,
     setExtraOptPrice,
     setActiveExtraBTN,
+    setActiveGas,
+    setActiveChair,
+    setRightHandActive,
+    setRightHandPrice,
 } from "../actions/index";
 import "./CarList.css";
 
@@ -32,6 +36,10 @@ const CarList = ({
     setChildChairPrice,
     setExtraOptPrice,
     setActiveExtraBTN,
+    setActiveGas,
+    setActiveChair,
+    setRightHandActive,
+    setRightHandPrice,
     }) => {
     const [ filteredCars, setFilteresCars ] = useState([])
 
@@ -51,7 +59,6 @@ const CarList = ({
     }, [category])
 
     const showActiveCar = (car) => {
-        console.log(car)
         chooseCar(car)
         chooseExtra(null)
         chooseTariff("")
@@ -63,6 +70,10 @@ const CarList = ({
         setChildChairPrice(0)
         setExtraOptPrice(0)
         setActiveExtraBTN(0)
+        setActiveGas(false)
+        setActiveChair(false)
+        setRightHandActive(true)
+        setRightHandPrice(0)
     }
 
     const showCars = () => {
@@ -121,7 +132,7 @@ const mapStateToProps = (state) => {
     return{
         cars: state.cars,
         category: state.category,
-        setCar: state.setCar
+        setCar: state.setCar,
     }
 }
 
@@ -138,4 +149,8 @@ export default connect(mapStateToProps, {
     setChildChairPrice: setChildChairPrice,
     setExtraOptPrice: setExtraOptPrice,
     setActiveExtraBTN: setActiveExtraBTN,
+    setActiveGas: setActiveGas,
+    setActiveChair: setActiveChair,
+    setRightHandActive: setRightHandActive,
+    setRightHandPrice: setRightHandPrice,
 })(CarList);

@@ -16,6 +16,13 @@ import {
     setActiveLink,
     setActiveExtraBTN,
     switchFinishMenu,
+    setGasolinePrice,
+    setChildChairPrice,
+    setExtraOptPrice,
+    setActiveGas,
+    setActiveChair,
+    setRightHandActive,
+    setRightHandPrice,
 } from "../actions/index";
 import { fetchPoints } from "../../Components/actions/index";
 import "./OrderInf.css";
@@ -50,13 +57,20 @@ const OrderInf = ({
     setTotalPrice,
     totalPrice,
     setActiveLink,
-    setActiveExtraBTN,
     switchFinishMenu,
     switchFinish,
     extraOptPrice,
     activeGas,
     activeChair,
-    activeRightHand}) => {
+    activeRightHand,
+    setGasolinePrice,
+    setChildChairPrice,
+    setExtraOptPrice,
+    setActiveExtraBTN,
+    setActiveGas,
+    setActiveChair,
+    setRightHandActive,
+    setRightHandPrice,}) => {
 
 
     useEffect(() => {
@@ -65,6 +79,15 @@ const OrderInf = ({
             chooseCar([])
             setActiveLink(0)
             setActiveExtraBTN(0)
+            setTariffPrice(0)
+            setGasolinePrice(0)
+            setChildChairPrice(0)
+            setExtraOptPrice(0)
+            
+            setActiveGas(false)
+            setActiveChair(false)
+            setRightHandActive(true)
+            setRightHandPrice(0)
         }
         if(setCar.length === 0 && setLocInfo.length !== 0){
             chooseExtra("")
@@ -75,6 +98,14 @@ const OrderInf = ({
             setTariffPrice(0)
             setActiveLink(1)
             setActiveExtraBTN(0)
+            setTariffPrice(0)
+            setGasolinePrice(0)
+            setChildChairPrice(0)
+            setExtraOptPrice(0)
+            setActiveGas(false)
+            setActiveChair(false)
+            setRightHandActive(true)
+            setRightHandPrice(0)
         }
            
         fetchPoints()
@@ -285,4 +316,11 @@ export default connect(mapStateToProps, {
     setActiveLink: setActiveLink,
     setActiveExtraBTN: setActiveExtraBTN,
     switchFinishMenu: switchFinishMenu,
+    setGasolinePrice: setGasolinePrice,
+    setChildChairPrice: setChildChairPrice,
+    setExtraOptPrice: setExtraOptPrice,
+    setActiveGas: setActiveGas,
+    setActiveChair: setActiveChair,
+    setRightHandActive: setRightHandActive,
+    setRightHandPrice: setRightHandPrice,
 })(OrderInf);
