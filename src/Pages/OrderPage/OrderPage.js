@@ -7,10 +7,10 @@ import OrderLinks from "../../Components/OrderLinks/OrderLinks";
 import { connect } from "react-redux";
 import { showCart } from "../../Components/actions";
 import OrderMenu from "../../Components/OrderMunu/OrderMenu";
-import {fetchCities, fetchPoints, postOrder, fetchCars } from "../../Components/actions/index";
+import {fetchCities, fetchPoints } from "../../Components/actions/index";
 import "./OrderPage.css";
 
-const OrderPage = ({ fetchPoints, fetchCities, postedOrder, postOrder, fetchCars }) => {
+const OrderPage = ({ fetchPoints, fetchCities}) => {
     const [switchMenu, setSwitchMenu ] = useState(false);
     
     
@@ -48,6 +48,4 @@ export default connect(mapStateToProps, {
     fetchPoints: fetchPoints,
     fetchCities: fetchCities,
     showCart: showCart,
-    postOrder: postOrder,
-    fetchCars: fetchCars,
 })(OrderPage);

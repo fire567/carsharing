@@ -1,0 +1,35 @@
+.total-content{
+    display: flex;
+    padding-left: 64px;
+    height: 86.7%;
+} 
+
+@media (max-width: 1024px) {
+    .total-content {
+        display: block;
+        padding-left: 85.77px;
+        height: 83.5%;
+    }
+}
+
+@media (max-width: 550px) {
+    .total-content {
+        display: block;
+        padding-left: 0px;
+        height: 83.5%;
+    }
+}
+
+.total-left-side{
+    width: 86%;
+    padding-right: 13%;
+    padding-left: 4%;
+}
+
+@media (max-width: 1024px) {
+    .total-left-side {
+        width: 100%;
+        border-right: 0px;
+        padding-right: 0px;
+    }
+  }

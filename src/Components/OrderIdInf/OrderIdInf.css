@@ -1,0 +1,34 @@
+.total-id-order-form{
+    display: flex;
+    font-family: "Roboto-Bold";
+    height: 3.3%;
+    padding-left: 4%;
+    font-size: 14px;
+    line-height: 16px;
+    align-items: center;
+    margin-left: 64px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #EEEEEE;
+}
+
+@media (max-width: 1024px) {
+    .total-id-order-form {
+        margin-left: 85.77px;
+        padding-left: 4%;
+    }
+  }
+
+@media (max-width: 550px) {
+    .total-id-order-form {
+        margin-left: 0px;
+        padding-left: 0px;
+        height: auto;
+        display: block;
+        line-height: 1.5;
+    }
+  }
+
+.total-id-value{
+    list-style: none;
+}

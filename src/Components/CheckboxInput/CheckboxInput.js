@@ -71,11 +71,13 @@ const CheckboxInput = ({
         <div className="extra-input-form">
             {extraOptions ?
             extraOptions.map((option) => (
+                <div>
                 <div className="checkbox-form" key={option.id}>
                     <input type="checkbox" className="checkbox" id={option.category} ></input>
                     <label for={option.category} className={"checkbox-value-undefined"} onClick={() => activeCheckbox(option.category)}>
                         {option.value}
                     </label>
+                </div>
                 </div>
             )): null}
         </div>

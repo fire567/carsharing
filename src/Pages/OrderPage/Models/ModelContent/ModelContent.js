@@ -37,7 +37,7 @@ const ModelContent = ({ setCar }) => {
                         />}
                 </div>
             </div>
-            <OrderInf buttonName={"Дополнительно"} activeBTN={setCar} link={"/order-page/extraopt"}/>
+            <OrderInf buttonName={"Дополнительно"} activeBTN={setCar.length} link={"/order-page/extraopt"}/>
         </div>
     )
 }

@@ -2,7 +2,10 @@ import React, { useEffect } from "react";
 import Button from "../Button/Button";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import { clear } from "redux-localstorage-simple";
 import ShowExtraInf from "./ShowExtraInf/ShowExtraInf";
+import "./OrderInf.css";
+
 import { 
     locInfo, 
     chooseCar, 
@@ -23,9 +26,11 @@ import {
     setActiveChair,
     setRightHandActive,
     setRightHandPrice,
+    fetchPoints,
+    changeTown, 
+    changeAdress,
+    postOrder,
 } from "../actions/index";
-import { fetchPoints } from "../../Components/actions/index";
-import "./OrderInf.css";
 
 const OrderInf = ({ 
     setTown, 
@@ -70,7 +75,11 @@ const OrderInf = ({
     setActiveGas,
     setActiveChair,
     setRightHandActive,
-    setRightHandPrice,}) => {
+    setRightHandPrice,
+    getOrderReducer,
+    changeTown, 
+    changeAdress,
+    postOrder}) => {
 
 
     useEffect(() => {
@@ -83,7 +92,6 @@ const OrderInf = ({
             setGasolinePrice(0)
             setChildChairPrice(0)
             setExtraOptPrice(0)
-            
             setActiveGas(false)
             setActiveChair(false)
             setRightHandActive(true)
@@ -232,6 +240,65 @@ const OrderInf = ({
             }
     }
 
+    const clearData = () => {
+        changeTown("")
+        changeAdress("")
+    }
+
+    const showButton = () => {
+        if(window.location.hash.split('carsharing')[1] === "/order-page/final-page"){
+            return(
+            <Link to={link}>
+            <div className="loc-btn-form" onClick={() => switchMenu()}>
+                    <Button 
+                        text={`${buttonName}`} 
+                        width={"100%"} 
+                        activeBTN={"order-btn"} 
+                        disabled={""}
+                        background={"linear-gradient(90deg, #0EC261 2.61%, #039F67 112.6%)"}
+                    />
+            </div>
+            </Link>
+            )
+        }else if(getOrderReducer.data){
+            if(window.location.hash.split('carsharing')[1] === `/order-page/${getOrderReducer.data.id}`){
+            return(
+            <Link to = "/order-page/loc">
+            <div className="loc-btn-form" onClick={() => clearData()}>
+                    <Button 
+                        text={`${buttonName}`} 
+                        width={"100%"} 
+                        activeBTN={"order-btn"} 
+                        disabled={""}
+                        background={"linear-gradient(90deg, #493013 0%, #7B0C3B 100%)"}
+                    />
+            </div>
+            </Link>
+            )}
+        }return (
+            <Link to={link}>
+            <div className="loc-btn-form">
+                {activeBTN !== 0 ? 
+                    <Button 
+                    text={`${buttonName}`} 
+                    width={"100%"} 
+                    activeBTN={"unactive-btn"} 
+                    disabled={""}
+                    background={"linear-gradient(90deg, #0EC261 2.61%, #039F67 112.6%)"}
+                /> : 
+                <Button 
+                    text={`${buttonName}`} 
+                    width={"100%"} 
+                    activeBTN={""} 
+                    disabled={"disabled"}
+                    background={""}
+                />
+                }
+            </div>
+            </Link>
+        )
+    }
+
     const switchMenu = () => {
         switchFinishMenu(!switchFinish)
     }
@@ -246,32 +313,12 @@ const OrderInf = ({
                 {setCar.length !== 0 && setLocInfo.length > 0 ? showModelInf() : null}
                 {setColor && setLocInfo.length > 0 ? showColorInf() : null}
                 {setTariff && setLocInfo.length > 0 ? showTariffInf() : null}
-                {setSinceDate && setEndDate && setLocInfo != [] ? showDateInf() : null}
+                {setSinceDate && setEndDate && setLocInfo.length > 0 ? showDateInf() : null}
                 {activeGas && setLocInfo.length > 0 ? <ShowExtraInf option={"Полный бак"}/> : null}
                 {activeChair && setLocInfo.length > 0 ? <ShowExtraInf option={"Детское кресло"}/> : null}
                 {!activeRightHand && setLocInfo.length > 0 ? <ShowExtraInf option={"Правый руль"}/> : null}
                 {showPrice()}
-            {window.location.hash.split('carsharing')[1] === "/order-page/final-page" ? 
-                <div className="loc-btn-form" onClick={() => switchMenu()}>
-                    <Button 
-                        text={`${buttonName}`} 
-                        width={"100%"} 
-                        activeBTN={"order-btn"} 
-                        disabled={""}
-                        background={"linear-gradient(90deg, #0EC261 2.61%, #039F67 112.6%)"}
-                    />
-                </div> : 
-                <div className="loc-btn-form">
-                    {activeBTN != 0 && activeBTN ? <Link to = {link}><Button text={`${buttonName}`} width={"100%"} activeBTN={"order-btn"} disabled={""}/></Link> : 
-                        <Button 
-                            text={`${buttonName}`} 
-                            width={"100%"} 
-                            activeBTN={"unactive-btn"} 
-                            disabled={"disabled"}
-                            background={"linear-gradient(90deg, #0EC261 2.61%, #039F67 112.6%)"}
-                        />}
-                </div>
-            }
+                    {showButton()}
             </div>
         </div>
     )
@@ -299,6 +346,7 @@ const mapStateToProps = (state) => {
         activeGas: state.activeGas,
         activeChair: state.activeChair,
         activeRightHand: state.activeRightHand,
+        getOrderReducer: state.getOrderReducer
     }
 }
 
@@ -323,4 +371,7 @@ export default connect(mapStateToProps, {
     setActiveChair: setActiveChair,
     setRightHandActive: setRightHandActive,
     setRightHandPrice: setRightHandPrice,
+    changeTown: changeTown,
+    changeAdress: changeAdress,
+    postOrder: postOrder,
 })(OrderInf);

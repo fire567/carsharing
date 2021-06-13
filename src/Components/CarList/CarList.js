@@ -49,11 +49,11 @@ const CarList = ({
         }
         return `https://api-factory.simbirsoft1.com${imgLink}`
       };
-    
 
     useEffect(() => {
         fetchCars()
         if(cars.data !== undefined){
+            console.log(category)
             setFilteresCars(cars.data.filter((car) => car.categoryId && car.categoryId.name === category))
         }
     }, [category])

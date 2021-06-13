@@ -34,7 +34,10 @@ import postedOrder from "./postedOrder";
 import activeGas from "./activeGas";
 import activeChair from "./activeChair";
 import rightHandPrice from "./rightHandPrice";
-import activeRightHand from "./activeRightHand"
+import activeRightHand from "./activeRightHand";
+import getOrderReducer from "./getOrderReducer";
+import idLink from "./idLink";
+import rateReducer from "./rateReducer";
 
 
 export default combineReducers({
@@ -74,4 +77,7 @@ export default combineReducers({
     activeChair: activeChair,
     rightHandPrice: rightHandPrice,
     activeRightHand: activeRightHand,
+    getOrderReducer: getOrderReducer,
+    idLink: idLink,
+    rate: rateReducer,
 })

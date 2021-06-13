@@ -3,7 +3,7 @@ import {ReactSVG} from "react-svg";
 import radioDefault from "../../assets/radioDefault.svg";
 import radioActive from "../../assets/radioActive.svg";
 import { connect } from "react-redux";
-import { chooseTariff, setDaysPrice, setMinutesPrice, setTariffPrice } from "../actions/index";
+import { chooseTariff, setDaysPrice, setMinutesPrice, setTariffPrice, setRate } from "../actions/index";
 
 const RadioInputTariff = ({ 
     style, 
@@ -17,21 +17,24 @@ const RadioInputTariff = ({
     daysPrice,
     minutesPrice,
     diff,
+    setRate,
+    rate,
     }) => {
-    const radioInputsBlock = [
-        {id: 0, value: "Поминутно, 7₽/мин", category: "Поминутно"},
-        {id: 1, value: "На сутки, 1999₽/сутки", category: "На сутки"},
-    ]
-
-    console.log(tariffPrice)
 
     useEffect(() => {
+        setRate()
         setMinutesPrice(Math.floor(diff/(1000 * 60) * 7))
         setDaysPrice(Math.floor(diff/(1000 * 60 * 60 * 24)*1999))
+        var setWeeksPrice = (Math.floor(diff/(1000 * 60 * 60 * 24 * 7)*7499))
+        var setWeeksSharePrice = (Math.floor(diff/(1000 * 60 * 60 * 24 * 7)*6999))
         if(setTariff === "Поминутно"){
             setTariffPrice(minutesPrice)
-        }else if(setTariff === "На сутки"){
+        }else if(setTariff === "Суточный"){
             setTariffPrice(daysPrice)
+        }else if(setTariff === "Недельный"){
+            setTariffPrice(setWeeksPrice)
+        }else if(setTariff === "Недельный (Акция!)"){
+            setTariffPrice(setWeeksSharePrice)
         }
     }, [diff, setTariff])
      
@@ -40,23 +43,25 @@ const RadioInputTariff = ({
     }
 
     const showradioInputsBlock = () => {
-            return radioInputsBlock.map((item) => (
-                <div className={indent} key={item.id}>
-                    <div className={setTariff === item.category ? "radio-input-active" : "radio-input"} key={item.id}>
-                    <input type="radio" id={item.id} className="radio"></input>
-                    <label for={item.id} onClick={() => activeRadio(item.category)}>
-                        {item.value}
+            return rate.data.map((rate) => (
+                <div className={indent} key={rate.id}>
+                    {rate.rateTypeId ?
+                    <div className={setTariff === rate.rateTypeId.name ? "radio-input-active" : "radio-input"} key={rate.id}>
+                    <input type="radio" id={rate.id} className="radio"></input>
+                    <label for={rate.id} onClick={() => activeRadio(rate.rateTypeId.name)}>
+                        {rate.rateTypeId.name}, {rate.price}/{rate.rateTypeId.unit}
                     </label>
-                </div>
+                </div> : null
+                }
                 </div>
             ));
     }
 
     return (
         <div className="radio-input-form" style={{display: `${style}`}}>
-            {radioInputsBlock ?
-            showradioInputsBlock()
-             : null}
+            {rate.data ?
+                showradioInputsBlock() : null
+            }
         </div>
     );
 };
@@ -68,6 +73,7 @@ const mapStateToProps = (state) => {
         daysPrice: state.daysPrice,
         minutesPrice: state.minutesPrice,
         diff: state.diff,
+        rate: state.rate,
     }
 }
 
@@ -76,5 +82,6 @@ export default connect(mapStateToProps, {
     setTariffPrice: setTariffPrice,
     setMinutesPrice: setMinutesPrice,
     setDaysPrice: setDaysPrice,
+    setRate: setRate,
     
 })(RadioInputTariff);

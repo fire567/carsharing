@@ -17,7 +17,6 @@ const CityInput = ({
     setAdress, 
     points,
     setAddressesList,
-    removeAddressesList
     }) => {
     const [ activeSelector, setActiveSelector ] = useState(false);
     const [foundCity, setFoundCity ] = useState([])

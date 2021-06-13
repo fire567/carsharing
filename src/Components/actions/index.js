@@ -31,7 +31,7 @@ export const fetchPoints = () => {
 
 export const fetchCars = () => {
     return async (dispatch) => {
-        const response = await API.get(`car/`);
+        const response = await API.get(`car?page=2&limit=20`);
         dispatch({
             type: 'FETCH_CARS',
             payload: response.data,
@@ -235,12 +235,35 @@ export const switchFinishMenu = (active) => {
     }
 }
 
-export const postOrder = () => {
-    return async (dispatch) => {
-        const response = await API.get(`order/60bd13de2aed9a0b9b82fd63`);
+export const setOrderData = (data) => {
+    return{
+        type: 'POST_ORDER',
+        payload: data,
+    }
+}
 
+export const postOrder = (order) => {
+    return async (dispatch) => {
+        const response = await API.post(`order`, order);
+        dispatch(setOrderData(response.data))
+    }
+}
+
+export const getOrder = (id) => {
+    return async (dispatch) => {
+        const response = await API.get(`order/${id}`);
         dispatch({
-            type: 'POST_ORDER',
+            type: "GET_ORDER",
+            payload: response.data,
+        })
+    }
+}
+
+export const setRate = () => {
+    return async (dispatch) => {
+        const response = await API.get(`rate`);
+        dispatch({
+            type: "SET_RATE",
             payload: response.data,
         })
     }
@@ -271,5 +294,12 @@ export const setRightHandPrice = (price) => {
     return{
         type: "SET_RIGHTHAND",
         payload: price,
+    }
+}
+
+export const setIdLink = (link) => {
+    return{
+        type: "SET_IDLINK",
+        payload: link,
     }
 }

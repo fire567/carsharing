@@ -8,6 +8,7 @@ import "./RadioInputModel.css";
 
 const RadioInputModel = ({ changeCategory, style, indent, category }) => {
     const activeRadio = (category) => {
+        
         changeCategory(category)
     }
 
@@ -21,7 +22,7 @@ const RadioInputModel = ({ changeCategory, style, indent, category }) => {
     return (
         <div className="radio-input-form">
             {radioInputs.map((item) => (
-                <div className={category === item.category ? "radio-input-active" : "radio-input"} key={item.id}>
+                <div className={category === item.category ? "radio-input-active" : "radio-input"} key={item.id} >
                     <input type="radio" id={item.id} className="radio"></input>
                     <label for={item.id} onClick={() => activeRadio(item.category)}>
                         {item.value}
