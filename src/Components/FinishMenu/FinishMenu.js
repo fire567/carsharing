@@ -93,7 +93,7 @@ const FinishMenu = ({
                             background={"linear-gradient(90deg, #493013 0%, #7B0C3B 100%)"}
                         />
                     </div>
-                </div>: null
+                </div>
                 
                 </div>
             </div>

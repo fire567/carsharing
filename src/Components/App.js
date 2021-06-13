@@ -10,7 +10,6 @@ import {connect} from "react-redux";
 import "./App.css"
 
 const App = ({idLink}) => {
-  console.log(idLink)
   return (
     <div className="App">
       <Route path="/" component={MainPage} exact/>
