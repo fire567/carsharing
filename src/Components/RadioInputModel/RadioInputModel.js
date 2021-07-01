@@ -1,14 +1,11 @@
-import React from "react";
-import {ReactSVG} from "react-svg";
-import radioDefault from "../../assets/radioDefault.svg";
-import radioActive from "../../assets/radioActive.svg";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { changeCategory } from "../actions/index";
 import "./RadioInputModel.css";
 
-const RadioInputModel = ({ changeCategory, style, indent, category }) => {
+const RadioInputModel = ({ changeCategory, category}) => {
+
     const activeRadio = (category) => {
-        
         changeCategory(category)
     }
 
@@ -35,7 +32,7 @@ const RadioInputModel = ({ changeCategory, style, indent, category }) => {
 
 const mapStateToProps = (state) => {
     return{
-        category: state.category
+        category: state.category,
     }
 }
 

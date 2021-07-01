@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import OrderInf from "../../../../Components/OrderInf/OrderInf";
@@ -7,10 +7,14 @@ import CarList from "../../../../Components/CarList/CarList";
 import ButtonCart from "../../../../Components/ButtonCart/ButtonCart";
 import Button from "../../../../Components/Button/Button";
 import "./ModelContent.css";
+import { fetchCars } from "../../../../Components/actions";
 
 
-const ModelContent = ({ setCar }) => {
-
+const ModelContent = ({ setCar, fetchCars }) => {
+    
+    useEffect(() => {
+        fetchCars();
+    }, [])
     return(
         <div className="model-content">
             <div className="model-left-side">
@@ -49,4 +53,6 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(ModelContent);
+export default connect(mapStateToProps, {
+    fetchCars:fetchCars,
+})(ModelContent);

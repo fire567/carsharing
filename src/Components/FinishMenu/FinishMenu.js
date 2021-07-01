@@ -50,17 +50,21 @@ const FinishMenu = ({
         id: "60c3cff12aed9a0b9b84f511"
     }
     
+    console.log(getOrderReducer);
     let history = useHistory();
     useEffect(() => {
+        
         if(postedOrder.data){
-        setIdLink(postedOrder.data.id)
         getOrder(postedOrder.data.id)
+        setIdLink(postedOrder.data.id)
         history.push(`${postedOrder.data.id}`)
         }
-    }, [postedOrder])
+    }, [postedOrder.data])
 
     const requestValues = () => {
+        switchFinishMenu(!switchFinish)
         postOrder(result)
+        
     }
 
     return(

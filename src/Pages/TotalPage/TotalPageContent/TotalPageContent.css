@@ -26,6 +26,10 @@
     padding-left: 4%;
 }
 
+.body-content{
+    display: contents;
+}
+
 @media (max-width: 1024px) {
     .total-left-side {
         width: 100%;

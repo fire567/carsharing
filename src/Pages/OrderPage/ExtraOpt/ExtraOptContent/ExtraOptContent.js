@@ -30,6 +30,8 @@ const ModelContent = ({
     setActiveExtraBTN,
     setTariffPrice }) => {
 
+    const [minTime, setMinTime] = useState("");
+
     useEffect(() => {
         if(setSinceDate !== null && setEndDate !== null){
             setDiff(Math.floor(setEndDate - setSinceDate))
@@ -48,12 +50,16 @@ const ModelContent = ({
             setTariffPrice(0)
         }
 
-        if(setColor !== "" && setTariff !== "" && setOption !== null && setSinceDate !== null && setEndDate !== null){
+        if(setColor !== "" && setTariff !== "" && setSinceDate && setEndDate){
             setActiveExtraBTN(1);
-        }
-    }, [setSinceDate, setEndDate, setColor, setTariff, setOption])
+        }else setActiveExtraBTN(0);
+    }, [setSinceDate, setEndDate, setColor, setTariff, setOption, diff])
+
+    console.log(setSinceDate)
+    console.log(setEndDate)
 
     const sinceDate = (event) => {
+        setMinTime(event);
         chooseSinceDate(Date.parse(event))
     }
 
@@ -61,13 +67,18 @@ const ModelContent = ({
         chooseEndDate(Date.parse(event))
     } 
 
+    const filterPassedTime = (time) => {
+        const currentDate = new Date(minTime);
+        const selectedDate = new Date(time);
     
-
+        return currentDate.getTime() < selectedDate.getTime();
+      };
+    
+    
     return(
         <div className="extra-content">
             <div className="extra-left-side">
                 <div className="color-pic-form">
-                    <li className="color-header">Цвет</li>
                         <RadioInputColor style={"flex"} indent={"radio-input"}/>
                 </div>
                 <div className="data-input-form">
@@ -98,6 +109,7 @@ const ModelContent = ({
                             dateFormat={"dd.MM.yyyy HH:mm"}
                             minDate={setSinceDate}
                             showTimeSelect
+                            filterTime={filterPassedTime}
                             timeFormat={"HH:mm"}
                             className="data-input"
                             placeholderText="Введите дату и время ..."

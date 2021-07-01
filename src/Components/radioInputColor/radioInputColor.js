@@ -1,7 +1,4 @@
 import React, { useState } from "react";
-import {ReactSVG} from "react-svg";
-import radioDefault from "../../assets/radioDefault.svg";
-import radioActive from "../../assets/radioActive.svg";
 import { connect } from "react-redux";
 import {chooseColor} from "../actions/index"
 
@@ -13,18 +10,27 @@ const RadioInputColor = ({ setCar, indent, chooseColor, setColor }) => {
         chooseColor(color)
     }
 
+    console.log(setCar)
+
     return (
         <div className="radio-input-form">
-            {setCar.colors !== undefined ?
-            setCar.colors.map((item, id) => (
-                <div className={indent} key={id} className={item === setColor ? "radio-input-active" : "radio-input"}>
-                    <input type="radio" id={id} className="radio"></input>
-                    <label for={id} onClick={() => activeRadio(id, item)}>
-                        {item}
-                    </label>
+            {setCar.colors.length !== 0 ?
+            <div>
+                <li className="color-header">Цвет</li>
+                <div className="colors-form">
+                {setCar.colors.map((item, id) => (
+                    <div className={indent} key={id} className={item === setColor ? "radio-input-active" : "radio-input"}>
+                        <input type="radio" id={id} className="radio"></input>
+                        <label for={id} onClick={() => activeRadio(id, item)}>
+                            {item}
+                        </label>
+                    </div> 
+                ))}
                 </div>
-            )) : null }
+            </div> 
+            : null }
         </div>
+        
     );
 };
 

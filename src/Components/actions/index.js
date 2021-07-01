@@ -31,7 +31,7 @@ export const fetchPoints = () => {
 
 export const fetchCars = () => {
     return async (dispatch) => {
-        const response = await API.get(`car?page=2&limit=20`);
+        const response = await API.get(`car/`);
         dispatch({
             type: 'FETCH_CARS',
             payload: response.data,
@@ -244,18 +244,29 @@ export const setOrderData = (data) => {
 
 export const postOrder = (order) => {
     return async (dispatch) => {
+        if(order === null){
+            dispatch(setOrderData({}))
+        }else{
         const response = await API.post(`order`, order);
         dispatch(setOrderData(response.data))
+        }
     }
 }
 
 export const getOrder = (id) => {
     return async (dispatch) => {
+        if(id === null){
+            dispatch({
+                type: "GET_ORDER",
+                payload: {},
+            })
+        }else{
         const response = await API.get(`order/${id}`);
         dispatch({
             type: "GET_ORDER",
             payload: response.data,
         })
+        }
     }
 }
 

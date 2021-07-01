@@ -5,18 +5,25 @@ import thunk from "redux-thunk";
 import { Provider }  from "react-redux";
 import reducers from "./Components/reducers"
 import { HashRouter } from "react-router-dom";
-import { save, load } from "redux-localstorage-simple";
+//import { save, load } from "redux-localstorage-simple";
 import App from './Components/App.js';
+//save({ ignoreStates: ["postedOrder"] }), \
+//load() 
 
+/*
 const createStoreWithMiddleware 
     = applyMiddleware(
-        save({ ignoreStates: ["postedOrder"] }), thunk 
+        
+        thunk 
     )(createStore)
 
 const store = createStoreWithMiddleware(
   reducers,    
-  load() 
+  
 )
+*/
+
+const store= createStore(reducers, applyMiddleware(thunk));
 
 ReactDOM.render(
   <HashRouter basename={process.env.PUBLIC_URL}>

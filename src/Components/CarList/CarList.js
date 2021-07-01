@@ -43,15 +43,15 @@ const CarList = ({
     }) => {
     const [ filteredCars, setFilteresCars ] = useState([])
 
+    
     const prepareImgLink = (imgLink) => {
-        if (imgLink.match('base64')) {
-          return imgLink
-        }
+        
         return `https://api-factory.simbirsoft1.com${imgLink}`
       };
 
+      
+
     useEffect(() => {
-        fetchCars()
         if(cars.data !== undefined){
             console.log(category)
             setFilteresCars(cars.data.filter((car) => car.categoryId && car.categoryId.name === category))

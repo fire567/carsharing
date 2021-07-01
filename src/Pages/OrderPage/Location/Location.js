@@ -8,7 +8,9 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import "./Location.css";
 
-const Location = ({ setLocInfo, setTown, citiesReducer, setAdress, points }) => {
+const Location = ({ setLocInfo, setTown, citiesReducer, setAdress, points, getOrderReducer }) => {
+    
+console.log(getOrderReducer)
 
     return(
         <div className="loc-content">
@@ -62,7 +64,8 @@ const mapStateToProps = (state) => {
         citiesReducer: state.citiesReducer,
         changeTown: state.changeTown,
         setAdress: state.setAdress,
-        points: state.points
+        points: state.points,
+        getOrderReducer: state.getOrderReducer
     }
 }
 

@@ -30,6 +30,7 @@ import {
     changeTown, 
     changeAdress,
     postOrder,
+    getOrder,
 } from "../actions/index";
 
 const OrderInf = ({ 
@@ -79,7 +80,8 @@ const OrderInf = ({
     getOrderReducer,
     changeTown, 
     changeAdress,
-    postOrder}) => {
+    postOrder,
+    getOrder}) => {
 
 
     useEffect(() => {
@@ -243,6 +245,8 @@ const OrderInf = ({
     const clearData = () => {
         changeTown("")
         changeAdress("")
+        getOrder(null)
+        postOrder(null)
     }
 
     const showButton = () => {
@@ -374,4 +378,5 @@ export default connect(mapStateToProps, {
     changeTown: changeTown,
     changeAdress: changeAdress,
     postOrder: postOrder,
+    getOrder: getOrder,
 })(OrderInf);
