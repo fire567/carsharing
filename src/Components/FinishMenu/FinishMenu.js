@@ -50,7 +50,6 @@ const FinishMenu = ({
         id: "60c3cff12aed9a0b9b84f511"
     }
     
-    console.log(getOrderReducer);
     let history = useHistory();
     useEffect(() => {
         

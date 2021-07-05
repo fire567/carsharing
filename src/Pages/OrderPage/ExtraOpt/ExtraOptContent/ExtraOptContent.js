@@ -31,6 +31,9 @@ const ModelContent = ({
     setTariffPrice }) => {
 
     const [minTime, setMinTime] = useState("");
+    const [ disabledInput, setDisabledInput] = useState("disabled")
+
+    
 
     useEffect(() => {
         if(setSinceDate !== null && setEndDate !== null){
@@ -40,6 +43,13 @@ const ModelContent = ({
             var days = Math.floor(hours/24);
             setHours(Math.floor(days * 24 - hours));
             setDays(days)
+            
+        }
+
+        if(setSinceDate){    
+            setDisabledInput("")
+        }else{
+            setDisabledInput("disabled")
         }
 
         if(setSinceDate === null){
@@ -101,32 +111,19 @@ const ModelContent = ({
                 </form>
                 <form className="input-date-form">
                         <div className="since-date">По </div>
-                        {setSinceDate ? 
                             <DatePicker 
                             className="end-date-input"
+                            disabled={disabledInput}
                             selected={setEndDate} 
                             onChange={endDate} 
                             dateFormat={"dd.MM.yyyy HH:mm"}
-                            minDate={setSinceDate}
-                            showTimeSelect
                             filterTime={filterPassedTime}
-                            timeFormat={"HH:mm"}
-                            className="data-input"
-                            placeholderText="Введите дату и время ..."
-                        /> : 
-                            <DatePicker 
-                            className="end-date-input"
-                            disabled="disabled"
-                            selected={setEndDate} 
-                            onChange={endDate} 
-                            dateFormat={"dd.MM.yyyy HH:mm"}
                             minDate={setSinceDate}
                             showTimeSelect
                             timeFormat={"HH:mm"}
                             className="data-input"
                             placeholderText="Введите дату и время ..."
                         />
-                        }
                             <button type="reset" className="reset-data-btn" onClick={() => chooseEndDate(null)}>
                                 <img src={`${exitBtn}`}  />
                             </button> 

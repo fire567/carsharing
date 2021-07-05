@@ -20,35 +20,39 @@ const RadioInputTariff = ({
     setRate,
     rate,
     }) => {
+    const [price, setPrice] = useState(0);
 
     useEffect(() => {
         setRate()
-        setMinutesPrice(Math.floor(diff/(1000 * 60) * 7))
-        setDaysPrice(Math.floor(diff/(1000 * 60 * 60 * 24)*1999))
-        var setWeeksPrice = (Math.floor(diff/(1000 * 60 * 60 * 24 * 7)*7499))
-        var setWeeksSharePrice = (Math.floor(diff/(1000 * 60 * 60 * 24 * 7)*6999))
-        if(setTariff === "Поминутно"){
-            setTariffPrice(minutesPrice)
+        setMinutesPrice(Math.floor(diff/(1000 * 60)))
+        setDaysPrice(Math.floor(diff/(1000 * 60 * 60 * 24)*price))
+        var setWeeksPrice = (Math.floor(diff/(1000 * 60 * 60 * 24 * 7)*price))
+        var setWeeksSharePrice = (Math.floor(diff/(1000 * 60 * 60 * 24 * 7)*price))
+        if(setTariff === "Поминутно" && price === 7){
+            setTariffPrice(minutesPrice * price)
         }else if(setTariff === "Суточный"){
             setTariffPrice(daysPrice)
         }else if(setTariff === "Недельный"){
             setTariffPrice(setWeeksPrice)
         }else if(setTariff === "Недельный (Акция!)"){
             setTariffPrice(setWeeksSharePrice)
+        }if(setTariff === "Поминутно" && price === 1000){
+            setTariffPrice(minutesPrice * price)
         }
-    }, [diff, setTariff])
+    }, [diff, setTariff, price])
      
-    const activeRadio = (value) => {
-        chooseTariff(value) 
+    const activeRadio = (name, price) => {
+        chooseTariff(name) 
+        setPrice(price)
     }
 
     const showradioInputsBlock = () => {
             return rate.data.map((rate) => (
                 <div className={indent} key={rate.id}>
                     {rate.rateTypeId ?
-                    <div className={setTariff === rate.rateTypeId.name ? "radio-input-active" : "radio-input"} key={rate.id}>
+                    <div className={setTariff === rate.rateTypeId.name && price === rate.price ? "radio-input-active" : "radio-input"} key={rate.id}>
                     <input type="radio" id={rate.id} className="radio"></input>
-                    <label for={rate.id} onClick={() => activeRadio(rate.rateTypeId.name)}>
+                    <label for={rate.id} onClick={() => activeRadio(rate.rateTypeId.name, rate.price)}>
                         {rate.rateTypeId.name}, {rate.price}/{rate.rateTypeId.unit}
                     </label>
                 </div> : null
@@ -56,6 +60,8 @@ const RadioInputTariff = ({
                 </div>
             ));
     }
+
+    console.log(price)
 
     return (
         <div className="radio-input-form" style={{display: `${style}`}}>

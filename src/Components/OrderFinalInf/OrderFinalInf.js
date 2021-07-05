@@ -1,22 +1,20 @@
 import React from "react";
 import Moment from 'react-moment';
+import prepareImgLink from "../../utils/utils";
 
 const OrderFinalInf = ({setCar, setOption, setSinceDate, setEndDate}) => {
+    if(setCar.number){
     var number = setCar.number.substr(0,1) + " " + setCar.number.substr(1,3) + " " + setCar.number.substr(-4,2) + " " + setCar.number.substr(-2,2);
+    }else var number = 0;
 
 
-    const prepareImgLink = (imgLink) => {
-        if (imgLink.match('base64')) {
-          return imgLink
-        }
-        return `https://api-factory.simbirsoft1.com${imgLink}`
-      };
+    
 return(
 <div className="final-left-side">
                 <div className="car-inf">
                     <li className="car-inf-name">{setCar.name}</li>
                     <div className="car-number-form">
-                        {number !== null ? <li className="car-number">{number}</li> : null}
+                        {number !== null && number !== 0 ? <li className="car-number">{number}</li> : null}
                     </div>
                     <div className="extra-options">
                         {setOption === "Полный бак" || true ? 

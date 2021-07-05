@@ -14,7 +14,7 @@ const RadioInputColor = ({ setCar, indent, chooseColor, setColor }) => {
 
     return (
         <div className="radio-input-form">
-            {setCar.colors.length !== 0 ?
+            {setCar.colors && setCar.colors.length ?
             <div>
                 <li className="color-header">Цвет</li>
                 <div className="colors-form">

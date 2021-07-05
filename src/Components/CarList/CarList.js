@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
+
 import { 
     fetchCars, 
     chooseCar, 
@@ -54,9 +55,13 @@ const CarList = ({
     useEffect(() => {
         if(cars.data !== undefined){
             console.log(category)
-            setFilteresCars(cars.data.filter((car) => car.categoryId && car.categoryId.name === category))
+            if(category === null ){
+                setFilteresCars(cars.data)
+            }else{
+                setFilteresCars(cars.data.filter((car) => car.categoryId && car.categoryId.name === category))
+            }
         }
-    }, [category])
+    }, [category, cars.data])
 
     const showActiveCar = (car) => {
         chooseCar(car)
@@ -78,27 +83,7 @@ const CarList = ({
 
     const showCars = () => {
         if(cars.data != undefined ){
-            if(category === null ){
-            return cars.data.map((car)=>{
-                return(
-                    <div 
-                        className={setCar !== null && setCar.id === car.id ? "car-description-form-active" : "car-description-form"} 
-                        key={car.id} 
-                        onClick={() => showActiveCar(car)}
-                        style={{background: `url(${prepareImgLink(car.thumbnail.path)}) no-repeat 85% 97%`, backgroundSize: "70%"}}
-                    >
-                    <li className="car-name">
-                        {car.name}
-                    </li>
-                    <li className="car-price">
-                        {car.priceMin} - {car.priceMax} ₽
-                    </li>
-                    
-                    </div>
-                    
-                )
-            })
-        } return filteredCars.map((car) => {
+        return filteredCars.map((car) => {
             return(
                 <div 
                     className={setCar.id === car.id ? "car-description-form-active" : "car-description-form"} 
