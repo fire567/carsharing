@@ -9,8 +9,6 @@ import { connect } from "react-redux";
 import "./Location.css";
 
 const Location = ({ setLocInfo, setTown, citiesReducer, setAdress, points, getOrderReducer }) => {
-    
-console.log(getOrderReducer)
 
     return(
         <div className="loc-content">

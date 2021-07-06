@@ -27,7 +27,7 @@ const CityInput = ({
         if(locations.data){
             setFoundCity(locations.data.filter((loc) => loc.name.toLowerCase().includes(setLoc.toLowerCase())))
         }
-        if(points.data){
+        if(points.data && points.data.cityId){
             setAddressesList([])
             setAddressesList(points.data.filter((address) => address.cityId.name === setTown))
         }
